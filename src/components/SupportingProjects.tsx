@@ -52,8 +52,10 @@ export const SupportingProjects = () => {
           <CarouselNext className="hidden md:flex -right-4 lg:-right-12" />
         </Carousel>
 
-        <div className="text-center mt-8 text-xs text-muted-foreground font-mono">
-          {suppotingprojectsData.length} {suppotingprojectsData.length === 1 ? 'Project' : 'Projects'}
+        <div className="flex justify-center mt-8">
+          <Badge variant="outline" className="text-xs font-mono border-green-500/20 text-muted-foreground px-3 py-1">
+            {suppotingprojectsData.length} Projects
+          </Badge>
         </div>
       </div>
 
@@ -69,8 +71,8 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
   const techs = showAllTech ? project.techimage : project.techimage.slice(0, 5);
 
   return (
-    <div ref={ref} className={`reveal-up ${revealed ? 'revealed' : ''}`} style={{ transitionDelay: `${index * 0.1}s` }}>
-      <motion.div whileHover={{ y: -4 }} className="pb-4">
+    <div ref={ref} className={`reveal-up h-full ${revealed ? 'revealed' : ''}`} style={{ transitionDelay: `${index * 0.1}s` }}>
+      <motion.div whileHover={{ y: -4 }} className="pb-4 h-full">
         <Card
           className="flex flex-col h-full rounded-xl"
         >

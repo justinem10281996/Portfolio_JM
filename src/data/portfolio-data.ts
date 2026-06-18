@@ -463,7 +463,8 @@ export const personalProjectsData: PersonalProject[] = [
       getAssetPath("assets/dev-icon/mysql.png"),
       getAssetPath("assets/dev-icon/php.png"),
     ],
-    link: "",
+    link: "https://biotrucking360-production.up.railway.app/",
+    github: "https://github.com/justinem10281996/BioTrucking_360",
     description: "A comprehensive biometric attendance system for trucking companies, integrating with fingerprint scanner hardware for real-time employee clock-in/out tracking. Features include daily time record (DTR) management with automated log processing and hours computation, duty and roster scheduling with shift rules and flexi-duty assignments, employee self-service portal for attendance views and day-off requests, multi-level approval workflows for DTR modifications, biometric device management for fingerprint upload/download and time synchronization, detailed reporting suite (DTR summaries, tardiness, overtime, absences, perfect attendance, incomplete logs), administrative controls with role-based permissions and activity audit trails, import/export for bulk data operations, company and branch/location/department/position configuration, subscription-based billing with plan tiers and Stripe integration, 2FA security, AES-256-CBC data encryption, and a real-time biometric monitoring dashboard. Built with React and TypeScript with Shadcn UI, powered by Laravel backend, MySQL database, and integrated with biometric fingerprint hardware via serial port communication.",
     subimage: [
       {
@@ -1083,7 +1084,8 @@ export const personalProjectsData: PersonalProject[] = [
       getAssetPath("assets/dev-icon/mysql.png"),
       getAssetPath("assets/dev-icon/php.png"),
     ],
-    link: "",
+    link: "https://mymoney-production-136e.up.railway.app/",
+    github: "https://github.com/justinem10281996/my_money",
     description: "A billing, subscription, and account activation portal serving as the backend payment system for an HR/attendance SaaS platform. Features include 6 subscription tiers (Trial, Starter, SME, Business, Enterprise, Corporate) with configurable billing intervals (monthly, quarterly, semi-annual, yearly), Stripe payment processing with GCash and Maya support, automatic 20-character activation key generation (XXXX-XXXX-XXXX-XXXX-XXXX), billing invoice management (INV-000001 format), role-based access control, two-factor authentication via email OTP or Google Authenticator, AES-256-CBC data encryption, HMAC-SHA256 API signature verification for webhook security, and comprehensive activity auditing with 365-day retention. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database."
   }
 ];
