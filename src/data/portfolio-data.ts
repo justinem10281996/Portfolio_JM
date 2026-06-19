@@ -449,7 +449,7 @@ export const personalProjectsData: PersonalProject[] = [
       getAssetPath("assets/dev-icon/php.png"),
     ],
     link: "",
-    description: "Inventory tracking and management system for trucking operations, providing real-time inventory monitoring and reporting."
+    description: "A comprehensive inventory tracking and management system for trucking operations, providing real-time inventory monitoring and reporting across multiple warehouse locations. Features include stock level management with automated low-stock alerts and reorder point configuration, purchase order management with supplier tracking and delivery status updates, inventory receiving and inspection workflows with quality control checks, stock transfer management between branches and warehouses with real-time tracking, batch and expiry date tracking for perishable goods, barcode and QR code scanning for efficient stock intake and counting, inventory valuation and costing (FIFO, LIFO, weighted average), detailed reporting suite (stock movement, inventory valuation, stock aging, slow-moving items, inventory turnover), cycle counting and physical inventory reconciliation, role-based access control for warehouse staff and managers, audit trails for all inventory transactions, and integration with procurement and sales modules for end-to-end supply chain visibility. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database."
   },
   {
     id: 3,
