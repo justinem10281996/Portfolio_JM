@@ -34,7 +34,7 @@ export const PersonalProjects = () => {
         <Carousel opts={{ align: 'start', loop: true }}>
           <CarouselContent className="-ml-2 md:-ml-4">
             {personalProjectsData.map((p, i) => (
-              <CarouselItem key={p.id} className="pl-2 md:pl-4 basis-[90%] sm:basis-3/4 lg:basis-1/2 h-full">
+              <CarouselItem key={p.id} className="pl-2 md:pl-4 basis-full sm:basis-3/4 lg:basis-1/2 h-full">
                 <ProjectCard
                   project={p}
                   index={i}

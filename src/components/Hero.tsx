@@ -64,15 +64,16 @@ export const Hero = () => {
         </div>
 
         {/* Buttons */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
           className="flex flex-col sm:flex-row gap-3 justify-center"
         >
-          <div ref={magneticRef} className="magnetic-btn inline-block">
+          <div ref={magneticRef} className="magnetic-btn w-full sm:w-auto">
             <Button
               size="lg"
+              className="w-full sm:w-auto"
               onClick={() => document.getElementById('personal-projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
               View Projects <ArrowRight className="w-4 h-4" />
@@ -81,11 +82,12 @@ export const Hero = () => {
           <Button
             size="lg"
             variant="secondary"
+            className="w-full sm:w-auto"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Get In Touch
           </Button>
-        </motion.div>
+        </motion.div> */}
 
         {/* Stats */}
         <motion.div
