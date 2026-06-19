@@ -431,7 +431,8 @@ export const personalProjectsData: PersonalProject[] = [
       getAssetPath("assets/dev-icon/php.png"),
     ],
     link: "",
-    github: "https://github.com/JustineMHIL28/dms",
+    github: "https://github.com/justinem10281996/dms",
+    tiktok: "https://www.tiktok.com/@justinem1996/video/7613367989903084807",
     description: "A comprehensive document management system for organizing, storing, and retrieving files efficiently. Features include file upload and download, folder organization, search functionality, version control, and user permissions. Built with React and integrated with cloud storage APIs for secure file management."
   },
   {
@@ -1319,4 +1320,5 @@ export const footerData: SocialLink[] = [
   { id: 4, name: "GitHub", image: getAssetPath("assets/social-icon/github.png"), link: "https://github.com/justinem10281996", description: "Explore my projects on GitHub." },
   { id: 5, name: "Indeed", image: getAssetPath("assets/social-icon/indeed.webp"), link: "https://profile.indeed.com/p/justineh-4y483th", description: "Check out my profile on Indeed." },
   { id: 6, name: "LinkedIn", image: getAssetPath("assets/social-icon/linkin.png"), link: "https://www.linkedin.com/in/justine-m-hilario-432431359", description: "Check out my profile on LinkedIn." },
+  { id: 7, name: "TikTok", image: getAssetPath("assets/social-icon/tiktok.png"), link: "https://www.tiktok.com/@justinem1996", description: "Follow me on TikTok." },
 ];
