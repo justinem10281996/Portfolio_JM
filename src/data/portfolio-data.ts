@@ -44,6 +44,7 @@ export interface PersonalProject {
   techimage: string[];
   link: string;
   github?: string;
+  tiktok?: string;
   description: string;
 }
 
@@ -94,68 +95,68 @@ export const technologiesData: Technology[] = [
 ];
 
 export const personalProjectsData: PersonalProject[] = [
+  // {
+  //   id: 1,
+  //   name: "My Portfolio",
+  //   subtitle: "Personal Branding",
+  //   image: getAssetPath("assets/project-icon/soon.jpg"),
+  //   subimage: [
+  //     {
+  //       src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121552.jpg"),
+  //       title: "Hero — Landing Page",
+  //       subtitle: "First Impression",
+  //       description: "The hero section of my personal portfolio featuring my name, role, and call-to-action buttons. Designed with a blurred background, smooth entrance animations, and a scroll indicator for a polished first impression."
+  //     },
+  //     {
+  //       src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121613.png"),
+  //       title: "Overview — What I Do",
+  //       subtitle: "Skills Summary",
+  //       description: "A concise overview section highlighting my core competencies as a Full Stack Developer, including website development, software development, and third-party integrations."
+  //     },
+  //     {
+  //       src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121637.png"),
+  //       title: "Technologies — Tech Stack",
+  //       subtitle: "Tools & Languages",
+  //       description: "An interactive technology showcase displaying all the tools, frameworks, and languages I work with — from HTML and CSS to React, Laravel, TypeScript, and more."
+  //     },
+  //     {
+  //       src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121654.png"),
+  //       title: "Personal Projects",
+  //       subtitle: "My Own Builds",
+  //       description: "A carousel showcasing projects I built independently, each with tech stack icons, descriptions, and links to live sites or GitHub repositories."
+  //     },
+  //     {
+  //       src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121729.png"),
+  //       title: "Supporting Projects — Detail",
+  //       subtitle: "Team Project Gallery",
+  //       description: "Detailed view of a supporting project with a full screenshot carousel, tech stack, description, and a link to the live site for in-depth exploration."
+  //     },
+  //     {
+  //       src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121818.png"),
+  //       title: "Career — Work Experience",
+  //       subtitle: "Professional Journey",
+  //       description: "A timeline-style career section listing my work experience, including company names, positions, durations, tech stacks used, and key contributions at each role."
+  //     },
+  //     {
+  //       src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121832.png"),
+  //       title: "Footer — Contact & Socials",
+  //       subtitle: "Get In Touch",
+  //       description: "The footer section featuring my social media links including GitHub, LinkedIn, Facebook, Gmail, and Indeed — making it easy for recruiters and collaborators to reach out."
+  //     },
+  //   ],
+  //   techimage: [
+  //     getAssetPath("assets/dev-icon/html5.png"),
+  //     getAssetPath("assets/dev-icon/css.png"),
+  //     getAssetPath("assets/dev-icon/react-js.png"),
+  //     getAssetPath("assets/dev-icon/ts.png"),
+  //     getAssetPath("assets/dev-icon/shadcn.png"),
+  //   ],
+  //   link: "",
+  //   github: "https://github.com/JustineMHIL28/portfolio",
+  //   description: "A modern, responsive portfolio website showcasing my skills, projects, and professional journey. Features include smooth animations, dark mode support, project showcases with detailed descriptions, and an interactive contact form. Built with React, TypeScript, and Shadcn UI for a clean and professional look."
+  // },
   {
     id: 1,
-    name: "My Portfolio",
-    subtitle: "Personal Branding",
-    image: getAssetPath("assets/project-icon/soon.jpg"),
-    subimage: [
-      {
-        src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121552.jpg"),
-        title: "Hero — Landing Page",
-        subtitle: "First Impression",
-        description: "The hero section of my personal portfolio featuring my name, role, and call-to-action buttons. Designed with a blurred background, smooth entrance animations, and a scroll indicator for a polished first impression."
-      },
-      {
-        src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121613.png"),
-        title: "Overview — What I Do",
-        subtitle: "Skills Summary",
-        description: "A concise overview section highlighting my core competencies as a Full Stack Developer, including website development, software development, and third-party integrations."
-      },
-      {
-        src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121637.png"),
-        title: "Technologies — Tech Stack",
-        subtitle: "Tools & Languages",
-        description: "An interactive technology showcase displaying all the tools, frameworks, and languages I work with — from HTML and CSS to React, Laravel, TypeScript, and more."
-      },
-      {
-        src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121654.png"),
-        title: "Personal Projects",
-        subtitle: "My Own Builds",
-        description: "A carousel showcasing projects I built independently, each with tech stack icons, descriptions, and links to live sites or GitHub repositories."
-      },
-      {
-        src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121729.png"),
-        title: "Supporting Projects — Detail",
-        subtitle: "Team Project Gallery",
-        description: "Detailed view of a supporting project with a full screenshot carousel, tech stack, description, and a link to the live site for in-depth exploration."
-      },
-      {
-        src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121818.png"),
-        title: "Career — Work Experience",
-        subtitle: "Professional Journey",
-        description: "A timeline-style career section listing my work experience, including company names, positions, durations, tech stacks used, and key contributions at each role."
-      },
-      {
-        src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121832.png"),
-        title: "Footer — Contact & Socials",
-        subtitle: "Get In Touch",
-        description: "The footer section featuring my social media links including GitHub, LinkedIn, Facebook, Gmail, and Indeed — making it easy for recruiters and collaborators to reach out."
-      },
-    ],
-    techimage: [
-      getAssetPath("assets/dev-icon/html5.png"),
-      getAssetPath("assets/dev-icon/css.png"),
-      getAssetPath("assets/dev-icon/react-js.png"),
-      getAssetPath("assets/dev-icon/ts.png"),
-      getAssetPath("assets/dev-icon/shadcn.png"),
-    ],
-    link: "",
-    github: "https://github.com/JustineMHIL28/portfolio",
-    description: "A modern, responsive portfolio website showcasing my skills, projects, and professional journey. Features include smooth animations, dark mode support, project showcases with detailed descriptions, and an interactive contact form. Built with React, TypeScript, and Shadcn UI for a clean and professional look."
-  },
-  {
-    id: 2,
     name: "Document Management System",
     subtitle: "File Organization",
     image: getAssetPath("assets/project-icon/soon.jpg"),
@@ -434,7 +435,7 @@ export const personalProjectsData: PersonalProject[] = [
     description: "A comprehensive document management system for organizing, storing, and retrieving files efficiently. Features include file upload and download, folder organization, search functionality, version control, and user permissions. Built with React and integrated with cloud storage APIs for secure file management."
   },
   {
-    id: 3,
+    id: 2,
     name: "InvoTrucking 360",
     subtitle: "Inventory Trucking System",
     image: getAssetPath("assets/project-icon/backup.png"),
@@ -451,7 +452,7 @@ export const personalProjectsData: PersonalProject[] = [
     description: "Inventory tracking and management system for trucking operations, providing real-time inventory monitoring and reporting."
   },
   {
-    id: 4,
+    id: 3,
     name: "BioTrucking 360",
     subtitle: "Biometric Trucking 360 System",
     image: getAssetPath("assets/project-icon/backup.png"),
@@ -465,6 +466,7 @@ export const personalProjectsData: PersonalProject[] = [
     ],
     link: "https://biotrucking360-production.up.railway.app/",
     github: "https://github.com/justinem10281996/BioTrucking_360",
+    tiktok: "https://www.tiktok.com/@justinem1996/video/7648679999704288528",
     description: "A comprehensive biometric attendance system for trucking companies, integrating with fingerprint scanner hardware for real-time employee clock-in/out tracking. Features include daily time record (DTR) management with automated log processing and hours computation, duty and roster scheduling with shift rules and flexi-duty assignments, employee self-service portal for attendance views and day-off requests, multi-level approval workflows for DTR modifications, biometric device management for fingerprint upload/download and time synchronization, detailed reporting suite (DTR summaries, tardiness, overtime, absences, perfect attendance, incomplete logs), administrative controls with role-based permissions and activity audit trails, import/export for bulk data operations, company and branch/location/department/position configuration, subscription-based billing with plan tiers and Stripe integration, 2FA security, AES-256-CBC data encryption, and a real-time biometric monitoring dashboard. Built with React and TypeScript with Shadcn UI, powered by Laravel backend, MySQL database, and integrated with biometric fingerprint hardware via serial port communication.",
     subimage: [
       {
@@ -1052,7 +1054,7 @@ export const personalProjectsData: PersonalProject[] = [
     ],
   },
   {
-    id: 5,
+    id: 4,
     name: "MyMoney",
     subtitle: "Subscription & Billing Management",
     image: getAssetPath("assets/project-icon/backup.png"),
@@ -1086,6 +1088,7 @@ export const personalProjectsData: PersonalProject[] = [
     ],
     link: "https://mymoney-production-136e.up.railway.app/",
     github: "https://github.com/justinem10281996/my_money",
+    tiktok: "https://www.tiktok.com/@justinem1996/video/7647798735145078023",
     description: "A billing, subscription, and account activation portal serving as the backend payment system for an HR/attendance SaaS platform. Features include 6 subscription tiers (Trial, Starter, SME, Business, Enterprise, Corporate) with configurable billing intervals (monthly, quarterly, semi-annual, yearly), Stripe payment processing with GCash and Maya support, automatic 20-character activation key generation (XXXX-XXXX-XXXX-XXXX-XXXX), billing invoice management (INV-000001 format), role-based access control, two-factor authentication via email OTP or Google Authenticator, AES-256-CBC data encryption, HMAC-SHA256 API signature verification for webhook security, and comprehensive activity auditing with 365-day retention. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database."
   }
 ];
@@ -1245,6 +1248,19 @@ export const suppotingprojectsData: Project[] = [
 export const careerData: Career[] = [
   {
     id: 1,
+    position: "Contract Web Developer",
+    company: "Independent Contract",
+    location: "Remote",
+    duration: "January 2026 - June 2026",
+    period: "",
+    image: getAssetPath("assets/company-icon/freelance.jpg"),
+    link: "",
+    description: "• Developed an Inventory Managament System project for internal business operations.\n• Designed and implemented inventory tracking and management modules.\n• Built full-stack features using modern web technologies.",
+    systemUsage: "Inventory Management System",
+    techStack: ["HTML", "CSS", "React", "TypeScript", "Laravel", "PHP", "MySQL", "RESTful APIs", "Git", "GitHub"]
+  },
+  {
+    id: 2,
     position: "Junior Programmer",
     company: "Bangalow Proprietary Limited Company (BPLC)",
     location: "Worked on systems supporting international operations for Able Home and Office and Tawamist Proprietary Limited Philippines, Papua New Guinea, Australia",
@@ -1257,7 +1273,7 @@ export const careerData: Career[] = [
     techStack: ["HTML", "CSS", "React", "TypeScript", "Laravel", "PHP", "ShadCN UI", "Tailwind CSS", "MySQL", "RESTful APIs", "Git", "GitHub"]
   },
   {
-    id: 2,
+    id: 3,
     position: "Contract Web Developer",
     company: "Independent Contract",
     location: "Remote",
@@ -1265,12 +1281,12 @@ export const careerData: Career[] = [
     period: "",
     image: getAssetPath("assets/company-icon/freelance.jpg"),
     link: "",
-    description: "• Developed an HR Management System from scratch for internal business operations.\n• Designed and implemented modules including employee records, attendance tracking, and HR workflows.\n• Built full-stack features using React, TypeScript, Laravel, and MySQL. Developed RESTful APIs and managed version control using Git.",
+    description: "• Developed an HR Management System project for internal business operations.\n• Designed and implemented modules including employee records, attendance tracking, and HR workflows.\n• Built full-stack features using modern web technologies.",
     systemUsage: "HR Management System",
     techStack: ["HTML", "CSS", "React", "TypeScript", "Laravel", "PHP", "Tailwind CSS", "MySQL", "RESTful APIs", "Git", "GitHub"]
   },
   {
-    id: 3,
+    id: 4,
     position: "Junior Programmer",
     company: "Lloyd Laboratories, Inc.",
     location: "Malolos City, Bulacan",
@@ -1283,7 +1299,7 @@ export const careerData: Career[] = [
     techStack: ["HTML", "CSS", "Ant Design", "React", "JavaScript", "Node.js", "Express.js", "MSSQL", "RESTful APIs", "Git", "GitHub"]
   },
   {
-    id: 4,
+    id: 5,
     position: "Software Engineer",
     company: "GP Next Solution, Inc.",
     location: "Quezon City",
@@ -1300,7 +1316,7 @@ export const careerData: Career[] = [
 export const footerData: SocialLink[] = [
   { id: 2, name: "Gmail", image: getAssetPath("assets/social-icon/email.png"), link: "https://mail.google.com/mail/u/0/#inbox", description: "Contact me via email." },
   { id: 3, name: "Facebook", image: getAssetPath("assets/social-icon/facebook.png"), link: "https://www.facebook.com/JustineM1996", description: "Check out my profile on Facebook." },
-  { id: 4, name: "GitHub", image: getAssetPath("assets/social-icon/github.png"), link: "https://github.com/JustineMHIL28", description: "Explore my projects on GitHub." },
+  { id: 4, name: "GitHub", image: getAssetPath("assets/social-icon/github.png"), link: "https://github.com/justinem10281996", description: "Explore my projects on GitHub." },
   { id: 5, name: "Indeed", image: getAssetPath("assets/social-icon/indeed.webp"), link: "https://profile.indeed.com/p/justineh-4y483th", description: "Check out my profile on Indeed." },
   { id: 6, name: "LinkedIn", image: getAssetPath("assets/social-icon/linkin.png"), link: "https://www.linkedin.com/in/justine-m-hilario-432431359", description: "Check out my profile on LinkedIn." },
 ];
