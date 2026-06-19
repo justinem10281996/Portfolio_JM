@@ -6,15 +6,10 @@ import { PersonalProjects } from './components/PersonalProjects';
 import { SupportingProjects } from './components/SupportingProjects';
 import { Career } from './components/Career';
 import { Footer } from './components/Footer';
-import { useSpotlight } from './hooks/useSpotlight';
 
 function App() {
-  const spotlightRef = useSpotlight();
-
   return (
     <div className="min-h-screen bg-background text-foreground relative">
-      <div ref={spotlightRef} style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 1 }} />
-      <div className="noise-overlay" />
       <Navbar />
       <Hero />
       <Overview />

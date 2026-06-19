@@ -162,8 +162,8 @@ function ProjectDialog({ project, onClose }: { project: any; onClose: () => void
     <Dialog open={!!project} onOpenChange={o => !o && onClose()}>
       <DialogContent className="w-screen h-[100dvh] max-w-none lg:w-[90vw] lg:h-[85vh] p-0 rounded-none lg:rounded-2xl border-none bg-background overflow-hidden">
         <div className="flex flex-col lg:flex-row h-full">
-          <div className="w-full lg:w-[60%] flex flex-col h-[40dvh] lg:h-full bg-background">
-            <div className="flex-1 flex items-center justify-center p-3 relative">
+          <div className="w-full lg:w-[60%] flex flex-col h-[40dvh] lg:h-full bg-background min-h-0">
+            <div className="flex-1 flex items-center justify-center p-3 relative min-h-0 overflow-hidden">
               {!loaded && (
                 <div className="absolute inset-0 flex items-center justify-center bg-muted/20 rounded-lg">
                   <div className="w-8 h-8 border-2 border-green-400/30 border-t-green-400 rounded-full animate-spin" />
@@ -177,7 +177,7 @@ function ProjectDialog({ project, onClose }: { project: any; onClose: () => void
                 onLoad={() => setLoaded(true)}
               />
             </div>
-            <div className="flex items-center justify-between px-3 sm:px-4 py-2">
+            <div className="flex items-center justify-between px-3 sm:px-4 py-2 shrink-0">
               <button onClick={() => goTo(idx - 1)} disabled={idx === 0} className="w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted disabled:opacity-30 flex items-center justify-center transition-all duration-300"><ChevronLeft className="w-4 h-4 text-foreground" /></button>
               <div className="flex gap-1">
                 {project.subimage.slice(0, 12).map((_: any, i: number) => (
