@@ -21,7 +21,7 @@ export const Hero = () => {
         <img
           src={`${process.env.PUBLIC_URL}/background.jpg`}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-[center_65%]"
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black" />

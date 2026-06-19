@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useReveal } from '../hooks/useReveal';
 import { suppotingprojectsData } from '../data/portfolio-data';
 import { ExternalLink, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
@@ -6,7 +6,6 @@ import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { Card, CardContent, CardTitle, CardDescription } from './ui/card';
 import { motion } from 'framer-motion';
-import useEmblaCarousel from 'embla-carousel-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from './ui/dialog';
 import { StaggerWords } from './ui/StaggerWords';
@@ -130,49 +129,48 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
 
 function ProjectDialog({ project, onClose }: { project: any; onClose: () => void }) {
   const [idx, setIdx] = useState(0);
-  const [loaded, setLoaded] = useState<Set<number>>(new Set());
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
+  const [loaded, setLoaded] = useState(false);
 
-  useEffect(() => { setIdx(0); setLoaded(new Set()); if (emblaApi) emblaApi.scrollTo(0); }, [project, emblaApi]);
-  const onSelect = useCallback(() => { if (emblaApi) setIdx(emblaApi.selectedScrollSnap()); }, [emblaApi]);
-  useEffect(() => { if (emblaApi) { emblaApi.on('select', onSelect); onSelect(); } }, [emblaApi, onSelect]);
+  useEffect(() => {
+    setIdx(0);
+    setLoaded(false);
+  }, [project]);
 
   if (!project) return null;
   const img = project.subimage[idx];
+
+  const goTo = (i: number) => {
+    setIdx(i);
+    setLoaded(false);
+  };
 
   return (
     <Dialog open={!!project} onOpenChange={o => !o && onClose()}>
       <DialogContent className="w-screen h-[100dvh] max-w-none lg:w-[90vw] lg:h-[85vh] p-0 rounded-none lg:rounded-2xl border-none bg-background overflow-hidden">
         <div className="flex flex-col lg:flex-row h-full">
           <div className="w-full lg:w-[60%] flex flex-col h-[40dvh] lg:h-full bg-background">
-            <div ref={emblaRef} className="flex-1 overflow-hidden">
-              <div className="flex h-full">
-                {project.subimage.map((s: any, i: number) => (
-                  <div key={i} className="flex-[0_0_100%] min-w-0 h-full flex items-center justify-center p-3 relative">
-                    {!loaded.has(i) && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-muted/20 rounded-lg">
-                        <div className="w-8 h-8 border-2 border-green-400/30 border-t-green-400 rounded-full animate-spin" />
-                      </div>
-                    )}
-                    <img
-                      src={s.src}
-                      alt={s.title}
-                      className={`max-w-full max-h-full object-contain rounded-lg transition-opacity duration-300 ${loaded.has(i) ? 'opacity-100' : 'opacity-0'}`}
-                      loading="lazy"
-                      onLoad={() => setLoaded(prev => new Set(prev).add(i))}
-                    />
-                  </div>
-                ))}
-              </div>
+            <div className="flex-1 flex items-center justify-center p-3 relative">
+              {!loaded && (
+                <div className="absolute inset-0 flex items-center justify-center bg-muted/20 rounded-lg">
+                  <div className="w-8 h-8 border-2 border-green-400/30 border-t-green-400 rounded-full animate-spin" />
+                </div>
+              )}
+              <img
+                src={img.src}
+                alt={img.title}
+                className={`max-w-full max-h-full object-contain rounded-lg transition-opacity duration-300 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+                loading="lazy"
+                onLoad={() => setLoaded(true)}
+              />
             </div>
             <div className="flex items-center justify-between px-3 sm:px-4 py-2">
-              <button onClick={() => emblaApi?.scrollPrev()} className="w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted flex items-center justify-center transition-all duration-300"><ChevronLeft className="w-4 h-4 text-foreground" /></button>
+              <button onClick={() => goTo(idx - 1)} disabled={idx === 0} className="w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted disabled:opacity-30 flex items-center justify-center transition-all duration-300"><ChevronLeft className="w-4 h-4 text-foreground" /></button>
               <div className="flex gap-1">
                 {project.subimage.slice(0, 12).map((_: any, i: number) => (
-                  <button key={i} onClick={() => emblaApi?.scrollTo(i)} className={`h-1 rounded-full transition-all duration-300 ${i === idx ? 'w-5 bg-green-400' : 'w-2 bg-muted'}`} />
+                  <button key={i} onClick={() => goTo(i)} className={`h-1 rounded-full transition-all duration-300 ${i === idx ? 'w-5 bg-green-400' : 'w-2 bg-muted'}`} />
                 ))}
               </div>
-              <button onClick={() => emblaApi?.scrollNext()} className="w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted flex items-center justify-center transition-all duration-300"><ChevronRight className="w-4 h-4 text-foreground" /></button>
+              <button onClick={() => goTo(idx + 1)} disabled={idx === project.subimage.length - 1} className="w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted disabled:opacity-30 flex items-center justify-center transition-all duration-300"><ChevronRight className="w-4 h-4 text-foreground" /></button>
             </div>
           </div>
 

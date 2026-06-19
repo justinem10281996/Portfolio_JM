@@ -9,11 +9,11 @@ import { Footer } from './components/Footer';
 import { useSpotlight } from './hooks/useSpotlight';
 
 function App() {
-  const spotlight = useSpotlight();
+  const spotlightRef = useSpotlight();
 
   return (
     <div className="min-h-screen bg-background text-foreground relative">
-      {spotlight && <div style={spotlight.style} />}
+      <div ref={spotlightRef} style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 1 }} />
       <div className="noise-overlay" />
       <Navbar />
       <Hero />
