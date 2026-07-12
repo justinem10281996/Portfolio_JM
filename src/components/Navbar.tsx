@@ -88,7 +88,11 @@ export const Navbar = () => {
             <Download className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5" /> Resume
           </Button>
 
-          <button onClick={toggleTheme} className="hidden w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted flex items-center justify-center transition-all duration-300 hover:scale-110">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle dark mode"
+            className="flex w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted items-center justify-center transition-all duration-300 hover:scale-110"
+          >
             {darkMode ? <Sun className="w-4 h-4 text-yellow-400" /> : <Moon className="w-4 h-4" />}
           </button>
 
