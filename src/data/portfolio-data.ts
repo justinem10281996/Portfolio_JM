@@ -95,71 +95,25 @@ export const technologiesData: Technology[] = [
 ];
 
 export const personalProjectsData: PersonalProject[] = [
-  // {
-  //   id: 1,
-  //   name: "My Portfolio",
-  //   subtitle: "Personal Branding",
-  //   image: getAssetPath("assets/project-icon/soon.jpg"),
-  //   subimage: [
-  //     {
-  //       src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121552.jpg"),
-  //       title: "Hero — Landing Page",
-  //       subtitle: "First Impression",
-  //       description: "The hero section of my personal portfolio featuring my name, role, and call-to-action buttons. Designed with a blurred background, smooth entrance animations, and a scroll indicator for a polished first impression."
-  //     },
-  //     {
-  //       src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121613.png"),
-  //       title: "Overview — What I Do",
-  //       subtitle: "Skills Summary",
-  //       description: "A concise overview section highlighting my core competencies as a Full Stack Developer, including website development, software development, and third-party integrations."
-  //     },
-  //     {
-  //       src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121637.png"),
-  //       title: "Technologies — Tech Stack",
-  //       subtitle: "Tools & Languages",
-  //       description: "An interactive technology showcase displaying all the tools, frameworks, and languages I work with — from HTML and CSS to React, Laravel, TypeScript, and more."
-  //     },
-  //     {
-  //       src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121654.png"),
-  //       title: "Personal Projects",
-  //       subtitle: "My Own Builds",
-  //       description: "A carousel showcasing projects I built independently, each with tech stack icons, descriptions, and links to live sites or GitHub repositories."
-  //     },
-  //     {
-  //       src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121729.png"),
-  //       title: "Supporting Projects — Detail",
-  //       subtitle: "Team Project Gallery",
-  //       description: "Detailed view of a supporting project with a full screenshot carousel, tech stack, description, and a link to the live site for in-depth exploration."
-  //     },
-  //     {
-  //       src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121818.png"),
-  //       title: "Career — Work Experience",
-  //       subtitle: "Professional Journey",
-  //       description: "A timeline-style career section listing my work experience, including company names, positions, durations, tech stacks used, and key contributions at each role."
-  //     },
-  //     {
-  //       src: getAssetPath("assets/project-icon/portfolio/Screenshot 2026-03-07 121832.png"),
-  //       title: "Footer — Contact & Socials",
-  //       subtitle: "Get In Touch",
-  //       description: "The footer section featuring my social media links including GitHub, LinkedIn, Facebook, Gmail, and Indeed — making it easy for recruiters and collaborators to reach out."
-  //     },
-  //   ],
-  //   techimage: [
-  //     getAssetPath("assets/dev-icon/html5.png"),
-  //     getAssetPath("assets/dev-icon/css.png"),
-  //     getAssetPath("assets/dev-icon/react-js.png"),
-  //     getAssetPath("assets/dev-icon/ts.png"),
-  //     getAssetPath("assets/dev-icon/shadcn.png"),
-  //   ],
-  //   link: "",
-  //   github: "https://github.com/JustineMHIL28/portfolio",
-  //   description: "A modern, responsive portfolio website showcasing my skills, projects, and professional journey. Features include smooth animations, dark mode support, project showcases with detailed descriptions, and an interactive contact form. Built with React, TypeScript, and Shadcn UI for a clean and professional look."
-  // },
   {
     id: 1,
     name: "Document Management System",
     subtitle: "File Organization",
     image: getAssetPath("assets/project-icon/soon.jpg"),
+    techimage: [
+      getAssetPath("assets/dev-icon/html5.png"),
+      getAssetPath("assets/dev-icon/css.png"),
+      getAssetPath("assets/dev-icon/react-js.png"),
+      getAssetPath("assets/dev-icon/ts.png"),
+      getAssetPath("assets/dev-icon/shadcn.png"),
+      getAssetPath("assets/dev-icon/laravel.png"),
+      getAssetPath("assets/dev-icon/mysql.png"),
+      getAssetPath("assets/dev-icon/php.png"),
+    ],
+    link: "",
+    github: "https://github.com/justinem10281996/dms",
+    tiktok: "https://www.tiktok.com/@justinem1996/video/7613367989903084807",
+    description: "A comprehensive document management system built for internal company use, designed for organizing, storing, and retrieving files efficiently. Features include file upload and download, folder organization, search functionality, version control, and user permissions. Built with React and integrated with cloud storage APIs for secure file management. Developed as a client project for internal business operations.",
     subimage: [
       {
         src: getAssetPath("assets/project-icon/dms/screencapture-127-0-0-1-8000-landing-page-2026-03-07-08_13_12.jpg"),
@@ -420,6 +374,12 @@ export const personalProjectsData: PersonalProject[] = [
         description: "Secure page where users can update their account password by entering the current password and a new one."
       }
     ],
+  },
+  {
+    id: 2,
+    name: "Inventory POS / Materials Management System",
+    subtitle: "Inventory & POS Management System",
+    image: getAssetPath("assets/project-icon/backup.png"),
     techimage: [
       getAssetPath("assets/dev-icon/html5.png"),
       getAssetPath("assets/dev-icon/css.png"),
@@ -431,17 +391,19 @@ export const personalProjectsData: PersonalProject[] = [
       getAssetPath("assets/dev-icon/php.png"),
     ],
     link: "",
-    github: "https://github.com/justinem10281996/dms",
-    tiktok: "https://www.tiktok.com/@justinem1996/video/7613367989903084807",
-    description: "A comprehensive document management system for organizing, storing, and retrieving files efficiently. Features include file upload and download, folder organization, search functionality, version control, and user permissions. Built with React and integrated with cloud storage APIs for secure file management."
+    github: "",
+    tiktok: "",
+    description: "A combined inventory and point-of-sale (POS) system built for internal use by a small to medium-sized business (SME). Designed to manage stock levels, track raw materials and supplies, and streamline daily sales transactions in one integrated platform. Features include inventory tracking with stock in/out monitoring, materials management for production or supply use, point-of-sale processing for over-the-counter transactions, and basic reporting for stock and sales activity. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database. Developed as a client project for internal business operations.",
+    subimage: []
   },
   {
-    id: 2,
+    id: 3,
     name: "InvoTrucking 360",
-    subtitle: "Inventory Trucking System",
+    subtitle: "Inventory Management System",
     image: getAssetPath("assets/project-icon/backup.png"),
-    subimage: [],
     techimage: [
+      getAssetPath("assets/dev-icon/html5.png"),
+      getAssetPath("assets/dev-icon/css.png"),
       getAssetPath("assets/dev-icon/react-js.png"),
       getAssetPath("assets/dev-icon/ts.png"),
       getAssetPath("assets/dev-icon/shadcn.png"),
@@ -449,15 +411,429 @@ export const personalProjectsData: PersonalProject[] = [
       getAssetPath("assets/dev-icon/mysql.png"),
       getAssetPath("assets/dev-icon/php.png"),
     ],
-    link: "",
-    description: "A comprehensive inventory tracking and management system for trucking operations, providing real-time inventory monitoring and reporting across multiple warehouse locations. Features include stock level management with automated low-stock alerts and reorder point configuration, purchase order management with supplier tracking and delivery status updates, inventory receiving and inspection workflows with quality control checks, stock transfer management between branches and warehouses with real-time tracking, batch and expiry date tracking for perishable goods, barcode and QR code scanning for efficient stock intake and counting, inventory valuation and costing (FIFO, LIFO, weighted average), detailed reporting suite (stock movement, inventory valuation, stock aging, slow-moving items, inventory turnover), cycle counting and physical inventory reconciliation, role-based access control for warehouse staff and managers, audit trails for all inventory transactions, and integration with procurement and sales modules for end-to-end supply chain visibility. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database."
+    link: "https://invotrucking360-production.up.railway.app/",
+    github: "https://github.com/justinem10281996/InvoTrucking_360",
+    tiktok: "https://www.tiktok.com/@justinem1996/video/7648679999704288528",
+    description: "A comprehensive inventory tracking and management system for trucking operations, providing real-time inventory monitoring and reporting across multiple warehouse locations. Features include stock level management with automated low-stock alerts and reorder point configuration, purchase order management with supplier tracking and delivery status updates, inventory receiving and inspection workflows with quality control checks, stock transfer management between branches and warehouses with real-time tracking, batch and expiry date tracking for perishable goods, barcode and QR code scanning for efficient stock intake and counting, inventory valuation and costing (FIFO, LIFO, weighted average), a built-in point-of-sale (POS) module for over-the-counter sales of categorized items such as spare parts, electronics, and other trucking-related supplies, detailed reporting suite (stock movement, inventory valuation, stock aging, slow-moving items, inventory turnover), cycle counting and physical inventory reconciliation, role-based access control for warehouse staff and managers, audit trails for all inventory transactions, and integration with procurement and sales modules for end-to-end supply chain visibility. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database. This project is under continued development for future updates. This is a personal project, open for collaboration or commission.",
+    subimage: [
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_20_51.png"),
+        title: "Landing Page — Overview",
+        subtitle: "Welcome Screen",
+        description: "Public-facing landing page introducing the system's core modules with a call-to-action to sign in or request a demo."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_20_52.png"),
+        title: "Login",
+        subtitle: "Authentication",
+        description: "Secure login screen with email/username and password fields, remember-me option, and link to password recovery."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_20_53.png"),
+        title: "Forget Password",
+        subtitle: "Password Recovery",
+        description: "Password reset flow where users request a reset link via email to regain access to their account."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_21_42.png"),
+        title: "Dashboard — Overview",
+        subtitle: "System Overview",
+        description: "Main dashboard displaying real-time inventory metrics, low stock alerts, recent transactions, and key performance indicators for trucking inventory management."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_21_52.png"),
+        title: "Brands — Management",
+        subtitle: "Brand Catalog",
+        description: "Brand master data management with logo upload, description, and product association tracking."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_02.png"),
+        title: "Manufacturers — List",
+        subtitle: "Manufacturer Directory",
+        description: "Manufacturer master records with contact information, lead times, and associated product lines."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_09.png"),
+        title: "Categories — List",
+        subtitle: "Product Categories",
+        description: "Master data management for product categories with hierarchical structure, search, and bulk operations."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_22.png"),
+        title: "Unit Models — Configuration",
+        subtitle: "Model Variants",
+        description: "Unit model management for product variants with specifications, dimensions, and compatibility matrix."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_28.png"),
+        title: "Units — Unit of Measure",
+        subtitle: "UOM Management",
+        description: "Unit of measure master data with conversion factors, base units, and precision settings for inventory accuracy."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_43.png"),
+        title: "Product Models — Catalog",
+        subtitle: "Product Master",
+        description: "Product model master data with categories, brands, manufacturers, units, and variant configurations."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_52.png"),
+        title: "Product Variants — Matrix",
+        subtitle: "Variant Management",
+        description: "Product variant matrix with attributes, SKUs, barcodes, pricing, and inventory tracking per variant."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_02.png"),
+        title: "Item Kits — Assembly",
+        subtitle: "Kit/BOM Management",
+        description: "Item kit and bill of materials management for assembled products with component tracking and costing."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_12.png"),
+        title: "Price Lists — Pricing",
+        subtitle: "Multi-Price Management",
+        description: "Price list management with customer-specific pricing, volume discounts, validity periods, and currency support."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_26.png"),
+        title: "Locations — Bin Management",
+        subtitle: "Storage Locations",
+        description: "Storage location/bin management within warehouses with zone, aisle, rack, shelf hierarchy and capacity tracking."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_34.png"),
+        title: "Branches — Multi-Branch",
+        subtitle: "Branch Management",
+        description: "Branch/outlet management with separate inventory, users, and reporting for multi-location operations."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_43.png"),
+        title: "Warehouses — Locations",
+        subtitle: "Warehouse Master",
+        description: "Warehouse master data with address, contact, capacity, zones, and default location assignments."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_53.png"),
+        title: "Serial Numbers — Tracking",
+        subtitle: "Serial Management",
+        description: "Serial number tracking for high-value items with warranty, maintenance history, and ownership records."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_12.png"),
+        title: "Suppliers — Vendor Master",
+        subtitle: "Supplier Management",
+        description: "Supplier master records with contact details, payment terms, performance ratings, and document management."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_03.png"),
+        title: "Customers — Client Master",
+        subtitle: "Customer Management",
+        description: "Customer master data with credit limits, pricing tiers, shipping addresses, and transaction history."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_24.png"),
+        title: "Purchase Requests — Requisition",
+        subtitle: "PR Workflow",
+        description: "Purchase request creation, approval workflow, and conversion to purchase orders with budget validation."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_32.png"),
+        title: "Purchase Orders — PO Management",
+        subtitle: "Order Processing",
+        description: "Purchase order lifecycle management: draft, approval, dispatch, receipt, and closure with supplier tracking."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_40.png"),
+        title: "Goods Receipts — Receiving",
+        subtitle: "GRN Processing",
+        description: "Goods receipt note processing with quantity verification, quality inspection, and automatic stock update."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_47.png"),
+        title: "Landed Costs — Cost Allocation",
+        subtitle: "Landed Cost Calculation",
+        description: "Landed cost allocation across received items including freight, insurance, duties, and handling charges."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_53.png"),
+        title: "Purchase Returns — Returns",
+        subtitle: "Return Management",
+        description: "Purchase return processing with reason codes, credit note generation, and supplier reconciliation."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_25_17.png"),
+        title: "POS — Point of Sale",
+        subtitle: "Retail Sales",
+        description: "Point of sale interface for walk-in sales with barcode scanning, payment processing, and receipt printing."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_25_30.png"),
+        title: "Quotations — Quotes",
+        subtitle: "Quote Management",
+        description: "Sales quotation creation with validity, versioning, conversion to orders, and follow-up tracking."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_25_39.png"),
+        title: "Sales Orders — Order Entry",
+        subtitle: "SO Processing",
+        description: "Sales order management from entry to fulfillment with availability checks, pricing, and delivery scheduling."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_25_45.png"),
+        title: "Deliveries — Dispatch",
+        subtitle: "Delivery Management",
+        description: "Delivery note creation, packing, dispatch tracking, and proof of delivery with customer acknowledgment."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_25_50.png"),
+        title: "Sales Returns — Returns",
+        subtitle: "Return Processing",
+        description: "Sales return workflow with inspection, restocking, credit notes, and replacement order generation."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_00.png"),
+        title: "Purchase Invoices — AP Invoices",
+        subtitle: "Vendor Billing",
+        description: "Purchase invoice matching with PO/GRN, three-way matching, and payment scheduling for accounts payable."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_06.png"),
+        title: "Sales Invoices — Billing",
+        subtitle: "Invoice Generation",
+        description: "Sales invoice creation from deliveries/orders with tax computation, payment terms, and aging tracking."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_12.png"),
+        title: "Stocks — Inventory View",
+        subtitle: "Stock Inquiry",
+        description: "Real-time stock inquiry with multi-warehouse view, available/committed/on-order quantities, and valuation."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_18.png"),
+        title: "Stock Transfer — Inter-Warehouse",
+        subtitle: "Transfer Management",
+        description: "Inter-warehouse stock transfer with request, approval, dispatch, in-transit, and receipt confirmation."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_26.png"),
+        title: "Adjustments — Stock Adjustment",
+        subtitle: "Adjustment Entry",
+        description: "Stock adjustment entry for write-offs, write-ups, cycle count variances with reason codes and approval."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_36.png"),
+        title: "Stock Movements — History",
+        subtitle: "Movement Log",
+        description: "Complete stock movement history with filters by item, warehouse, date range, transaction type, and user."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_05.png"),
+        title: "Sales Reports — Analytics",
+        subtitle: "Sales Analysis",
+        description: "Sales performance reports by product, customer, salesperson, and period with trends, rankings, and variance analysis."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_52.png"),
+        title: "Inventory Reports — Stock Reports",
+        subtitle: "Inventory Analytics",
+        description: "Inventory reports: stock status, aging, valuation, turnover, slow-moving, dead stock, and reorder analysis."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_20.png"),
+        title: "Purchase Reports — Procurement",
+        subtitle: "Purchase Analytics",
+        description: "Purchase reports: supplier performance, spend analysis, lead times, price variance, and order accuracy."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_57.png"),
+        title: "Stock Movement Reports — Movements",
+        subtitle: "Movement Analysis",
+        description: "Detailed stock movement reports with inbound/outbound analysis, velocity, and exception reporting."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_11.png"),
+        title: "Customer Sales Reports — Customer Analytics",
+        subtitle: "Customer Performance",
+        description: "Customer sales analysis with purchase patterns, profitability, credit utilization, and retention metrics."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_28.png"),
+        title: "Supplier Purchase Reports — Vendor Analytics",
+        subtitle: "Supplier Performance",
+        description: "Supplier purchase analysis with spend, quality, delivery performance, and strategic sourcing insights."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_40.png"),
+        title: "Roles — RBAC Roles",
+        subtitle: "Role Management",
+        description: "Role-based access control with role definitions, permission assignments, and role hierarchy management."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_51.png"),
+        title: "Users — User Management",
+        subtitle: "User Administration",
+        description: "User account management with profile, role assignment, branch access, password policies, and audit trail."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_00.png"),
+        title: "Department — Management",
+        subtitle: "Department Master",
+        description: "Department master data management for organizing users, cost centers, and approval routing by division."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_09.png"),
+        title: "Workflows — Approval Flows",
+        subtitle: "Workflow Designer",
+        description: "Approval workflow configuration with multi-level routing, conditions, escalations, and delegation rules."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_17.png"),
+        title: "Approvals — Pending Approvals",
+        subtitle: "Approval Queue",
+        description: "Centralized approval dashboard for managers to review, approve, reject, or delegate pending requests."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_29.png"),
+        title: "Backup Data — Backup & Restore",
+        subtitle: "Data Protection",
+        description: "Automated and manual database backup with scheduling, retention policies, and point-in-time recovery."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_38.png"),
+        title: "Activity Logs — Audit Trail",
+        subtitle: "System Audit",
+        description: "Comprehensive system activity logs with user actions, data changes, login history, and compliance reporting."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_52.png"),
+        title: "Company Profile — Organization",
+        subtitle: "Company Settings",
+        description: "Company profile management with logo, address, registration details, and default configurations."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_34.png"),
+        title: "Payment Terms — Configuration",
+        subtitle: "Terms Setup",
+        description: "Payment term master data with due days, discount periods, and automatic application to customers/vendors."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_47.png"),
+        title: "Payment Terms — Due Dates",
+        subtitle: "Due Date Tracking",
+        description: "Automated due date calculation and tracking based on assigned payment terms for receivables and payables."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_32_01.png"),
+        title: "Payment Terms — Aging Report",
+        subtitle: "Aging Analysis",
+        description: "Receivables and payables aging report grouped by due-date buckets to monitor overdue balances."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_29_09.png"),
+        title: "Discount Settings — Promotions",
+        subtitle: "Discount Rules",
+        description: "Discount configuration with tier pricing, promotional discounts, customer-specific deals, and validity periods."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_29_01.png"),
+        title: "Currency Settings — Multi-Currency",
+        subtitle: "Currency Management",
+        description: "Multi-currency configuration for transactions across customers, suppliers, and branches with base currency setup."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-23_18_49.png"),
+        title: "Currency Settings — Exchange Rates",
+        subtitle: "Rate Management",
+        description: "Exchange rate management with manual entry or automated updates and historical rate tracking."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-23_19_03.png"),
+        title: "Currency Settings — General Settings",
+        subtitle: "Currency Preferences",
+        description: "General currency preferences including rounding rules, display format, and default currency per branch."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_01.png"),
+        title: "Tax Settings — Tax Configuration",
+        subtitle: "Tax Management",
+        description: "Tax code management with rates, jurisdictions, exemptions, and automatic tax calculation on transactions."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_08.png"),
+        title: "Inventory Valuation — Method List",
+        subtitle: "Valuation Setup",
+        description: "Inventory valuation method configuration: FIFO, LIFO, weighted average, and standard cost with periodic revaluation."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_16.png"),
+        title: "Inventory Valuation — Standard Cost",
+        subtitle: "Standard Cost Setup",
+        description: "Standard cost entry and revision per item with variance tracking against actual purchase costs."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_22.png"),
+        title: "Inventory Valuation — Analysis",
+        subtitle: "Valuation Analysis",
+        description: "Valuation comparison and variance analysis across costing methods to support pricing and margin decisions."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_32_15.png"),
+        title: "Reorder System — Reorder Alerts",
+        subtitle: "Low Stock Alerts",
+        description: "Automated reorder alerts triggered when stock falls below configured reorder points per item and warehouse."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_32_24.png"),
+        title: "Reorder System — Product Reorder Rules",
+        subtitle: "Reorder Configuration",
+        description: "Per-product reorder point and reorder quantity configuration with supplier and lead-time defaults."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-profile-2026-07-12-21_32_32.png"),
+        title: "User Profile — My Account",
+        subtitle: "Profile Management",
+        description: "User profile page with personal info, password change, notification preferences, and API token management."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-settings-2026-07-12-21_32_47.png"),
+        title: "Settings — Notifications",
+        subtitle: "Alert Configuration",
+        description: "Notification preferences for email, in-app, and push alerts for low stock, approvals, and system events."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-settings-2026-07-12-21_32_42.png"),
+        title: "Settings — Account",
+        subtitle: "Account Management",
+        description: "Account-level settings covering login security, connected devices, and general preferences."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-settings-2026-07-12-21_32_55.png"),
+        title: "Settings — Appearance",
+        subtitle: "Theme & Display",
+        description: "Appearance settings for theme, layout density, and display preferences across the application."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-settings-subscription-2026-07-12-21_33_01.png"),
+        title: "Subscription — Billing Details",
+        subtitle: "Billing Portal",
+        description: "Detailed billing portal with invoice history, payment methods, usage analytics, and cancellation workflow."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-system-guide-2026-07-12-21_33_08.png"),
+        title: "System Guide — Documentation",
+        subtitle: "User Manual",
+        description: "Comprehensive system guide with searchable documentation, video tutorials, FAQs, and context-sensitive help."
+      }
+    ],
   },
   {
-    id: 3,
+    id: 4,
     name: "BioTrucking 360",
-    subtitle: "Biometric Trucking 360 System",
+    subtitle: "Attendance Management System",
     image: getAssetPath("assets/project-icon/backup.png"),
     techimage: [
+      getAssetPath("assets/dev-icon/html5.png"),
+      getAssetPath("assets/dev-icon/css.png"),
       getAssetPath("assets/dev-icon/react-js.png"),
       getAssetPath("assets/dev-icon/ts.png"),
       getAssetPath("assets/dev-icon/shadcn.png"),
@@ -468,13 +844,13 @@ export const personalProjectsData: PersonalProject[] = [
     link: "https://biotrucking360-production.up.railway.app/",
     github: "https://github.com/justinem10281996/BioTrucking_360",
     tiktok: "https://www.tiktok.com/@justinem1996/video/7648679999704288528",
-    description: "A comprehensive biometric attendance system for trucking companies, integrating with fingerprint scanner hardware for real-time employee clock-in/out tracking. Features include daily time record (DTR) management with automated log processing and hours computation, duty and roster scheduling with shift rules and flexi-duty assignments, employee self-service portal for attendance views and day-off requests, multi-level approval workflows for DTR modifications, biometric device management for fingerprint upload/download and time synchronization, detailed reporting suite (DTR summaries, tardiness, overtime, absences, perfect attendance, incomplete logs), administrative controls with role-based permissions and activity audit trails, import/export for bulk data operations, company and branch/location/department/position configuration, subscription-based billing with plan tiers and Stripe integration, 2FA security, AES-256-CBC data encryption, and a real-time biometric monitoring dashboard. Built with React and TypeScript with Shadcn UI, powered by Laravel backend, MySQL database, and integrated with biometric fingerprint hardware via serial port communication.",
+    description: "A comprehensive biometric attendance system for trucking companies, integrating with fingerprint scanner hardware for real-time employee clock-in/out tracking. Features include daily time record (DTR) management with automated log processing and hours computation, duty and roster scheduling with shift rules and flexi-duty assignments, employee self-service portal for attendance views and day-off requests, multi-level approval workflows for DTR modifications, biometric device management for fingerprint upload/download and time synchronization, detailed reporting suite (DTR summaries, tardiness, overtime, absences, perfect attendance, incomplete logs), administrative controls with role-based permissions and activity audit trails, import/export for bulk data operations, company and branch/location/department/position configuration, subscription-based billing with plan tiers and Stripe integration, 2FA security, AES-256-CBC data encryption, and a real-time biometric monitoring dashboard. Built with React and TypeScript with Shadcn UI, powered by Laravel backend, MySQL database, and integrated with biometric fingerprint hardware via serial port communication. This project is under continued development for future updates. This is a personal project, open for collaboration or commission.",
     subimage: [
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-2026-06-18-15_31_20.jpg"),
         title: "Landing Page",
         subtitle: "Welcome Screen",
-        description: "The public-facing welcome page introducing BioTrucking 360 attendance management system with a clean layout and navigation options."
+        description: "The public-facing landing page introducing BioTrucking 360, featuring a clean layout with easy navigation to key sections of the system."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-3Nqo51WPOk7l-2026-06-18-15_31_28.png"),
@@ -486,523 +862,403 @@ export const personalProjectsData: PersonalProject[] = [
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-AlVQPND5Y03D-2026-06-18-15_31_34.png"),
         title: "Login / Register",
         subtitle: "User Authentication",
-        description: "Secure login and registration screen for authorized users to access the attendance management system using their credentials."
+        description: "Secure login and registration screen allowing authorized users to access the attendance management system with their credentials."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_04_08.png"),
         title: "Dashboard",
         subtitle: "System Overview",
-        description: "Main dashboard displaying real-time attendance status, key metrics, and quick-access navigation for efficient workforce management."
+        description: "Main dashboard displaying real-time attendance status, key metrics, and quick-access shortcuts for efficient workforce management."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_04_19.jpg"),
-        title: "Dashboard — Attendance Stats",
-        subtitle: "Attendance Summary",
-        description: "Attendance summary cards showing total employees present, late, on leave, and absent for the current day."
+        title: "System Guide",
+        subtitle: "Help Center",
+        description: "In-app system guide accessible from the dashboard, offering quick reference tips and onboarding help for new users."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_04_34.png"),
-        title: "Dashboard — Approval Queue",
-        subtitle: "Pending Approvals",
-        description: "Approval queue displaying pending leave and overtime requests requiring manager action."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_04_42.png"),
-        title: "Dashboard — Charts",
-        subtitle: "Attendance Analytics",
-        description: "Analytics charts showing attendance by department, monthly trends, and workforce breakdown."
+        title: "Locations",
+        subtitle: "Location Management",
+        description: "Master data management for work locations and sites used to track employee attendance across different areas."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_05_05.png"),
-        title: "Dashboard — HR Statistics",
-        subtitle: "HR Metrics",
-        description: "HR statistics panel showing employee headcount, department distribution, and workforce composition."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_05_12.png"),
-        title: "Dashboard — Activity Log",
-        subtitle: "Recent Activity",
-        description: "Recent biometric logs and system activity feed showing clock-in/out events and user actions."
+        title: "Branches",
+        subtitle: "Branch Management",
+        description: "Branch and outlet master data management with separate employee records and reporting per location."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_05_30.png"),
-        title: "Dashboard — Notifications",
-        subtitle: "System Alerts",
-        description: "Notifications panel showing system alerts, reminders, and important updates requiring user attention."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_05_39.png"),
-        title: "Dashboard — Quick Actions",
-        subtitle: "Shortcut Menu",
-        description: "Quick action shortcuts providing one-click access to common tasks like processing logs and generating reports."
+        title: "Departments",
+        subtitle: "Department Management",
+        description: "Department master data management for organizing employees and structuring attendance reporting by division."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_06_01.png"),
-        title: "Dashboard — Sidebar Menu",
-        subtitle: "Navigation",
-        description: "Sidebar navigation menu expanded showing all available modules including attendance, employees, reports, and settings."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_06_10.png"),
-        title: "Dashboard — Search",
-        subtitle: "Global Search",
-        description: "Global search functionality allowing users to quickly find employees, attendance records, and system configurations."
+        title: "Positions",
+        subtitle: "Position Management",
+        description: "Job position and title master data used to classify employees and set position-based duty rules."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_06_16.png"),
-        title: "Dashboard — Filters",
-        subtitle: "Data Filtering",
-        description: "Advanced filter panel for refining dashboard data views by date range, department, and attendance status."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_06_24.png"),
-        title: "Dashboard — Table View",
-        subtitle: "Data Table",
-        description: "Tabular view of attendance data with sortable columns, pagination, and row-level actions for detailed record management."
+        title: "Cost Centres",
+        subtitle: "Cost Centre Management",
+        description: "Cost centre master data management used for allocating labor costs and payroll expenses by unit or project."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_06_33.png"),
-        title: "Dashboard — Card View",
-        subtitle: "Visual Cards",
-        description: "Card-based layout presenting employee attendance with visual status badges and key information at a glance."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_06_42.png"),
-        title: "Dashboard — Export",
-        subtitle: "Data Export",
-        description: "Export configuration panel allowing users to download attendance data in CSV, Excel, and PDF formats."
+        title: "Work Codes",
+        subtitle: "Work Code Management",
+        description: "Work code master data defining shift types, pay codes, and time categories used in attendance processing."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_06_56.png"),
-        title: "Dashboard — Print View",
-        subtitle: "Printable Report",
-        description: "Print-optimized view of dashboard reports formatted for physical documentation and distribution."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_07_13.png"),
-        title: "Dashboard — Mobile View",
-        subtitle: "Responsive Layout",
-        description: "Mobile-responsive dashboard layout optimized for smaller screens with touch-friendly controls."
+        title: "Holidays",
+        subtitle: "Holiday Management",
+        description: "Holiday calendar setup for defining regular and special non-working days used in attendance and payroll calculations."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_09_20.png"),
-        title: "Employees — Overview",
+        title: "Employees",
         subtitle: "Employee List",
-        description: "Complete employee listing page with search, filter, and sort capabilities for efficient workforce management."
+        description: "Complete employee listing with search, filter, and sort capabilities for efficient workforce management."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_09_32.png"),
-        title: "Employees — Details",
-        subtitle: "Employee Profile",
+        title: "Employee Profile",
+        subtitle: "Employee Details",
         description: "Detailed employee profile view showing personal information, employment details, and biometric enrollment status."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_09_43.png"),
-        title: "Employees — Add",
-        subtitle: "New Employee",
-        description: "Form for registering a new employee with personal info, employment details, and biometric ID assignment."
+        title: "Update Employee",
+        subtitle: "Edit Employee",
+        description: "Form for editing an employee's personal information, employment details, and department or position assignment."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_09_50.png"),
-        title: "Employees — Edit",
-        subtitle: "Update Employee",
-        description: "Edit form for updating existing employee information including status changes and biometric reassignment."
+        title: "Set Biometric",
+        subtitle: "Biometric Enrollment",
+        description: "Form for updating an employee's biometric enrollment status and setting new fingerprint templates."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_16_04.png"),
-        title: "Attendance — Overview",
-        subtitle: "DTR Management",
-        description: "Daily time record management page displaying employee attendance logs with processing status."
+        title: "Day Off Setup",
+        subtitle: "Day Off Configuration",
+        description: "Configuration screen for defining day-off types and eligibility rules applied to employees or groups."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_16_13.png"),
-        title: "Attendance — Download Logs",
-        subtitle: "Log Download",
-        description: "Log download interface for fetching raw biometric clock-in/out data from connected fingerprint devices."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_16_22.png"),
-        title: "Attendance — Process Logs",
-        subtitle: "Log Processing",
-        description: "Log processing page where raw biometric data is converted into structured daily time records."
+        title: "Generate Day Off",
+        subtitle: "Day Off Generation",
+        description: "Batch generation of day-off entries for employees based on configured rules and selected date ranges."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_16_29.png"),
-        title: "Attendance — Calculate Hours",
-        subtitle: "Hours Computation",
-        description: "Hours calculation interface for computing total work hours, overtime, late minutes, and undertime per employee."
+        title: "Duty Management",
+        subtitle: "Module Menu",
+        description: "Main navigation menu for the duty management module, covering roster-based and unlimited duty configurations."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_16_36.png"),
-        title: "Attendance — Modify DTR",
-        subtitle: "DTR Modification",
-        description: "DTR modification page for manually adjusting employee time entries with approval tracking."
+        title: "Roster-Based Rules",
+        subtitle: "Duty Rules",
+        description: "List of roster-based duty rules used to define fixed shift patterns and rotation schedules for employees."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_16_48.png"),
-        title: "Attendance — DTR Periods",
-        subtitle: "Cut-off Setup",
-        description: "DTR period configuration for setting up payroll cut-off dates used for grouping attendance records."
+        title: "Roster-Based Rule Details",
+        subtitle: "Rule Details",
+        description: "Detailed view of a specific roster-based rule, showing shift sequence, cycle length, and assigned employees."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_16_58.png"),
-        title: "Duty Management — Setup Rules",
-        subtitle: "Shift Rules",
-        description: "Shift rule configuration page for defining standard shift schedules, grace periods, and overtime policies."
+        title: "Edit Roster-Based Rule",
+        subtitle: "Update Rule",
+        description: "Form for editing an existing roster-based duty rule, including shift sequence and rotation settings."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_17_07.png"),
-        title: "Duty Management — Roster",
-        subtitle: "Roster Creation",
-        description: "Roster creation page for building weekly or monthly duty schedules with shift assignments."
+        title: "Unlimited Duty Rules",
+        subtitle: "Duty Rules",
+        description: "List of unlimited duty rules used for employees with flexible or non-fixed shift schedules."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_17_16.png"),
-        title: "Duty Management — Assign",
-        subtitle: "Roster Assignment",
-        description: "Roster assignment interface for bulk or individual assignment of duty schedules to employees."
+        title: "Unlimited Rule Details",
+        subtitle: "Rule Details",
+        description: "Detailed view of a specific unlimited duty rule, showing time boundaries and applicable employee groups."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_17_24.png"),
-        title: "Unlimited Duty — Setup",
-        subtitle: "Flexi Duty Config",
-        description: "Configuration page for unlimited/flexible duty assignments where employees can log any time."
+        title: "Edit Unlimited Rule",
+        subtitle: "Update Rule",
+        description: "Form for editing an existing unlimited duty rule and its associated time and eligibility settings."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_17_34.png"),
-        title: "Unlimited Duty — Rosters",
-        subtitle: "Flexi Rosters",
-        description: "Unlimited duty roster management for flexible-hour employees and field workers."
+        title: "Roster-Based Duty",
+        subtitle: "Duty List",
+        description: "List of assigned roster-based duties, showing employee schedules generated from roster rules."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_18_25.png"),
-        title: "Day Off — Setup",
-        subtitle: "Rest Day Config",
-        description: "Day off configuration page for setting employee weekly rest days and holiday schedules."
+        title: "Edit Roster-Based Duty",
+        subtitle: "Update Duty",
+        description: "Form for modifying an assigned roster-based duty entry for a selected employee and date."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_18_33.png"),
-        title: "Holidays — Calendar",
-        subtitle: "Holiday Management",
-        description: "Holiday calendar management for configuring regular holidays and special non-working days."
+        title: "Roster-Based Duty Adjustment",
+        subtitle: "Duty Adjustment",
+        description: "Detailed duty adjustment form for correcting or overriding a specific roster-based duty assignment."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_20_26.png"),
-        title: "Work Codes — Setup",
-        subtitle: "Attendance Codes",
-        description: "Work codes configuration for defining attendance code types used in DTR computation."
+        title: "Unlimited Duty",
+        subtitle: "Duty List",
+        description: "List of assigned unlimited duties, showing flexible schedules generated from unlimited duty rules."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_20_37.png"),
-        title: "Locations — Setup",
-        subtitle: "Location Management",
-        description: "Location management page for setting up company locations and offices."
+        title: "Edit Unlimited Duty",
+        subtitle: "Update Duty",
+        description: "Form for modifying an assigned unlimited duty entry for a selected employee and date."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_20_50.png"),
-        title: "Branches — Setup",
-        subtitle: "Branch Management",
-        description: "Branch management page for adding and managing company branches under locations."
+        title: "Unlimited Duty Adjustment",
+        subtitle: "Duty Adjustment",
+        description: "Detailed duty adjustment form for correcting or overriding a specific unlimited duty assignment."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_21_32.png"),
-        title: "Departments — Setup",
-        subtitle: "Department Management",
-        description: "Department management page for organizing company structure by department."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_21_46.png"),
-        title: "Positions — Setup",
-        subtitle: "Position Management",
-        description: "Job position management page for defining job titles and positions in the organization."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_22_01.png"),
-        title: "Cost Centres — Setup",
-        subtitle: "Cost Center Management",
-        description: "Cost centre management page for setting up budgeting and reporting cost centers."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_22_06.png"),
-        title: "Reports — DTR Summary",
-        subtitle: "DTR Report",
-        description: "DTR summary report showing consolidated daily time records per payroll cutoff period."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_22_12.png"),
-        title: "Reports — Daily Attendance",
-        subtitle: "Attendance Report",
-        description: "Daily attendance report showing who is present, absent, or on leave for a specific date."
+        title: "Assign Duty Roster",
+        subtitle: "Roster Assignment",
+        description: "Screen for assigning duty rosters to individual employees or employee groups in bulk."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_22_19.png"),
-        title: "Reports — Timesheet",
-        subtitle: "Timesheet Report",
-        description: "Employee timesheet report with detailed time-in/time-out logs and computed hours."
+        title: "Attendance Management",
+        subtitle: "Module Menu",
+        description: "Main navigation menu for the attendance management module, covering logs, processing, and DTR tools."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_22_30.png"),
-        title: "Reports — Late Report",
-        subtitle: "Tardiness Report",
-        description: "Late report identifying employees who arrived past their scheduled start time."
+        title: "Download Logs",
+        subtitle: "Log Download",
+        description: "Tool for downloading raw attendance logs captured from biometric devices for a selected date range."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_22_49.png"),
-        title: "Reports — Absent Report",
-        subtitle: "Absence Report",
-        description: "Absence report showing employees marked absent for the selected date range."
+        title: "Process Logs",
+        subtitle: "Log Processing",
+        description: "Tool for processing raw attendance logs into structured time-in and time-out records for payroll and reporting."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_22_58.png"),
-        title: "Reports — Overtime",
-        subtitle: "OT Report",
-        description: "Overtime report displaying employees who rendered overtime hours and their OT details."
+        title: "Calculate Hours",
+        subtitle: "Hours Calculation",
+        description: "Tool for calculating rendered hours, overtime, and undertime from processed attendance logs."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_23_06.png"),
-        title: "Reports — Perfect Attendance",
-        subtitle: "Perfect Attendance Report",
-        description: "Perfect attendance report showing employees with no lates, absences, or incomplete logs."
+        title: "Roster DTR Correction",
+        subtitle: "DTR Correction",
+        description: "Tool for manually correcting daily time record entries for employees under roster-based duty schedules."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_23_14.png"),
-        title: "Reports — Incomplete Logs",
-        subtitle: "Missing Logs Report",
-        description: "Incomplete logs report identifying employees with missing clock-in or clock-out entries."
+        title: "Unlimited DTR Correction",
+        subtitle: "DTR Correction",
+        description: "Tool for manually correcting daily time record entries for employees under unlimited duty schedules."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_23_21.png"),
-        title: "Reports — Without Roster",
-        subtitle: "No Schedule Report",
-        description: "Report showing employees who have no assigned duty schedule or roster."
+        title: "Daily Time Records",
+        subtitle: "DTR Logs",
+        description: "Consolidated view of daily time records for all employees, with filtering by date, department, or branch."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_23_32.png"),
-        title: "Reports — Employee Master List",
-        subtitle: "Employee Directory",
-        description: "Complete employee master list report with all registered employee information."
+        title: "Approval Requests",
+        subtitle: "Pending Approvals",
+        description: "Centralized queue for reviewing and approving or rejecting pending employee attendance and leave requests."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_23_42.png"),
-        title: "Biometric Devices — FP Machines",
-        subtitle: "Device Management",
-        description: "Biometric device management page for registering and configuring fingerprint scanner hardware."
+        title: "Generate Reports",
+        subtitle: "Reports Module",
+        description: "Landing screen for the reporting module, providing access to available attendance and payroll reports."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_23_53.png"),
-        title: "Devices — Download FP",
-        subtitle: "Download Fingerprints",
-        description: "Interface for downloading employee fingerprint templates and attendance logs from biometric devices."
+        title: "Report Catalog",
+        subtitle: "List of Reports",
+        description: "Catalog of available report templates that can be generated, filtered by category and date range."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_24_05.png"),
-        title: "Devices — Upload FP",
-        subtitle: "Upload Fingerprints",
-        description: "Interface for uploading employee fingerprint templates to biometric devices for clock-in access."
+        title: "Report Details",
+        subtitle: "View Report",
+        description: "Detailed view of a generated report with options to preview, export, or print the results."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_24_22.png"),
-        title: "Devices — Upload Employee Info",
-        subtitle: "Sync Employee Data",
-        description: "Employee data sync interface for uploading employee demographics to biometric devices."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_24_29.png"),
-        title: "Devices — Date/Time Sync",
-        subtitle: "Device Time Sync",
-        description: "Device date and time synchronization page to keep biometric clocks accurate."
+        title: "Import Data",
+        subtitle: "Data Import",
+        description: "Tool for importing external data files, such as employee or attendance data, into the system."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_24_37.png"),
-        title: "BioTrucking Config — Company Profile",
-        subtitle: "Company Info",
-        description: "Company profile configuration page for updating company name, address, contact info, and logo."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_24_44.png"),
-        title: "BioTrucking Config — System Parameters",
-        subtitle: "System Settings",
-        description: "System parameters configuration for setting timezone, OT rates, night differential, and company-wide policies."
+        title: "Export Data",
+        subtitle: "Data Export",
+        description: "Tool for exporting attendance, employee, and payroll data to external file formats for offline use."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_24_50.png"),
-        title: "BioTrucking Config — Front-End Terminal",
-        subtitle: "Terminal Settings",
-        description: "Front-end terminal configuration for managing real-time biometric clock-in/out monitoring stations."
+        title: "Biometric Devices",
+        subtitle: "Module Menu",
+        description: "Main navigation menu for managing biometric devices, terminals, and related data sync tools."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_25_03.png"),
-        title: "BioTrucking Config — Backup",
-        subtitle: "Data Backup",
-        description: "Database backup configuration for scheduling automated or manual system backups."
+        title: "Device List",
+        subtitle: "Registered Devices",
+        description: "List of registered biometric devices with connection status, location, and last sync information."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_25_07.png"),
-        title: "Administration — Users",
-        subtitle: "User Management",
-        description: "User management page for creating and managing system users with login credentials and role assignments."
+        title: "Connect Device",
+        subtitle: "Device Connection",
+        description: "Screen for registering and connecting a new biometric device to the system via IP address or serial connection."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_25_13.png"),
-        title: "Administration — Roles",
-        subtitle: "Role Management",
-        description: "Role management page for defining user roles with specific permissions and access levels."
+        title: "Set Device Departments",
+        subtitle: "Department Assignment",
+        description: "Screen for assigning which departments or employee groups a specific biometric device covers."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_25_19.png"),
-        title: "Administration — Permissions",
-        subtitle: "Permission Settings",
-        description: "Permission configuration for fine-grained access control to individual system features."
+        title: "Update Device Details",
+        subtitle: "Device Settings",
+        description: "Form for editing a registered biometric device's connection details, name, and location assignment."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_25_34.png"),
-        title: "Administration — Workflow",
-        subtitle: "Approval Workflow",
-        description: "Workflow configuration for setting up multi-level approval chains for DTR modifications."
+        title: "Download Fingerprints",
+        subtitle: "Fingerprint Download",
+        description: "Tool for downloading enrolled employee fingerprint templates from a connected biometric device."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_25_44.png"),
-        title: "Administration — Activity Logs",
-        subtitle: "Audit Trail",
-        description: "Activity logs page displaying complete audit trail of all system actions and user activities."
+        title: "Upload Fingerprints",
+        subtitle: "Fingerprint Upload",
+        description: "Tool for uploading employee fingerprint templates to a connected biometric device for enrollment."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_25_54.png"),
-        title: "Dashboard — Employee View",
-        subtitle: "My Dashboard",
-        description: "Employee self-service dashboard showing personal attendance summary, schedule, and day-off calendar."
+        title: "Download Employee Info",
+        subtitle: "Info Download",
+        description: "Tool for downloading employee information stored directly on a connected biometric device."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_26_02.png"),
-        title: "Dashboard — My Attendance",
-        subtitle: "Personal Attendance",
-        description: "Personal attendance log view for employees to track their own time records and history."
+        title: "Upload Employee Info",
+        subtitle: "Info Upload",
+        description: "Tool for uploading employee information from the system to a connected biometric device."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_26_14.png"),
-        title: "Dashboard — My Schedule",
-        subtitle: "Personal Schedule",
-        description: "Employee schedule view showing assigned duty rosters, shifts, and upcoming work days."
+        title: "Device Time Sync",
+        subtitle: "Date/Time Sync",
+        description: "Tool for viewing and synchronizing the date and time settings of connected biometric devices."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_26_23.png"),
-        title: "Dashboard — My Day Off",
-        subtitle: "Day Off Calendar",
-        description: "Employee day-off calendar showing scheduled rest days and leave balances."
+        title: "Front End Terminals",
+        subtitle: "Terminal List",
+        description: "List of registered front-end terminals used for employee clock-in and clock-out at designated stations."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_26_30.png"),
-        title: "Dashboard — System Notices",
-        subtitle: "Announcements",
-        description: "System notices tab showing holiday announcements, company alerts, reminders, and general announcements."
+        title: "Add Terminal",
+        subtitle: "New Terminal",
+        description: "Form for registering a new front-end terminal, including its name, location, and connection settings."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_26_39.png"),
-        title: "Dashboard — Dark Mode",
-        subtitle: "Dark Theme",
-        description: "Dashboard displayed in dark mode theme for reduced eye strain and improved usability."
+        title: "Configurations",
+        subtitle: "Module Menu",
+        description: "Main navigation menu for system-wide configuration settings such as company profile and parameters."
+      },
+      {
+        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_26_39.png"),
+        title: "Company Profile",
+        subtitle: "Company Settings",
+        description: "Company profile configuration including business name, logo, address, and default system settings."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_26_45.png"),
-        title: "Dashboard — Settings Access",
-        subtitle: "Settings Menu",
-        description: "User settings dropdown with access to account settings, appearance, and notification preferences."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_26_50.png"),
-        title: "Settings — Account",
-        subtitle: "Account Settings",
-        description: "Account settings page for managing profile information, security credentials, and 2FA configuration."
+        title: "System Parameters",
+        subtitle: "Global Settings",
+        description: "Configuration screen for system-wide parameters controlling attendance rules, rounding, and grace periods."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_26_57.png"),
-        title: "Settings — Appearance",
-        subtitle: "Theme Settings",
-        description: "Appearance settings for customizing theme mode, accent color, sidebar style, and font preferences."
+        title: "Auto Shift Settings",
+        subtitle: "Keyboard Entry",
+        description: "Configuration for automatic shift detection and keyboard-based entry behavior during manual attendance input."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_27_16.png"),
-        title: "Settings — Notifications",
-        subtitle: "Notification Prefs",
-        description: "Notification preferences for configuring email, in-app, and SMS alert settings."
+        title: "Backup",
+        subtitle: "Data Protection",
+        description: "Backup configuration screen for scheduling and managing automated database backups."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_27_24.png"),
-        title: "Subscription — Plans",
-        subtitle: "Plan Selection",
-        description: "Subscription plan selection page showing available tiers with features and pricing."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_27_29.png"),
-        title: "Subscription — Billing",
-        subtitle: "Billing Info",
-        description: "Subscription billing page showing current plan, payment history, and billing details."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_27_50.png"),
-        title: "Subscription — Activation Key",
-        subtitle: "Key Entry",
-        description: "Activation key entry page for entering subscription keys received from MyMoney portal."
+        title: "Backup History",
+        subtitle: "Backup Details",
+        description: "Detailed view of backup history with timestamps, file sizes, and restore options."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_27_56.png"),
-        title: "Subscription — Invoices",
-        subtitle: "Invoice History",
-        description: "Invoice history page showing payment records, invoice numbers, and payment status."
+        title: "Account Management",
+        subtitle: "Module Menu",
+        description: "Main navigation menu for managing user accounts, roles, and access permissions."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_28_04.png"),
-        title: "Approval Request — Pending",
-        subtitle: "Pending Approvals",
-        description: "Pending approval requests page for reviewing and approving DTR modification requests."
+        title: "Roles",
+        subtitle: "Role List",
+        description: "List of defined user roles with their associated permission levels across the system."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_28_12.png"),
-        title: "Approval Request — History",
-        subtitle: "Approval History",
-        description: "Approval history page showing previously approved and rejected DTR modification requests."
+        title: "Role Details",
+        subtitle: "View Role",
+        description: "Detailed view of a specific role showing its assigned permissions and the users linked to it."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_28_20.png"),
-        title: "Import — Data Import",
-        subtitle: "Bulk Import",
-        description: "Bulk data import page for uploading employee records, attendance data, and reference tables via CSV/Excel."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_28_30.png"),
-        title: "Import — Preview",
-        subtitle: "Import Preview",
-        description: "Import preview page showing parsed data with status badges before confirmation."
+        title: "Manage Roles",
+        subtitle: "Role Permissions",
+        description: "Screen for creating and editing roles, including toggling module-level and action-level permissions."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_28_37.png"),
-        title: "Import — History",
-        subtitle: "Import History",
-        description: "Import history log showing previous import operations with success and error counts."
+        title: "User Accounts",
+        subtitle: "User List",
+        description: "List of system user accounts with their assigned roles, branch access, and account status."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_28_45.png"),
-        title: "Export — Data Export",
-        subtitle: "Data Export",
-        description: "Data export page for downloading system data in CSV, Excel, or JSON formats."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_28_52.png"),
-        title: "Export — History",
-        subtitle: "Export History",
-        description: "Export history page showing recent export operations for re-download."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_30_47.png"),
-        title: "Dashboard — Real-time Monitoring",
-        subtitle: "Live Feed",
-        description: "Real-time biometric monitoring dashboard showing live clock-in/out events as they happen."
-      },
-      {
-        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_31_02.png"),
-        title: "Dashboard — Executive Summary",
-        subtitle: "Executive View",
-        description: "Executive summary dashboard providing high-level overview of key attendance metrics and insights."
+        title: "Manage Access",
+        subtitle: "Access Control",
+        description: "Screen for assigning or revoking a user's role, branch, and module-level access permissions."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-profile-2026-06-18-15_29_58.jpg"),
@@ -1012,27 +1268,39 @@ export const personalProjectsData: PersonalProject[] = [
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-settings-2026-06-18-15_30_09.png"),
-        title: "Settings — General",
-        subtitle: "General Settings",
-        description: "General settings panel for configuring system preferences, default values, and company-wide configurations."
+        title: "Account Settings",
+        subtitle: "Settings",
+        description: "Account-level settings covering login credentials, security options, and general account preferences."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-settings-2026-06-18-15_30_22.png"),
-        title: "Settings — Password",
-        subtitle: "Password Change",
-        description: "Password change page for updating account password with current password verification."
+        title: "Appearance",
+        subtitle: "Theme & Display",
+        description: "Appearance settings for theme, layout density, and display preferences across the application."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-settings-2026-06-18-15_30_27.png"),
-        title: "Settings — 2FA",
-        subtitle: "Two-Factor Auth",
-        description: "Two-factor authentication setup page for enabling email OTP or Google Authenticator."
+        title: "Notifications",
+        subtitle: "Notification Settings",
+        description: "Overview screen for managing how and when the system sends notifications to users."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-settings-notification-2026-06-18-15_30_38.png"),
-        title: "Settings — Notification Prefs",
+        title: "Notification Preferences",
         subtitle: "Alert Preferences",
         description: "Notification preferences panel for configuring email and in-app notification settings."
+      },
+      {
+        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_30_47.png"),
+        title: "Subscriptions",
+        subtitle: "Billing & Plan",
+        description: "Subscription overview showing current plan, billing cycle, and available upgrade options."
+      },
+      {
+        src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-dashboard-2026-06-18-15_31_02.png"),
+        title: "System Guide",
+        subtitle: "Help & Documentation",
+        description: "In-app help center providing searchable guides and quick answers for common system tasks."
       },
       {
         src: getAssetPath("assets/project-icon/biotrucking360/screencapture-biotrucking360-production-up-railway-app-privacy-2026-06-18-15_31_50.png"),
@@ -1055,10 +1323,24 @@ export const personalProjectsData: PersonalProject[] = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     name: "MyMoney",
     subtitle: "Subscription & Billing Management",
     image: getAssetPath("assets/project-icon/backup.png"),
+    techimage: [
+      getAssetPath("assets/dev-icon/html5.png"),
+      getAssetPath("assets/dev-icon/css.png"),
+      getAssetPath("assets/dev-icon/react-js.png"),
+      getAssetPath("assets/dev-icon/ts.png"),
+      getAssetPath("assets/dev-icon/shadcn.png"),
+      getAssetPath("assets/dev-icon/laravel.png"),
+      getAssetPath("assets/dev-icon/mysql.png"),
+      getAssetPath("assets/dev-icon/php.png"),
+    ],
+    link: "https://mymoney-production-136e.up.railway.app/",
+    github: "https://github.com/justinem10281996/my_money",
+    tiktok: "https://www.tiktok.com/@justinem1996/video/7647798735145078023",
+    description: "A billing, subscription, and account activation portal serving as a standalone payment gateway system, designed to power subscription and licensing management for SaaS platforms like BioTrucking 360 and InvoTrucking 360. Features include 6 subscription tiers (Trial, Starter, SME, Business, Enterprise, Corporate) with configurable billing intervals (monthly, quarterly, semi-annual, yearly), Stripe payment processing with GCash and Maya support, automatic 20-character activation key generation (XXXX-XXXX-XXXX-XXXX-XXXX), billing invoice management (INV-000001 format), role-based access control, two-factor authentication via email OTP or Google Authenticator, AES-256-CBC data encryption, HMAC-SHA256 API signature verification for webhook security, and comprehensive activity auditing with 365-day retention. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database. This is a personal project, open for collaboration or commission.",
     subimage: [
       { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-2026-06-18-14_58_20.png"), title: "Landing Page", subtitle: "Welcome Screen", description: "The public-facing welcome page for MyMoney subscription management system introducing the platform's features and directing users to sign in or create an account." },
       { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-login-2026-06-18-14_58_34.png"), title: "Login", subtitle: "User Authentication", description: "Secure login screen for authorized users to access their subscription dashboard using registered email and password credentials." },
@@ -1077,20 +1359,6 @@ export const personalProjectsData: PersonalProject[] = [
       { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-settings-2026-06-18-15_02_05.png"), title: "Settings — Notifications", subtitle: "Alert Preferences", description: "Notification settings panel for configuring email alerts, billing reminders, and subscription renewal notifications." },
       { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-settings-2026-06-18-15_02_22.png"), title: "Settings — Profile", subtitle: "Personal Information", description: "Profile settings page for managing personal information, contact details, and account security preferences." },
     ],
-    techimage: [
-      getAssetPath("assets/dev-icon/html5.png"),
-      getAssetPath("assets/dev-icon/css.png"),
-      getAssetPath("assets/dev-icon/react-js.png"),
-      getAssetPath("assets/dev-icon/ts.png"),
-      getAssetPath("assets/dev-icon/shadcn.png"),
-      getAssetPath("assets/dev-icon/laravel.png"),
-      getAssetPath("assets/dev-icon/mysql.png"),
-      getAssetPath("assets/dev-icon/php.png"),
-    ],
-    link: "https://mymoney-production-136e.up.railway.app/",
-    github: "https://github.com/justinem10281996/my_money",
-    tiktok: "https://www.tiktok.com/@justinem1996/video/7647798735145078023",
-    description: "A billing, subscription, and account activation portal serving as the backend payment system for an HR/attendance SaaS platform. Features include 6 subscription tiers (Trial, Starter, SME, Business, Enterprise, Corporate) with configurable billing intervals (monthly, quarterly, semi-annual, yearly), Stripe payment processing with GCash and Maya support, automatic 20-character activation key generation (XXXX-XXXX-XXXX-XXXX-XXXX), billing invoice management (INV-000001 format), role-based access control, two-factor authentication via email OTP or Google Authenticator, AES-256-CBC data encryption, HMAC-SHA256 API signature verification for webhook security, and comprehensive activity auditing with 365-day retention. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database."
   }
 ];
 
@@ -1256,8 +1524,8 @@ export const careerData: Career[] = [
     period: "",
     image: getAssetPath("assets/company-icon/freelance.jpg"),
     link: "",
-    description: "• Developed an Inventory Managament System project for internal business operations.\n• Designed and implemented inventory tracking and management modules.\n• Built full-stack features using modern web technologies.",
-    systemUsage: "Inventory Management System",
+    description: "• Developed a Document Management System for internal company use, enabling efficient file organization, storage, and retrieval.\n• Built an Inventory POS / Materials Management System for an SME client, combining stock tracking with point-of-sale transaction processing.\n• Designed and implemented inventory tracking and management modules, including stock monitoring, materials handling, and sales reporting.\n• Built full-stack features using modern web technologies for internal business operations.",
+    systemUsage: "Document Management System, Inventory POS / Materials Management System",
     techStack: ["HTML", "CSS", "React", "TypeScript", "Laravel", "PHP", "MySQL", "RESTful APIs", "Git", "GitHub"]
   },
   {
