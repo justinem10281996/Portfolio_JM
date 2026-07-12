@@ -1,6 +1,7 @@
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Overview } from './components/Overview';
+import { GithubActivity } from './components/GithubActivity';
 import { Technologies } from './components/Technologies';
 import { PersonalProjects } from './components/PersonalProjects';
 import { SupportingProjects } from './components/SupportingProjects';
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
       <Hero />
       <Overview />
+      <GithubActivity />
       <Technologies />
       <PersonalProjects />
       <SupportingProjects />
