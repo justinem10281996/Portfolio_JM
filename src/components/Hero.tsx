@@ -55,39 +55,13 @@ export const Hero = () => {
 
         {/* Role + Desc */}
         <div ref={r3} className={`reveal-up ${v3 ? 'revealed' : ''}`} style={{ transitionDelay: '0.2s' }}>
-          <p className="text-lg sm:text-xl text-white/50 mb-3 font-light">Full Stack Developer</p>
+          <p className="text-lg sm:text-xl text-white/70 mb-3 font-light">Full Stack Developer</p>
           <StaggerWords
-            text="Building modern web applications with clean code and innovative solutions."
-            className="text-sm sm:text-base text-white/35 max-w-lg mx-auto mb-10"
+            text="Building modern, scalable web applications with clean code, thoughtful architecture, and innovative solutions tailored to real business needs."
+            className="text-sm sm:text-base text-white/50 max-w-lg mx-auto mb-10"
             as="p"
           />
         </div>
-
-        {/* Buttons */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="flex flex-col sm:flex-row gap-3 justify-center"
-        >
-          <div ref={magneticRef} className="magnetic-btn w-full sm:w-auto">
-            <Button
-              size="lg"
-              className="w-full sm:w-auto"
-              onClick={() => document.getElementById('personal-projects')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              View Projects <ArrowRight className="w-4 h-4" />
-            </Button>
-          </div>
-          <Button
-            size="lg"
-            variant="secondary"
-            className="w-full sm:w-auto"
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Get In Touch
-          </Button>
-        </motion.div> */}
 
         {/* Stats */}
         <motion.div

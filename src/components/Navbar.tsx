@@ -46,8 +46,8 @@ export const Navbar = () => {
 
   const downloadResume = () => {
     const a = document.createElement('a');
-    a.href = `${process.env.PUBLIC_URL}/resume.docx`;
-    a.download = 'Justine_Hilario_Resume.docx';
+    a.href = `${process.env.PUBLIC_URL}/resume.pdf`;
+    a.download = 'Justine_Hilario_Resume.pdf';
     a.click();
   };
 

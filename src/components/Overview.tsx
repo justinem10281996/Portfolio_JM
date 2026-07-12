@@ -20,7 +20,7 @@ export const Overview = () => {
           <span className="text-green-400 font-mono text-xs tracking-wider uppercase">What I Do</span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-2 sm:mt-3 mb-4 sm:mb-5 text-foreground">Overview</h2>
           <StaggerWords
-            text="Full Stack Developer with hands-on experience in building scalable web applications using React, TypeScript, Laravel, and MySQL."
+            text="Full Stack Developer with hands-on experience in building scalable web applications using React, TypeScript, Laravel, and MySQL. Passionate about creating efficient, secure, and user-friendly systems that solve real business problems."
             className="text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed"
             as="p"
           />

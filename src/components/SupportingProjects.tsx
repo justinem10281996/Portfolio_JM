@@ -25,7 +25,7 @@ export const SupportingProjects = () => {
           <span className="text-green-400 font-mono text-xs tracking-wider uppercase">Collaborative Work</span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-2 sm:mt-3 mb-4 sm:mb-5 text-foreground">Supporting Projects</h2>
           <StaggerWords
-            text="Projects I've contributed to as part of collaborative teams."
+            text="Projects I've contributed to as part of collaborative teams, working alongside other developers to deliver functional, scalable solutions for real clients and businesses."
             className="text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed"
             as="p"
           />

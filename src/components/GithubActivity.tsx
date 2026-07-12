@@ -30,6 +30,13 @@ type ApiResponse = {
 const MONTH_LABELS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const DAY_LABELS = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
 
+// Cell + gap sizes in px, kept in sync with the Tailwind classes below.
+// Mobile cells are smaller so the full graph is more likely to fit / scroll smoothly.
+const CELL_SIZE = { mobile: 9, desktop: 13 };
+const CELL_GAP = 3;
+const STEP_MOBILE = CELL_SIZE.mobile + CELL_GAP;
+const STEP_DESKTOP = CELL_SIZE.desktop + CELL_GAP;
+
 function buildFallbackYear(): DayCell[] {
   const today = new Date();
   const start = new Date(today);
@@ -73,11 +80,29 @@ const levelColor: Record<DayCell['level'], string> = {
   4: 'bg-green-400',
 };
 
+// Simple hook to know whether we're below the sm breakpoint, so we can
+// compute pixel-based month-label offsets that match the cell size in use.
+function useIsMobile(breakpoint = 640) {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth < breakpoint : true
+  );
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < breakpoint);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [breakpoint]);
+
+  return isMobile;
+}
+
 export const GithubActivity = () => {
   const { ref, revealed } = useReveal();
   const [days, setDays] = useState<DayCell[] | null>(null);
   const [total, setTotal] = useState<number | null>(null);
   const [hovered, setHovered] = useState<DayCell | null>(null);
+  const isMobile = useIsMobile();
+  const step = isMobile ? STEP_MOBILE : STEP_DESKTOP;
 
   useEffect(() => {
     let cancelled = false;
@@ -171,11 +196,11 @@ export const GithubActivity = () => {
   }, [weeks]);
 
   return (
-    <section id="activity" className="py-16 sm:py-20 lg:py-28 bg-background transition-colors duration-500">
+    <section id="activity" className="py-12 sm:py-20 lg:py-28 bg-background transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''} mb-10 sm:mb-14`}>
+        <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''} mb-8 sm:mb-14`}>
           <span className="text-green-400 font-mono text-xs tracking-wider uppercase">Consistency</span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-2 sm:mt-3 mb-4 sm:mb-5 text-foreground">
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-2 sm:mt-3 mb-3 sm:mb-5 text-foreground">
             GitHub Activity
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed">
@@ -191,11 +216,11 @@ export const GithubActivity = () => {
           transition={{ duration: 0.5 }}
         >
           <Card className="rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] overflow-hidden">
-            <CardContent className="p-5 sm:p-6 lg:p-8">
-              <div className="flex items-center justify-between flex-wrap gap-3 mb-6">
-                <div className="flex items-center gap-2">
-                  <Github className="w-4 h-4 text-green-400" />
-                  <span className="text-sm sm:text-base font-semibold text-foreground">
+            <CardContent className="p-4 sm:p-6 lg:p-8">
+              <div className="flex items-center justify-between flex-wrap gap-2 sm:gap-3 mb-5 sm:mb-6">
+                <div className="flex items-center gap-2 min-w-0">
+                  <Github className="w-4 h-4 text-green-400 shrink-0" />
+                  <span className="text-xs sm:text-base font-semibold text-foreground truncate">
                     {total !== null ? `${total} contributions in the last year` : 'Loading contributions…'}
                   </span>
                 </div>
@@ -203,23 +228,26 @@ export const GithubActivity = () => {
                   href={`https://github.com/${GITHUB_USERNAME}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-xs font-mono text-green-400 hover:text-green-300 transition-colors"
+                  className="text-[11px] sm:text-xs font-mono text-green-400 hover:text-green-300 transition-colors shrink-0"
                 >
                   @{GITHUB_USERNAME}
                 </a>
               </div>
 
               {!days ? (
-                <div className="h-32 flex items-center justify-center text-xs text-muted-foreground font-mono">
+                <div className="h-28 sm:h-32 flex items-center justify-center text-xs text-muted-foreground font-mono">
                   fetching commits...
                 </div>
               ) : (
-                <div className="overflow-x-auto">
-                  <div className="inline-flex gap-3 min-w-full">
+                <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 pb-1">
+                  <div className="inline-flex gap-2 sm:gap-3 min-w-full">
                     {/* Day labels */}
-                    <div className="flex flex-col gap-[3px] pt-5 shrink-0">
+                    <div className="flex flex-col gap-[3px] pt-4 sm:pt-5 shrink-0">
                       {DAY_LABELS.map((label, i) => (
-                        <span key={i} className="h-[11px] sm:h-[13px] text-[9px] sm:text-[10px] text-muted-foreground leading-none flex items-center">
+                        <span
+                          key={i}
+                          className="h-[9px] sm:h-[13px] text-[8px] sm:text-[10px] text-muted-foreground leading-none flex items-center"
+                        >
                           {label}
                         </span>
                       ))}
@@ -227,12 +255,12 @@ export const GithubActivity = () => {
 
                     <div className="relative">
                       {/* Month labels */}
-                      <div className="relative h-4 mb-1">
+                      <div className="relative h-3.5 sm:h-4 mb-1">
                         {monthMarkers.map((m) => (
                           <span
                             key={`${m.label}-${m.weekIndex}`}
-                            className="absolute text-[9px] sm:text-[10px] text-muted-foreground"
-                            style={{ left: `${m.weekIndex * 14}px` }}
+                            className="absolute text-[8px] sm:text-[10px] text-muted-foreground"
+                            style={{ left: `${m.weekIndex * step}px` }}
                           >
                             {m.label}
                           </span>
@@ -248,7 +276,8 @@ export const GithubActivity = () => {
                                 key={`${wi}-${di}`}
                                 onMouseEnter={() => day.date && setHovered(day)}
                                 onMouseLeave={() => setHovered(null)}
-                                className={`w-[11px] h-[11px] sm:w-[13px] sm:h-[13px] rounded-[2px] ${
+                                onTouchStart={() => day.date && setHovered(day)}
+                                className={`w-[9px] h-[9px] sm:w-[13px] sm:h-[13px] rounded-[2px] ${
                                   day.date ? levelColor[day.level] : 'bg-transparent'
                                 } ${day.date ? 'hover:ring-1 hover:ring-green-400 cursor-pointer' : ''} transition-all duration-150`}
                               />
@@ -258,7 +287,7 @@ export const GithubActivity = () => {
                       </div>
 
                       {/* Tooltip */}
-                      <div className="h-5 mt-2 text-[10px] sm:text-xs font-mono text-muted-foreground">
+                      <div className="h-5 mt-2 text-[9px] sm:text-xs font-mono text-muted-foreground whitespace-nowrap">
                         {hovered && hovered.date
                           ? `${hovered.count} contribution${hovered.count === 1 ? '' : 's'} on ${new Date(
                               hovered.date
@@ -269,42 +298,47 @@ export const GithubActivity = () => {
                   </div>
 
                   {/* Legend */}
-                  <div className="flex items-center justify-end gap-1.5 mt-2 text-[9px] sm:text-[10px] text-muted-foreground">
+                  <div className="flex items-center justify-end gap-1.5 mt-2 text-[8px] sm:text-[10px] text-muted-foreground pr-4 sm:pr-0">
                     <span>Less</span>
                     {[0, 1, 2, 3, 4].map((lvl) => (
-                      <span key={lvl} className={`w-[11px] h-[11px] rounded-[2px] ${levelColor[lvl as DayCell['level']]}`} />
+                      <span
+                        key={lvl}
+                        className={`w-[9px] h-[9px] sm:w-[11px] sm:h-[11px] rounded-[2px] ${levelColor[lvl as DayCell['level']]}`}
+                      />
                     ))}
                     <span>More</span>
                   </div>
-
-                  {/* Stats */}
-                  {stats && (
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-6 pt-6 border-t border-foreground/10">
-                      <div>
-                        <p className="text-lg sm:text-2xl font-bold text-green-400">{stats.activeDays}</p>
-                        <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Active days</p>
-                      </div>
-                      <div>
-                        <p className="text-lg sm:text-2xl font-bold text-green-400">{stats.longest}</p>
-                        <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Longest streak</p>
-                      </div>
-                      <div>
-                        <p className="text-lg sm:text-2xl font-bold text-green-400">{stats.current}</p>
-                        <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Current streak</p>
-                      </div>
-                      <div>
-                        <p className="text-lg sm:text-2xl font-bold text-green-400 truncate">{stats.busiestMonth}</p>
-                        <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Busiest month</p>
-                      </div>
-                    </div>
-                  )}
-
-                  <p className="text-[11px] sm:text-xs text-muted-foreground/70 mt-6 leading-relaxed">
-                    I keep this graph public and unfiltered on purpose — it's the most honest way to show
-                    that I'm actually writing code, not just talking about it. Some weeks are quieter than
-                    others (client work, learning, life), but the pattern reflects real, ongoing effort.
-                  </p>
                 </div>
+              )}
+
+              {/* Stats */}
+              {days && stats && (
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-6 pt-6 border-t border-foreground/10">
+                  <div className="min-w-0">
+                    <p className="text-base sm:text-2xl font-bold text-green-400">{stats.activeDays}</p>
+                    <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Active days</p>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-base sm:text-2xl font-bold text-green-400">{stats.longest}</p>
+                    <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Longest streak</p>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-base sm:text-2xl font-bold text-green-400">{stats.current}</p>
+                    <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Current streak</p>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-base sm:text-2xl font-bold text-green-400 truncate">{stats.busiestMonth}</p>
+                    <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Busiest month</p>
+                  </div>
+                </div>
+              )}
+
+              {days && (
+                <p className="text-[10px] sm:text-xs text-muted-foreground/70 mt-5 sm:mt-6 leading-relaxed">
+                  I keep this graph public and unfiltered on purpose - it's the most honest way to show
+                  that I'm actually writing code, not just talking about it. Some weeks are quieter than
+                  others (client work, learning, life), but the pattern reflects real, ongoing effort.
+                </p>
               )}
             </CardContent>
           </Card>

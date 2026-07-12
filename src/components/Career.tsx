@@ -16,7 +16,7 @@ export const Career = () => {
           <span className="text-green-400 font-mono text-xs tracking-wider uppercase">Experience</span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-2 sm:mt-3 mb-4 sm:mb-5 text-foreground">Career Journey</h2>
           <StaggerWords
-            text="My professional experience and the skills I've developed."
+            text="My professional experience and the skills I've developed along the way - from freelance contract work to building full-stack systems that solve practical business challenges."
             className="text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed"
             as="p"
           />

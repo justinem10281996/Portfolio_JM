@@ -25,7 +25,7 @@ export const PersonalProjects = () => {
           <span className="text-green-400 font-mono text-xs tracking-wider uppercase">My Work</span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-2 sm:mt-3 mb-4 sm:mb-5 text-foreground">Personal Projects</h2>
           <StaggerWords
-            text="Projects I've built independently to explore new technologies and solve problems."
+            text="Projects I've built independently to explore new technologies, sharpen my skills, and solve real-world problems - from inventory systems to biometric attendance platforms and payment gateway integrations."
             className="text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed"
             as="p"
           />
