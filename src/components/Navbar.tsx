@@ -52,6 +52,7 @@ export const Navbar = () => {
   };
 
   const links = [
+    { label: 'About', href: '#about' },
     { label: 'Overview', href: '#overview' },
     { label: 'Projects', href: '#personal-projects' },
     { label: 'Experience', href: '#career' },

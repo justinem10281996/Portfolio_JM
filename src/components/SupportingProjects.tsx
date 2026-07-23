@@ -68,20 +68,46 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
   const hasImg = project.subimage.length > 0;
   const truncate = (t: string, max = 150) => t.length <= max ? t : t.slice(0, max) + '...';
   const techs = showAllTech ? project.techimage : project.techimage.slice(0, 5);
+  const [currentImg, setCurrentImg] = useState(0);
+
+  useEffect(() => {
+    if (!hasImg || project.subimage.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentImg(prev => (prev + 1) % project.subimage.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [hasImg, project.subimage.length]);
 
   return (
     <div ref={ref} className={`reveal-up h-full ${revealed ? 'revealed' : ''}`} style={{ transitionDelay: `${index * 0.1}s` }}>
       <motion.div whileHover={{ y: -4 }} className="pb-4 h-full">
-        <Card
-          className="flex flex-col h-full rounded-xl"
-        >
+        <Card className="flex flex-col h-full rounded-xl shadow-[0_4px_20px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_40px_rgb(34,197,94,0.15)] transition-shadow duration-500">
+          {/* Image with auto-slide */}
           <div className={`relative h-48 sm:h-56 lg:h-64 rounded-t-xl overflow-hidden bg-gradient-to-br from-green-500/5 to-emerald-500/5 ${hasImg ? 'cursor-pointer' : ''}`} onClick={hasImg ? onViewImages : undefined}>
             {hasImg ? (
               <>
-                <motion.img src={project.subimage[0].src} alt={project.name} className="w-full h-full object-cover" loading="lazy" whileHover={{ scale: 1.05 }} transition={{ duration: 0.4 }} />
-                <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+                {project.subimage.map((img: any, i: number) => (
+                  <img
+                    key={i}
+                    src={img.src}
+                    alt={project.name}
+                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out ${
+                      i === currentImg ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+                    }`}
+                    loading="lazy"
+                  />
+                ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
+                <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity z-20 flex items-center justify-center">
                   <Maximize2 className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
+                {project.subimage.length > 1 && (
+                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex gap-1.5">
+                    {project.subimage.slice(0, 8).map((_: any, i: number) => (
+                      <div key={i} className={`h-1 rounded-full transition-all duration-300 ${i === currentImg ? 'w-4 bg-green-400' : 'w-1.5 bg-white/50'}`} />
+                    ))}
+                  </div>
+                )}
               </>
             ) : (
               <div className="absolute inset-0 flex items-center justify-center">

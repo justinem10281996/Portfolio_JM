@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronDown } from 'lucide-react';
-import { Button } from './ui/button';
+import { ChevronDown } from 'lucide-react';
 import { useReveal } from '../hooks/useReveal';
-import { useMagneticButton } from '../hooks/useMagneticButton';
 import { TextScramble } from './ui/TextScramble';
 import { StaggerWords } from './ui/StaggerWords';
+import { AnimatedCounter } from './AnimatedCounter';
 
 declare const process: { env: { PUBLIC_URL: string } };
 
@@ -12,7 +11,6 @@ export const Hero = () => {
   const { ref: r1, revealed: v1 } = useReveal(0.1);
   const { ref: r2, revealed: v2 } = useReveal(0.1);
   const { ref: r3, revealed: v3 } = useReveal(0.1);
-  const magneticRef = useMagneticButton(0.3);
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -71,12 +69,14 @@ export const Hero = () => {
           className="mt-16 grid grid-cols-3 gap-8 max-w-sm mx-auto"
         >
           {[
-            { v: '4+', l: 'Years' },
-            { v: '10+', l: 'Projects' },
-            { v: '13+', l: 'Tech' },
+            { v: 4, suffix: '+', l: 'Years' },
+            { v: 10, suffix: '+', l: 'Projects' },
+            { v: 13, suffix: '+', l: 'Tech' },
           ].map((s, i) => (
             <motion.div key={i} whileHover={{ scale: 1.1 }} className="text-center cursor-default">
-              <div className="text-2xl font-bold text-shimmer">{s.v}</div>
+              <div className="text-2xl font-bold text-shimmer">
+                <AnimatedCounter value={s.v} suffix={s.suffix} />
+              </div>
               <div className="text-xs text-white/30 mt-1">{s.l}</div>
             </motion.div>
           ))}

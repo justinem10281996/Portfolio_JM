@@ -1,18 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Github } from 'lucide-react';
+import { Github, GitBranch, Star, BookOpen, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useReveal } from '../hooks/useReveal';
 import { Card, CardContent } from './ui/card';
-
-/**
- * GitHub-style contribution graph.
- * Pulls real contribution data from a public, key-less endpoint
- * (github-contributions-api.jogruber.de) and falls back to a
- * generated pattern if the request fails (rate limit / offline).
- *
- * Usage:
- *   <GithubActivity username="your-github-username" />
- */
 
 const GITHUB_USERNAME = 'justinem10281996';
 
@@ -27,20 +17,54 @@ type ApiResponse = {
   contributions: { date: string; count: number; level: number }[];
 };
 
+type Repo = {
+  name: string;
+  description: string;
+  language: string;
+  stargazers_count: number;
+  html_url: string;
+  updated_at: string;
+};
+
+type UserProfile = {
+  public_repos: number;
+  followers: number;
+  following: number;
+  public_gists: number;
+};
+
 const MONTH_LABELS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const DAY_LABELS = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
 
-// Cell + gap sizes in px, kept in sync with the Tailwind classes below.
-// Mobile cells are smaller so the full graph is more likely to fit / scroll smoothly.
 const CELL_SIZE = { mobile: 9, desktop: 13 };
 const CELL_GAP = 3;
 const STEP_MOBILE = CELL_SIZE.mobile + CELL_GAP;
 const STEP_DESKTOP = CELL_SIZE.desktop + CELL_GAP;
 
+const LANG_COLORS: Record<string, string> = {
+  JavaScript: '#f1e05a',
+  TypeScript: '#3178c6',
+  HTML: '#e34c26',
+  CSS: '#563d7c',
+  PHP: '#4F5D95',
+  Python: '#3572A5',
+  Java: '#b07219',
+  'C++': '#f34b7d',
+  Ruby: '#701516',
+  Go: '#00ADD8',
+  Rust: '#dea584',
+  Swift: '#F05138',
+  Kotlin: '#A97BFF',
+  Dart: '#00B4AB',
+  Shell: '#89e051',
+  Vue: '#41b883',
+  Svelte: '#ff3e00',
+};
+
 function buildFallbackYear(): DayCell[] {
   const today = new Date();
   const start = new Date(today);
-  start.setDate(start.getDate() - 371); // pad to full weeks
+  start.setDate(start.getDate() - 371);
   const cells: DayCell[] = [];
   for (let d = new Date(start); d <= today; d.setDate(d.getDate() + 1)) {
     const rand = Math.random();
@@ -52,7 +76,6 @@ function buildFallbackYear(): DayCell[] {
 }
 
 function chunkIntoWeeks(days: DayCell[]): DayCell[][] {
-  // Align so weeks start on Sunday, like GitHub does
   const weeks: DayCell[][] = [];
   let current: DayCell[] = [];
   const firstDay = new Date(days[0].date).getDay();
@@ -80,8 +103,6 @@ const levelColor: Record<DayCell['level'], string> = {
   4: 'bg-green-400',
 };
 
-// Simple hook to know whether we're below the sm breakpoint, so we can
-// compute pixel-based month-label offsets that match the cell size in use.
 function useIsMobile(breakpoint = 640) {
   const [isMobile, setIsMobile] = useState(
     typeof window !== 'undefined' ? window.innerWidth < breakpoint : true
@@ -101,6 +122,10 @@ export const GithubActivity = () => {
   const [days, setDays] = useState<DayCell[] | null>(null);
   const [total, setTotal] = useState<number | null>(null);
   const [hovered, setHovered] = useState<DayCell | null>(null);
+  const [repos, setRepos] = useState<Repo[]>([]);
+  const [repoCount, setRepoCount] = useState(0);
+  const [profile, setProfile] = useState<UserProfile | null>(null);
+  const [hasToken, setHasToken] = useState(false);
   const isMobile = useIsMobile();
   const step = isMobile ? STEP_MOBILE : STEP_DESKTOP;
 
@@ -130,9 +155,43 @@ export const GithubActivity = () => {
     }
 
     load();
-    return () => {
-      cancelled = true;
-    };
+    return () => { cancelled = true; };
+  }, []);
+
+  // Fetch repos data + user profile
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadRepos() {
+      try {
+        const token = process.env.REACT_APP_GITHUB_TOKEN;
+        const headers: Record<string, string> = token ? { Authorization: `token ${token}` } : {};
+        if (token) setHasToken(true);
+
+        const [reposRes, profileRes] = await Promise.all([
+          fetch(`https://api.github.com/user/repos?per_page=100&sort=updated&type=all`, { headers }),
+          fetch(`https://api.github.com/users/${GITHUB_USERNAME}`, { headers }),
+        ]);
+
+        if (reposRes.ok) {
+          const data: Repo[] = await reposRes.json();
+          if (!cancelled) {
+            setRepos(data.slice(0, 6));
+            setRepoCount(data.length);
+          }
+        }
+
+        if (profileRes.ok) {
+          const data: UserProfile = await profileRes.json();
+          if (!cancelled) setProfile(data);
+        }
+      } catch {
+        // silently fail
+      }
+    }
+
+    loadRepos();
+    return () => { cancelled = true; };
   }, []);
 
   const weeks = useMemo(() => (days ? chunkIntoWeeks(days) : []), [days]);
@@ -141,27 +200,18 @@ export const GithubActivity = () => {
     if (!days) return null;
 
     const activeDays = days.filter((d) => d.count > 0).length;
-
-    // Longest streak of consecutive active days
     let longest = 0;
     let running = 0;
     days.forEach((d) => {
-      if (d.count > 0) {
-        running += 1;
-        longest = Math.max(longest, running);
-      } else {
-        running = 0;
-      }
+      if (d.count > 0) { running += 1; longest = Math.max(longest, running); } else { running = 0; }
     });
 
-    // Current streak, counting back from the most recent day
     let current = 0;
     for (let i = days.length - 1; i >= 0; i--) {
       if (days[i].count > 0) current += 1;
       else break;
     }
 
-    // Busiest month by total contributions
     const monthTotals = new Map<string, number>();
     days.forEach((d) => {
       const dt = new Date(d.date);
@@ -171,14 +221,33 @@ export const GithubActivity = () => {
     let busiestMonth = '—';
     let busiestCount = 0;
     monthTotals.forEach((count, key) => {
-      if (count > busiestCount) {
-        busiestCount = count;
-        busiestMonth = key;
-      }
+      if (count > busiestCount) { busiestCount = count; busiestMonth = key; }
     });
 
-    return { activeDays, longest, current, busiestMonth };
+    // Total commits (sum of all days)
+    const totalCommits = days.reduce((sum, d) => sum + d.count, 0);
+
+    // Average contributions per week
+    const totalWeeks = Math.ceil(days.length / 7);
+    const avgPerWeek = totalWeeks > 0 ? (totalCommits / totalWeeks).toFixed(1) : '0';
+
+    // Peak day
+    let peakDay = days[0];
+    days.forEach(d => { if (d.count > peakDay.count) peakDay = d; });
+
+    return { activeDays, longest, current, busiestMonth, totalCommits, avgPerWeek, peakDay };
   }, [days]);
+
+  // Language stats from repos
+  const langStats = useMemo(() => {
+    if (!repos.length) return [];
+    const counts: Record<string, number> = {};
+    repos.forEach(r => { if (r.language) counts[r.language] = (counts[r.language] || 0) + 1; });
+    return Object.entries(counts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5)
+      .map(([lang, count]) => ({ lang, count, pct: Math.round((count / repos.length) * 100) }));
+  }, [repos]);
 
   const monthMarkers = useMemo(() => {
     const markers: { label: string; weekIndex: number }[] = [];
@@ -241,33 +310,19 @@ export const GithubActivity = () => {
               ) : (
                 <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0 pb-1">
                   <div className="inline-flex gap-2 sm:gap-3 min-w-full">
-                    {/* Day labels */}
                     <div className="flex flex-col gap-[3px] pt-4 sm:pt-5 shrink-0">
                       {DAY_LABELS.map((label, i) => (
-                        <span
-                          key={i}
-                          className="h-[9px] sm:h-[13px] text-[8px] sm:text-[10px] text-muted-foreground leading-none flex items-center"
-                        >
-                          {label}
-                        </span>
+                        <span key={i} className="h-[9px] sm:h-[13px] text-[8px] sm:text-[10px] text-muted-foreground leading-none flex items-center">{label}</span>
                       ))}
                     </div>
 
                     <div className="relative">
-                      {/* Month labels */}
                       <div className="relative h-3.5 sm:h-4 mb-1">
                         {monthMarkers.map((m) => (
-                          <span
-                            key={`${m.label}-${m.weekIndex}`}
-                            className="absolute text-[8px] sm:text-[10px] text-muted-foreground"
-                            style={{ left: `${m.weekIndex * step}px` }}
-                          >
-                            {m.label}
-                          </span>
+                          <span key={`${m.label}-${m.weekIndex}`} className="absolute text-[8px] sm:text-[10px] text-muted-foreground" style={{ left: `${m.weekIndex * step}px` }}>{m.label}</span>
                         ))}
                       </div>
 
-                      {/* Grid */}
                       <div className="flex gap-[3px]">
                         {weeks.map((week, wi) => (
                           <div key={wi} className="flex flex-col gap-[3px]">
@@ -277,43 +332,34 @@ export const GithubActivity = () => {
                                 onMouseEnter={() => day.date && setHovered(day)}
                                 onMouseLeave={() => setHovered(null)}
                                 onTouchStart={() => day.date && setHovered(day)}
-                                className={`w-[9px] h-[9px] sm:w-[13px] sm:h-[13px] rounded-[2px] ${
-                                  day.date ? levelColor[day.level] : 'bg-transparent'
-                                } ${day.date ? 'hover:ring-1 hover:ring-green-400 cursor-pointer' : ''} transition-all duration-150`}
+                                className={`w-[9px] h-[9px] sm:w-[13px] sm:h-[13px] rounded-[2px] ${day.date ? levelColor[day.level] : 'bg-transparent'} ${day.date ? 'hover:ring-1 hover:ring-green-400 cursor-pointer' : ''} transition-all duration-150`}
                               />
                             ))}
                           </div>
                         ))}
                       </div>
 
-                      {/* Tooltip */}
                       <div className="h-5 mt-2 text-[9px] sm:text-xs font-mono text-muted-foreground whitespace-nowrap">
                         {hovered && hovered.date
-                          ? `${hovered.count} contribution${hovered.count === 1 ? '' : 's'} on ${new Date(
-                              hovered.date
-                            ).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`
+                          ? `${hovered.count} contribution${hovered.count === 1 ? '' : 's'} on ${new Date(hovered.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`
                           : '\u00A0'}
                       </div>
                     </div>
                   </div>
 
-                  {/* Legend */}
                   <div className="flex items-center justify-end gap-1.5 mt-2 text-[8px] sm:text-[10px] text-muted-foreground pr-4 sm:pr-0">
                     <span>Less</span>
                     {[0, 1, 2, 3, 4].map((lvl) => (
-                      <span
-                        key={lvl}
-                        className={`w-[9px] h-[9px] sm:w-[11px] sm:h-[11px] rounded-[2px] ${levelColor[lvl as DayCell['level']]}`}
-                      />
+                      <span key={lvl} className={`w-[9px] h-[9px] sm:w-[11px] sm:h-[11px] rounded-[2px] ${levelColor[lvl as DayCell['level']]}`} />
                     ))}
                     <span>More</span>
                   </div>
                 </div>
               )}
 
-              {/* Stats */}
+              {/* Enhanced Stats Grid */}
               {days && stats && (
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-6 pt-6 border-t border-foreground/10">
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 sm:gap-4 mt-6 pt-6 border-t border-foreground/10">
                   <div className="min-w-0">
                     <p className="text-base sm:text-2xl font-bold text-green-400">{stats.activeDays}</p>
                     <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Active days</p>
@@ -327,8 +373,115 @@ export const GithubActivity = () => {
                     <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Current streak</p>
                   </div>
                   <div className="min-w-0">
+                    <p className="text-base sm:text-2xl font-bold text-green-400">{stats.totalCommits}</p>
+                    <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Total commits</p>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-base sm:text-2xl font-bold text-green-400">{repoCount || profile?.public_repos || 0}</p>
+                    <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">{hasToken ? 'Total repos' : 'Public repos'}</p>
+                  </div>
+                  <div className="min-w-0">
                     <p className="text-base sm:text-2xl font-bold text-green-400 truncate">{stats.busiestMonth}</p>
                     <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Busiest month</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Profile Social Stats */}
+              {profile && (
+                <div className="flex items-center gap-4 sm:gap-6 mt-4 pt-4 border-t border-foreground/5">
+                  <div className="flex items-center gap-1.5">
+                    <Github className="w-3.5 h-3.5 text-muted-foreground" />
+                    <span className="text-[10px] sm:text-xs text-muted-foreground">
+                      <span className="font-semibold text-foreground">{profile.public_repos}</span> public repos
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Star className="w-3.5 h-3.5 text-muted-foreground" />
+                    <span className="text-[10px] sm:text-xs text-muted-foreground">
+                      <span className="font-semibold text-foreground">{profile.followers}</span> followers
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <TrendingUp className="w-3.5 h-3.5 text-muted-foreground" />
+                    <span className="text-[10px] sm:text-xs text-muted-foreground">
+                      <span className="font-semibold text-foreground">{profile.following}</span> following
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              {/* Language Breakdown + Recent Repos */}
+              {repos.length > 0 && (
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mt-6 pt-6 border-t border-foreground/10">
+                  {/* Top Languages */}
+                  {langStats.length > 0 && (
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+                        <TrendingUp className="w-4 h-4 text-green-400" />
+                        Top Languages
+                      </h4>
+                      <div className="space-y-2.5">
+                        {langStats.map(({ lang, count, pct }) => (
+                          <div key={lang}>
+                            <div className="flex items-center justify-between mb-1">
+                              <span className="text-[10px] sm:text-xs text-muted-foreground">{lang}</span>
+                              <span className="text-[10px] sm:text-xs text-muted-foreground font-mono">{pct}%</span>
+                            </div>
+                            <div className="h-1.5 bg-muted/50 rounded-full overflow-hidden">
+                              <motion.div
+                                initial={{ width: 0 }}
+                                whileInView={{ width: `${pct}%` }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 1, delay: 0.2 }}
+                                className="h-full rounded-full"
+                                style={{ backgroundColor: LANG_COLORS[lang] || '#8b8b8b' }}
+                              />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Recent Repositories */}
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+                      <BookOpen className="w-4 h-4 text-green-400" />
+                      Recent Repositories
+                    </h4>
+                    <div className="space-y-2">
+                      {repos.slice(0, 5).map((repo) => (
+                        <a
+                          key={repo.name}
+                          href={repo.html_url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex items-center gap-3 p-2 sm:p-2.5 rounded-lg hover:bg-muted/50 transition-colors group"
+                        >
+                          <GitBranch className="w-3.5 h-3.5 text-green-400/60 shrink-0" />
+                          <div className="min-w-0 flex-1">
+                            <p className="text-[11px] sm:text-xs font-semibold text-foreground truncate group-hover:text-green-400 transition-colors">{repo.name}</p>
+                            {repo.description && (
+                              <p className="text-[9px] sm:text-[10px] text-muted-foreground truncate mt-0.5">{repo.description}</p>
+                            )}
+                          </div>
+                          <div className="flex items-center gap-2 shrink-0">
+                            {repo.language && (
+                              <span className="flex items-center gap-1 text-[9px] sm:text-[10px] text-muted-foreground">
+                                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: LANG_COLORS[repo.language] || '#8b8b8b' }} />
+                                {repo.language}
+                              </span>
+                            )}
+                            {repo.stargazers_count > 0 && (
+                              <span className="flex items-center gap-0.5 text-[9px] sm:text-[10px] text-yellow-500">
+                                <Star className="w-3 h-3" /> {repo.stargazers_count}
+                              </span>
+                            )}
+                          </div>
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
