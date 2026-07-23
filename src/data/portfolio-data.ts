@@ -111,7 +111,7 @@ export const personalProjectsData: PersonalProject[] = [
       getAssetPath("assets/dev-icon/php.png"),
     ],
     link: "",
-    github: "https://github.com/justinem10281996/dms",
+    github: "https://github.com/justinem10281996/DocuManage",
     tiktok: "https://www.tiktok.com/@justinem1996/video/7613367989903084807",
     description: "A comprehensive document management system built for internal company use, designed for organizing, storing, and retrieving files efficiently. Features include file upload and download, folder organization, search functionality, version control, and user permissions. Built with React and integrated with cloud storage APIs for secure file management. Developed as a client project for internal business operations.",
     subimage: [
@@ -379,7 +379,7 @@ export const personalProjectsData: PersonalProject[] = [
     id: 2,
     name: "GadgetPro",
     subtitle: "Store Management System",
-    image: getAssetPath("assets/project-icon/backup.png"),
+    image: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-dashboard-2026-07-23-21_18_40.png"),
     techimage: [
       getAssetPath("assets/dev-icon/html5.png"),
       getAssetPath("assets/dev-icon/css.png"),
@@ -392,9 +392,76 @@ export const personalProjectsData: PersonalProject[] = [
     ],
     link: "",
     github: "https://github.com/justinem10281996/GadgetPro",
-    tiktok: "",
-    description: "A combined inventory and point-of-sale (POS) system built for internal use by a small business (SME). Designed to manage stock levels, track raw materials and supplies, and streamline daily sales transactions in one integrated platform. Features include inventory tracking with stock in/out monitoring, materials management for production or supply use, point-of-sale processing for over-the-counter transactions, and basic reporting for stock and sales activity. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database. Developed as a client project for internal business operations.",
-    subimage: []
+    tiktok: "https://www.tiktok.com/@justinem1996/video/7665734777282071815",
+    description: "A comprehensive store management system built for a retail business, combining inventory tracking, point-of-sale (POS), purchasing, and finance modules in one integrated platform. Features include a real-time dashboard with key metrics, sales and purchase transaction management, master data management for customers, suppliers, products, categories, and units, finance tracking with income and expense categorization, and user role-based access control. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database.",
+    subimage: [
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-dashboard-2026-07-23-21_18_40.png"),
+        title: "Dashboard — Overview",
+        subtitle: "System Overview",
+        description: "Main dashboard displaying real-time store metrics including total sales, purchases, income, expenses, and recent transaction activity."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-sales-2026-07-23-21_19_04.png"),
+        title: "Sales — Transactions",
+        subtitle: "Sales Management",
+        description: "Page for managing sales transactions with filtering by date, status, and payment method. Displays transaction records with totals and actions."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-customers-2026-07-23-21_19_09.png"),
+        title: "Customers — Master Data",
+        subtitle: "Customer Directory",
+        description: "Customer master data management page with search, add, edit, and delete functionality for maintaining customer records."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-purchases-2026-07-23-21_19_15.png"),
+        title: "Purchases — Transactions",
+        subtitle: "Purchase Management",
+        description: "Page for managing purchase transactions from suppliers with filtering options and detailed purchase records."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-suppliers-2026-07-23-21_19_22.png"),
+        title: "Suppliers — Master Data",
+        subtitle: "Supplier Directory",
+        description: "Supplier master data management page for maintaining supplier contact information, payment terms, and product associations."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-products-2026-07-23-21_19_31.png"),
+        title: "Products — Master Data",
+        subtitle: "Product Catalog",
+        description: "Product master data management with details including SKU, category, unit, price, stock levels, and supplier association."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-categories-2026-07-23-21_19_42.png"),
+        title: "Categories — Master Data",
+        subtitle: "Product Categories",
+        description: "Category management page for organizing products into hierarchical groups with descriptions and status control."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-units-2026-07-23-21_19_47.png"),
+        title: "Units — Master Data",
+        subtitle: "Unit of Measurement",
+        description: "Unit of measurement management for standardizing product quantities such as pieces, boxes, kilograms, and liters."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-finance-transactions-2026-07-23-21_19_53.png"),
+        title: "Finance — Transactions",
+        subtitle: "Financial Records",
+        description: "Finance transaction page for tracking income and expenses with filtering by date, category, and payment method."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-finance-categories-2026-07-23-21_20_01.png"),
+        title: "Finance — Categories",
+        subtitle: "Income & Expense Categories",
+        description: "Finance category management for classifying income and expense transactions with descriptions and status control."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-users-2026-07-23-21_20_07.png"),
+        title: "Users — Management",
+        subtitle: "User Accounts",
+        description: "User management page for administering accounts with role-based access control, status activation, and profile management."
+      }
+    ]
   },
   {
     id: 3,
