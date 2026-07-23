@@ -409,7 +409,7 @@ export const personalProjectsData: PersonalProject[] = [
       },
       {
         src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-customers-2026-07-23-21_19_09.png"),
-        title: "Customers — Master Data",
+        title: "Customers",
         subtitle: "Customer Directory",
         description: "Customer master data management page with search, add, edit, and delete functionality for maintaining customer records."
       },
@@ -421,25 +421,25 @@ export const personalProjectsData: PersonalProject[] = [
       },
       {
         src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-suppliers-2026-07-23-21_19_22.png"),
-        title: "Suppliers — Master Data",
+        title: "Suppliers",
         subtitle: "Supplier Directory",
         description: "Supplier master data management page for maintaining supplier contact information, payment terms, and product associations."
       },
       {
         src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-products-2026-07-23-21_19_31.png"),
-        title: "Products — Master Data",
+        title: "Products",
         subtitle: "Product Catalog",
         description: "Product master data management with details including SKU, category, unit, price, stock levels, and supplier association."
       },
       {
         src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-categories-2026-07-23-21_19_42.png"),
-        title: "Categories — Master Data",
+        title: "Categories",
         subtitle: "Product Categories",
         description: "Category management page for organizing products into hierarchical groups with descriptions and status control."
       },
       {
         src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-units-2026-07-23-21_19_47.png"),
-        title: "Units — Master Data",
+        title: "Units",
         subtitle: "Unit of Measurement",
         description: "Unit of measurement management for standardizing product quantities such as pieces, boxes, kilograms, and liters."
       },
