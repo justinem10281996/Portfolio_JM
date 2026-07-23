@@ -1524,7 +1524,7 @@ export const careerData: Career[] = [
     period: "",
     image: getAssetPath("assets/company-icon/freelance.jpg"),
     link: "",
-    description: "• Developed a Document Management System for internal company use, enabling efficient file organization, storage, and retrieval.\n• Built an Inventory POS / Materials Management System for an SME client, combining stock tracking with point-of-sale transaction processing.\n• Designed and implemented inventory tracking and management modules, including stock monitoring, materials handling, and sales reporting.\n• Built full-stack features using modern web technologies for internal business operations.",
+    description: "• Developed a Document Management System for internal company use, enabling efficient file organization, storage, and retrieval.\n• Built an Inventory POS / Store Management System for an SME client, combining stock tracking with point-of-sale transaction processing.\n• Designed and implemented inventory tracking and management modules, including stock monitoring, materials handling, and sales reporting.\n• Built full-stack features using modern web technologies for internal business operations.",
     systemUsage: "Document Management System, Inventory POS / Materials Management System",
     techStack: ["HTML", "CSS", "React", "TypeScript", "Laravel", "PHP", "MySQL", "RESTful APIs", "Git", "GitHub"]
   },
