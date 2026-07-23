@@ -82,7 +82,7 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
     <div ref={ref} className={`reveal-up h-full ${revealed ? 'revealed' : ''}`} style={{ transitionDelay: `${index * 0.1}s` }}>
       <motion.div whileHover={{ y: -4 }} className="pb-4 h-full">
         <Card
-          className="flex flex-col h-full rounded-xl group shadow-[0_4px_20px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_40px_rgb(34,197,94,0.15)] transition-shadow duration-500"
+          className="flex flex-col h-full rounded-xl group shadow-[0_4px_20px_rgb(0,0,0,0.08)] transition-shadow duration-500"
         >
           {/* Image with auto-slide */}
           <div className={`relative h-48 sm:h-56 lg:h-64 rounded-t-xl overflow-hidden bg-gradient-to-br from-green-500/5 to-emerald-500/5 ${hasImg ? 'cursor-pointer' : ''}`} onClick={hasImg ? onViewImages : undefined}>
