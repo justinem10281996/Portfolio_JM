@@ -396,13 +396,19 @@ export const personalProjectsData: PersonalProject[] = [
     description: "A comprehensive store management system built for a retail business, combining inventory tracking, point-of-sale (POS), purchasing, and finance modules in one integrated platform. Features include a real-time dashboard with key metrics, sales and purchase transaction management, master data management for customers, suppliers, products, categories, and units, finance tracking with income and expense categorization, and user role-based access control. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database.",
     subimage: [
       {
-        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-dashboard-2026-07-23-21_18_40.png"),
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-dashboard-2026-07-24-13_38_26.png"),
         title: "Dashboard — Overview",
         subtitle: "System Overview",
         description: "Main dashboard displaying real-time store metrics including total sales, purchases, income, expenses, and recent transaction activity."
       },
       {
-        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-sales-2026-07-23-21_19_04.png"),
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-sales-create-2026-07-24-13_38_40.png"),
+        title: "Sales — POS",
+        subtitle: "Create New Sale",
+        description: "Form for creating new sales transactions with customer selection, product listing, payment method, and total calculation."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-sales-2026-07-24-13_38_54.png"),
         title: "Sales — Transactions",
         subtitle: "Sales Management",
         description: "Page for managing sales transactions with filtering by date, status, and payment method. Displays transaction records with totals and actions."
@@ -414,7 +420,7 @@ export const personalProjectsData: PersonalProject[] = [
         description: "Customer master data management page with search, add, edit, and delete functionality for maintaining customer records."
       },
       {
-        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-purchases-2026-07-23-21_19_15.png"),
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-purchases-2026-07-24-13_39_02.png"),
         title: "Purchases — Transactions",
         subtitle: "Purchase Management",
         description: "Page for managing purchase transactions from suppliers with filtering options and detailed purchase records."
