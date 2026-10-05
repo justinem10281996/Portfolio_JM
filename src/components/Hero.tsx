@@ -19,14 +19,14 @@ export const Hero = () => {
         <img
           src={`${process.env.PUBLIC_URL}/background.jpg`}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover object-[center_50%]scale-100"
+          className="absolute inset-0 w-full h-full object-cover object-[center_50%] scale-100"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-transparent to-background" />
-        <div className="absolute inset-0 bg-gradient-to-l from-background/90 via-background/50 to-transparent" />
+        <div className="absolute inset-0 bg-background/50 lg:bg-gradient-to-l lg:from-background/90 lg:via-background/50 lg:to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 ml-auto w-full max-w-3xl px-6 sm:px-10 lg:pr-16 text-right">
+      <div className="relative z-10 w-full max-w-3xl px-6 sm:px-10 mx-auto lg:ml-auto lg:mr-0 lg:pr-16 text-center lg:text-right">
         {/* Badge */}
         <div ref={r1} className={`reveal-up ${v1 ? 'revealed' : ''}`}>
           <div className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-border bg-background/40 backdrop-blur-sm">
@@ -51,7 +51,7 @@ export const Hero = () => {
           <p className="text-lg sm:text-xl text-foreground mb-3 font-bold">Full Stack Developer</p>
           <StaggerWords
             text="I build web and mobile systems for real businesses, from multi-tenant platforms to payment and hardware integrations. React, TypeScript, Laravel, and MySQL."
-            className="text-sm sm:text-base text-foreground max-w-lg ml-auto mb-10"
+            className="text-sm sm:text-base text-foreground max-w-lg mx-auto lg:ml-auto lg:mr-0 mb-10"
             as="p"
           />
         </div>
@@ -61,14 +61,14 @@ export const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
-          className="mt-16 grid grid-cols-3 gap-8 max-w-sm ml-auto"
+          className="mt-16 grid grid-cols-3 gap-8 max-w-sm mx-auto lg:ml-auto lg:mr-0"
         >
           {[
             { v: 3, suffix: '+', l: 'Years' },
             { v: 10, suffix: '+', l: 'Projects' },
             { v: 18, suffix: '+', l: 'Tech' },
           ].map((s, i) => (
-            <motion.div key={i} whileHover={{ scale: 1.1 }} className="text-right cursor-default">
+            <motion.div key={i} whileHover={{ scale: 1.1 }} className="text-center lg:text-right cursor-default">
               <div className="text-2xl font-bold text-foreground">
                 <AnimatedCounter value={s.v} suffix={s.suffix} />
               </div>
