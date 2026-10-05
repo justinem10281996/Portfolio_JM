@@ -3,6 +3,7 @@ import { useReveal } from '../hooks/useReveal';
 import { Card, CardContent } from './ui/card';
 import { motion } from 'framer-motion';
 import { Code2, Lightbulb, Users, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Section, SectionHeader } from './ui/section';
 
 declare const process: { env: { PUBLIC_URL: string } };
 
@@ -35,18 +36,20 @@ export const About = () => {
   const goNext = () => setCurrentPhoto((prev) => (prev + 1) % photos.length);
 
   return (
-    <section id="about" className="py-16 sm:py-20 lg:py-28 bg-background transition-colors duration-500">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''} mb-10 sm:mb-14`}>
-          <span className="text-green-400 font-mono text-xs tracking-wider uppercase">Get To Know Me</span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-2 sm:mt-3 mb-4 sm:mb-5 text-foreground">About Me</h2>
-        </div>
+    <Section id="about">
+      <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''}`}>
+        <SectionHeader
+          index="01"
+          label="Get To Know Me"
+          title="About Me"
+        />
+      </div>
 
         <div ref={ref2} className={`reveal-up ${revealed2 ? 'revealed' : ''}`}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left - Auto-sliding Photo Carousel */}
             <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-gradient-to-br from-green-500/10 to-emerald-500/5">
+              <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-gradient-to-br from-foreground/10 to-foreground/5">
                 {/* Photo Carousel - CSS transitions */}
                 {photos.map((src, i) => (
                   <img
@@ -83,7 +86,7 @@ export const About = () => {
                       key={i}
                       onClick={() => setCurrentPhoto(i)}
                       className={`h-2 rounded-full transition-all duration-300 ${
-                        i === currentPhoto ? 'bg-green-400 w-6' : 'bg-white/50 hover:bg-white/80 w-2'
+                        i === currentPhoto ? 'bg-foreground w-6' : 'bg-foreground/30 hover:bg-foreground/60 w-2'
                       }`}
                     />
                   ))}
@@ -91,7 +94,7 @@ export const About = () => {
               </div>
 
               {/* Background decoration */}
-              <div className="absolute -top-4 -right-4 w-full h-full rounded-2xl border border-green-500/10 -z-10" />
+              <div className="absolute -top-4 -right-4 w-full h-full rounded-2xl border border-border -z-10" />
             </div>
 
             {/* Right - Content */}
@@ -102,7 +105,7 @@ export const About = () => {
                 </h3>
                 <div className="space-y-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
                   <p>
-                    Hi! I'm <span className="text-green-400 font-medium">Justine M. Hilario</span>, a passionate Full Stack Developer 
+                    Hi! I'm <span className="text-foreground font-medium">Justine M. Hilario</span>, a passionate Full Stack Developer 
                     with over 4 years of experience building web applications that solve real business problems.
                   </p>
                   <p>
@@ -129,8 +132,8 @@ export const About = () => {
                   >
                     <Card className="bg-muted/30 hover:bg-muted/50 transition-colors border-none">
                       <CardContent className="p-3 sm:p-4">
-                        <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center mb-2">
-                          <item.icon className="w-4 h-4 text-green-400" />
+                        <div className="w-8 h-8 rounded-lg bg-foreground/10 flex items-center justify-center mb-2">
+                          <item.icon className="w-4 h-4 text-foreground" />
                         </div>
                         <p className="text-xs sm:text-sm font-medium text-foreground">{item.title}</p>
                         <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">{item.desc}</p>
@@ -142,7 +145,6 @@ export const About = () => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+    </Section>
   );
 };

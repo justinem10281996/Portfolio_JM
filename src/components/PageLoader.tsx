@@ -35,7 +35,7 @@ export const PageLoader = () => {
           transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
           className="relative"
         >
-          <div className="w-20 h-20 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-center justify-center">
+          <div className="w-20 h-20 rounded-2xl bg-foreground/10 border border-border flex items-center justify-center">
             <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -52,14 +52,14 @@ export const PageLoader = () => {
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
             className="absolute inset-0"
           >
-            <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-green-400 rounded-full" />
+            <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-foreground rounded-full" />
           </motion.div>
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
             className="absolute inset-0"
           >
-            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-emerald-400 rounded-full" />
+            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-foreground rounded-full" />
           </motion.div>
         </motion.div>
 
@@ -69,7 +69,7 @@ export const PageLoader = () => {
             initial={{ width: "0%" }}
             animate={{ width: "100%" }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            className="h-full bg-gradient-to-r from-green-500 to-emerald-400 rounded-full"
+            className="h-full bg-foreground rounded-full"
           />
         </div>
 

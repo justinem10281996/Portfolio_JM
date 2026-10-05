@@ -8,7 +8,7 @@ import { Card, CardContent, CardTitle, CardDescription } from './ui/card';
 import { motion } from 'framer-motion';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from './ui/dialog';
-import { StaggerWords } from './ui/StaggerWords';
+import { Section, SectionHeader } from './ui/section';
 
 export const SupportingProjects = () => {
   const { ref, revealed } = useReveal();
@@ -19,17 +19,15 @@ export const SupportingProjects = () => {
   const project = suppotingprojectsData.find(p => p.id === selected);
 
   return (
-    <section id="projects" className="py-16 sm:py-20 lg:py-28 bg-background transition-colors duration-500">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''} mb-10 sm:mb-14`}>
-          <span className="text-green-400 font-mono text-xs tracking-wider uppercase">Collaborative Work</span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-2 sm:mt-3 mb-4 sm:mb-5 text-foreground">Supporting Projects</h2>
-          <StaggerWords
-            text="Projects I've contributed to as part of collaborative teams, working alongside other developers to deliver functional, scalable solutions for real clients and businesses."
-            className="text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed"
-            as="p"
-          />
-        </div>
+    <Section id="supporting-projects">
+      <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''}`}>
+        <SectionHeader
+          index="05"
+          label="Collaborative Work"
+          title="Supporting Projects"
+          description="Projects I've contributed to as part of collaborative teams, working alongside other developers to deliver functional, scalable solutions for real clients and businesses."
+        />
+      </div>
 
         <Carousel opts={{ align: 'start', loop: true }}>
           <CarouselContent className="-ml-2 md:-ml-4">
@@ -52,14 +50,13 @@ export const SupportingProjects = () => {
         </Carousel>
 
         <div className="flex justify-center mt-8">
-          <Badge variant="outline" className="text-xs font-mono border-green-500/20 text-muted-foreground px-3 py-1">
+          <Badge variant="outline" className="text-xs font-mono border-border text-muted-foreground px-3 py-1">
             {suppotingprojectsData.length} Projects
           </Badge>
         </div>
-      </div>
 
       <ProjectDialog project={project} onClose={() => setSelected(null)} />
-    </section>
+    </Section>
   );
 };
 
@@ -83,7 +80,7 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
       <motion.div whileHover={{ y: -4 }} className="pb-4 h-full">
         <Card className="flex flex-col h-full rounded-xl shadow-[0_4px_20px_rgb(0,0,0,0.08)] transition-shadow duration-500">
           {/* Image with auto-slide */}
-          <div className={`relative h-48 sm:h-56 lg:h-64 rounded-t-xl overflow-hidden bg-gradient-to-br from-green-500/5 to-emerald-500/5 ${hasImg ? 'cursor-pointer' : ''}`} onClick={hasImg ? onViewImages : undefined}>
+          <div className={`relative h-48 sm:h-56 lg:h-64 rounded-t-xl overflow-hidden bg-foreground/5 ${hasImg ? 'cursor-pointer' : ''}`} onClick={hasImg ? onViewImages : undefined}>
             {hasImg ? (
               <>
                 {project.subimage.map((img: any, i: number) => (
@@ -104,7 +101,7 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
                 {project.subimage.length > 1 && (
                   <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex gap-1.5">
                     {project.subimage.slice(0, 8).map((_: any, i: number) => (
-                      <div key={i} className={`h-1 rounded-full transition-all duration-300 ${i === currentImg ? 'w-4 bg-green-400' : 'w-1.5 bg-white/50'}`} />
+                      <div key={i} className={`h-1 rounded-full transition-all duration-300 ${i === currentImg ? 'w-4 bg-foreground' : 'w-1.5 bg-white/50'}`} />
                     ))}
                   </div>
                 )}
@@ -118,13 +115,13 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
 
           <CardContent className="flex-1 p-4 sm:p-5 pt-4">
             <CardTitle className="text-foreground mb-1">{project.name}</CardTitle>
-            {project.subtitle && <p className="text-[10px] sm:text-xs text-green-400/60 mb-3">{project.subtitle}</p>}
+            {project.subtitle && <p className="text-[10px] sm:text-xs text-foreground/60 mb-3">{project.subtitle}</p>}
 
             <CardDescription className="mb-3 sm:mb-4">
               {isExpanded ? project.description : truncate(project.description)}
             </CardDescription>
             {project.description.length > 150 && (
-              <button onClick={onToggleExpand} className="text-green-400 text-xs font-semibold mb-3 self-start transition-all duration-300 hover:opacity-80">{isExpanded ? 'See Less' : 'See More'}</button>
+              <button onClick={onToggleExpand} className="text-foreground text-xs font-semibold mb-3 self-start transition-all duration-300 hover:opacity-80">{isExpanded ? 'See Less' : 'See More'}</button>
             )}
 
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-4">
@@ -134,7 +131,7 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
                 </motion.div>
               ))}
               {project.techimage.length > 5 && (
-                <button onClick={onToggleTech} className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-muted/50 flex items-center justify-center text-xs text-muted-foreground hover:text-green-400 hover:bg-green-500/10 transition-all duration-300">
+                <button onClick={onToggleTech} className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-muted/50 flex items-center justify-center text-xs text-muted-foreground hover:text-foreground hover:bg-foreground/10 transition-all duration-300">
                   {showAllTech ? '−' : `+${project.techimage.length - 5}`}
                 </button>
               )}
@@ -178,7 +175,7 @@ function ProjectDialog({ project, onClose }: { project: any; onClose: () => void
             <div className="flex-1 flex items-center justify-center p-3 relative min-h-0 overflow-hidden">
               {!loaded && (
                 <div className="absolute inset-0 flex items-center justify-center bg-muted/20 rounded-lg">
-                  <div className="w-8 h-8 border-2 border-green-400/30 border-t-green-400 rounded-full animate-spin" />
+                  <div className="w-8 h-8 border-2 border-foreground/20 border-t-foreground rounded-full animate-spin" />
                 </div>
               )}
               <img
@@ -193,7 +190,7 @@ function ProjectDialog({ project, onClose }: { project: any; onClose: () => void
               <button onClick={() => goTo(idx - 1)} disabled={idx === 0} className="w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted disabled:opacity-30 flex items-center justify-center transition-all duration-300"><ChevronLeft className="w-4 h-4 text-foreground" /></button>
               <div className="flex gap-1">
                 {project.subimage.slice(0, 12).map((_: any, i: number) => (
-                  <button key={i} onClick={() => goTo(i)} className={`h-1 rounded-full transition-all duration-300 ${i === idx ? 'w-5 bg-green-400' : 'w-2 bg-muted'}`} />
+                  <button key={i} onClick={() => goTo(i)} className={`h-1 rounded-full transition-all duration-300 ${i === idx ? 'w-5 bg-foreground' : 'w-2 bg-muted'}`} />
                 ))}
               </div>
               <button onClick={() => goTo(idx + 1)} disabled={idx === project.subimage.length - 1} className="w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted disabled:opacity-30 flex items-center justify-center transition-all duration-300"><ChevronRight className="w-4 h-4 text-foreground" /></button>
@@ -201,13 +198,13 @@ function ProjectDialog({ project, onClose }: { project: any; onClose: () => void
           </div>
 
           <div className="w-full lg:w-[40%] flex flex-col overflow-y-auto">
-            <div className="p-4 sm:p-6 bg-green-500/5">
-              <span className="text-[10px] text-green-400/50 font-mono">{idx + 1} / {project.subimage.length}</span>
-              <DialogTitle className="text-base sm:text-lg font-bold text-green-400 mt-1">{img?.title || project.name}</DialogTitle>
+            <div className="p-4 sm:p-6 bg-foreground/5">
+              <span className="text-[10px] text-foreground/50 font-mono">{idx + 1} / {project.subimage.length}</span>
+              <DialogTitle className="text-base sm:text-lg font-bold text-foreground mt-1">{img?.title || project.name}</DialogTitle>
               <DialogDescription className="text-xs text-muted-foreground mt-2">{img?.description}</DialogDescription>
             </div>
             <div className="p-4 sm:p-6 flex-1">
-              <Badge className="bg-green-500/10 text-green-400 border-green-500/20 text-[10px] transition-all duration-300">{project.subtitle}</Badge>
+              <Badge className="bg-foreground/10 text-foreground border-border text-[10px] transition-all duration-300">{project.subtitle}</Badge>
               <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-foreground mt-2 mb-2 sm:mb-3">{project.name}</h3>
               <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-3 sm:mb-4">{project.description}</p>
               <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-2">Tech Stack</p>

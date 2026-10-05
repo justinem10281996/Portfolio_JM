@@ -39,6 +39,7 @@ export interface PersonalProject {
   id: number;
   name: string;
   subtitle?: string;
+  status?: string;
   image: string;
   subimage: SubImage[];
   techimage: string[];
@@ -95,6 +96,43 @@ export const technologiesData: Technology[] = [
 ];
 
 export const personalProjectsData: PersonalProject[] = [
+  {
+    id: 6,
+    name: "SMIS",
+    subtitle: "School Management Information System",
+    status: "Featured",
+    image: getAssetPath("assets/project-icon/smis/fullpage_snapshot_127_0_0_1_2026-08-21-02-33-17.jpg"),
+    techimage: [
+      getAssetPath("assets/dev-icon/html5.png"),
+      getAssetPath("assets/dev-icon/css.png"),
+      getAssetPath("assets/dev-icon/react-js.png"),
+      getAssetPath("assets/dev-icon/ts.png"),
+      getAssetPath("assets/dev-icon/shadcn.png"),
+      getAssetPath("assets/dev-icon/laravel.png"),
+      getAssetPath("assets/dev-icon/mysql.png"),
+      getAssetPath("assets/dev-icon/php.png"),
+    ],
+    link: "",
+    github: "https://github.com/cjmasilang/MIS",
+    description: "A multi-tenant, enterprise-grade School Management Information System that digitizes the full academic cycle of an institution. Modules cover student enrollment and admissions, daily attendance with time-in recording, weighted grading components (Written Work, Performance Task, Exam), grade levels, sections, subjects and class scheduling, teacher management, school fees with fee-payment tracking and collection analytics, payroll, library catalog with ISBN/barcode borrow-return tracking, school inventory with low-stock alerts, transport routes, and school-wide or class-wide announcements. Security is built on a role-based access control layer with 200+ granular permissions plus per-user overrides, configurable multi-stage approval workflows with delegation and escalation for admissions, payments, grades and inventory, TOTP two-factor authentication with recovery codes, Google OAuth login, sensitive fields encrypted at rest, and HashID route obfuscation. Also includes a notification center with configurable routing rules and templates, complete audit-trail activity logs, database backup and recovery, report export to PDF, Excel, CSV, TXT, HTML and JSON, and Stripe-backed subscription plans from Starter to Corporate with monthly, quarterly, semi-annual and yearly billing intervals. Built with Laravel 12 and PHP 8.2 on the backend and React 18 with TypeScript on the frontend, bridged by Inertia.js and styled with 40+ shadcn/ui components on Tailwind CSS 4, using Laravel Sanctum and Breeze for auth, Spatie Activity Log, React Query, React Hook Form with Zod validation, TanStack Table, Recharts, jsPDF for exports, and a built-in i18n system supporting 61 languages. This is a personal project I built entirely on my own for the fun of it - not client work and not built for any school or company. Open for collaboration or commission.",
+    subimage: [
+      { src: getAssetPath("assets/project-icon/smis/fullpage_snapshot_127_0_0_1_2026-08-21-02-30-19.jpg"), title: "Landing Page", subtitle: "Public Site", description: "The public-facing marketing page for SMIS presenting the platform's modules, how it works, and calls to action for signing in to an institution's account." },
+      { src: getAssetPath("assets/project-icon/smis/fullpage_snapshot_127_0_0_1_2026-08-21-02-30-42.jpg"), title: "Login", subtitle: "User Authentication", description: "Secure sign-in screen where authorized school staff enter their credentials, with options for Google OAuth login and two-factor challenge." },
+      { src: getAssetPath("assets/project-icon/smis/fullpage_snapshot_127_0_0_1_2026-08-21-02-30-49.jpg"), title: "Forgot Password", subtitle: "Password Recovery", description: "Password recovery page where users submit their registered email address to receive a password reset link and regain account access." },
+      { src: getAssetPath("assets/project-icon/smis/fullpage_snapshot_127_0_0_1_2026-08-21-02-33-17.jpg"), title: "Dashboard", subtitle: "School Overview", description: "Main dashboard presenting real-time school metrics including enrollment totals, attendance trends, revenue figures, and teacher workload with quick-access navigation." },
+      { src: getAssetPath("assets/project-icon/smis/fullpage_snapshot_127_0_0_1_2026-08-21-02-33-33.jpg"), title: "Students", subtitle: "Student Records", description: "Student index listing every enrolled student with their section, grade level, and status, plus search, filters, and bulk activate/deactivate operations." },
+      { src: getAssetPath("assets/project-icon/smis/fullpage_snapshot_127_0_0_1_2026-08-21-02-33-43.jpg"), title: "Teachers", subtitle: "Teacher Management", description: "Teacher management page listing faculty records with department assignment and employee credentials, supporting add, edit, and view-detail actions." },
+      { src: getAssetPath("assets/project-icon/smis/fullpage_snapshot_127_0_0_1_2026-08-21-02-33-53.jpg"), title: "Sections", subtitle: "Section Management", description: "Section index grouping students by grade level with adviser assignment, capacity, and subject load management per section." },
+      { src: getAssetPath("assets/project-icon/smis/fullpage_snapshot_127_0_0_1_2026-08-21-02-34-01.jpg"), title: "Attendance", subtitle: "Daily Attendance", description: "Attendance tracking page recording daily time-in per section and per student, with date filtering and options to add, correct, or review attendance records." },
+      { src: getAssetPath("assets/project-icon/smis/fullpage_snapshot_127_0_0_1_2026-08-21-02-34-12.jpg"), title: "Grading", subtitle: "Weighted Components", description: "Grading module computing student grades from weighted components (Written Work, Performance Task, Exam) per subject with per-student and per-section views." },
+      { src: getAssetPath("assets/project-icon/smis/fullpage_snapshot_127_0_0_1_2026-08-21-02-45-00.jpg"), title: "Grade Levels", subtitle: "Curriculum Setup", description: "Grade level configuration page defining the academic laddering used to organize sections, subjects, and fee structures across the school year." },
+      { src: getAssetPath("assets/project-icon/smis/fullpage_snapshot_127_0_0_1_2026-08-21-02-45-09.jpg"), title: "Subjects", subtitle: "Subject Catalog", description: "Subject catalog listing all subjects offered by the institution with the grade levels and sections they are assigned to." },
+      { src: getAssetPath("assets/project-icon/smis/fullpage_snapshot_127_0_0_1_2026-08-21-02-46-20.jpg"), title: "Scheduling", subtitle: "Class Schedules", description: "Class scheduling page mapping subjects to sections and teachers across the week, with conflict-aware schedule management." },
+      { src: getAssetPath("assets/project-icon/smis/fullpage_snapshot_127_0_0_1_2026-08-21-02-46-33.jpg"), title: "Finance", subtitle: "Fees & Collections", description: "Finance module setting school fees per grade level and tracking fee payments, with collection analytics summarizing receipts over time." },
+      { src: getAssetPath("assets/project-icon/smis/fullpage_snapshot_127_0_0_1_2026-08-21-02-46-44.jpg"), title: "Library", subtitle: "Book Catalog", description: "Library management page cataloging books by ISBN and barcode with borrow and return tracking for each registered copy." },
+      { src: getAssetPath("assets/project-icon/smis/fullpage_snapshot_127_0_0_1_2026-08-21-02-46-59.jpg"), title: "Announcements", subtitle: "School Communications", description: "Announcements page for school-wide and class-wide notices with scheduling controls so messages are published to the intended audience only." },
+    ],
+  },
   {
     id: 1,
     name: "DocuManage",
@@ -1431,6 +1469,48 @@ export const personalProjectsData: PersonalProject[] = [
       { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-settings-2026-06-18-15_01_58.png"), title: "Settings", subtitle: "Account Settings", description: "General settings page for updating account information, notification preferences, and configuring profile details." },
       { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-settings-2026-06-18-15_02_05.png"), title: "Settings — Notifications", subtitle: "Alert Preferences", description: "Notification settings panel for configuring email alerts, billing reminders, and subscription renewal notifications." },
       { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-settings-2026-06-18-15_02_22.png"), title: "Settings — Profile", subtitle: "Personal Information", description: "Profile settings page for managing personal information, contact details, and account security preferences." },
+    ],
+  },
+  {
+    id: 7,
+    name: "Buwaya 360",
+    subtitle: "Construction Project Management System",
+    image: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-24-01.jpg"),
+    techimage: [
+      getAssetPath("assets/dev-icon/ts.png"),
+      getAssetPath("assets/dev-icon/react-js.png"),
+      getAssetPath("assets/dev-icon/node-js.png"),
+      getAssetPath("assets/dev-icon/php.png"),
+      getAssetPath("assets/dev-icon/laravel.png"),
+      getAssetPath("assets/dev-icon/mysql.png"),
+      getAssetPath("assets/dev-icon/git.png"),
+    ],
+    link: "",
+    github: "https://github.com/justinem10281996/BUWAYA_360",
+    description: "A construction project management system built as a mobile-first app with a responsive web build, running on a Laravel 12 REST API and an Expo (React Native) client. Projects are tracked end to end with phases and milestones, material requests, involved people and stakeholders, approvers and sign-off decisions, links and sources, cover photography, and geotagged project locations on an interactive map. Financials are covered by budget modules with line items, budget adjustments, live budget tracking and a cost breakdown view, plus tax collections with per-project tax insights and charts. Administration includes departments, users, roles and granular permissions, and a reference data module with archive, trash, restore, and purge lifecycle actions. The system also ships configurable announcements, a notification center with per-user preferences, a complete activity log audit trail, global search, and a reports module with interactive charts and PDF and Excel export. Engagement features include threaded comments with reactions and pinning, image and file attachments that themselves support comments and reactions, and per-record privacy controls. Security includes email OTP verification, avatar and profile management, and account security settings. Frontend built with TypeScript and Expo Router, NativeWind and Tailwind CSS 4 styling, React Native Maps for locations, jsPDF and XLSX for exports, and bundled as both iOS and Android apps. This is a personal project I built entirely on my own for the fun of it - not client work and not built for a company. Open for collaboration or commission.",
+    subimage: [
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-24-01.jpg"), title: "Dashboard", subtitle: "Portfolio Overview", description: "Main dashboard surfacing portfolio statistics, top departments by activity, recent projects, and a configurable hero carousel of featured project imagery." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-25-21.jpg"), title: "Dashboard — Mobile", subtitle: "Responsive Layout", description: "The same dashboard rendered at mobile width, showing how the responsive web build collapses into a single-column, thumb-friendly layout." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-25-46.jpg"), title: "Announcements", subtitle: "Company Notices", description: "Announcements feed for company-wide notices with pinned items, categories, cover images, and scheduled publishing dates." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-26-02.jpg"), title: "Taxes", subtitle: "Tax Collections", description: "Tax module registering tax types and tracking collections per project, with amounts, regions, and period-over-period totals." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-26-15.jpg"), title: "Budgets", subtitle: "Budget Management", description: "Budget index listing every budget with allocation, spent amounts, and status, expandable into line items and adjustment history." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-26-29.jpg"), title: "Projects", subtitle: "Project Registry", description: "Project registry listing all construction projects with cover images, department or agency assignment, status, and budget value, filterable by budget range." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-27-03.jpg"), title: "Projects — Mobile", subtitle: "Responsive Layout", description: "The project registry at mobile width, showing the responsive card layout and bottom tab navigation used on smaller screens." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-27-27.jpg"), title: "Project — Details", subtitle: "Record View", description: "Project detail view presenting the full record with cover photo and information card, plus edit and delete actions gated by permission." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-27-36.jpg"), title: "Project — People & Links", subtitle: "Tracking Tab", description: "Tracking tab listing approvers, involved people such as contractors and owners, project links and sources, phases, and materials." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-28-00.jpg"), title: "Project — Tax Insights", subtitle: "Tax Breakdown", description: "Tax insights tab visualizing how much tax a project generated across tax types and periods using interactive charts." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-28-10.jpg"), title: "Project — Where It Goes", subtitle: "Budget Breakdown", description: "Cost breakdown tab allocating the project budget across line items so the team can see where the allocation actually goes." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-28-52.jpg"), title: "Project — Comments", subtitle: "Team Discussion", description: "Threaded discussion attached to the project record, supporting comments with reactions, pinning, and image or file attachments." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-29-21.jpg"), title: "Reference Data", subtitle: "Lookup Management", description: "Reference data module for maintaining lookup lists used across projects, with archive, trash, restore, replace, and purge lifecycle actions." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-29-32.jpg"), title: "Reports", subtitle: "Report Builder", description: "Reports overview listing the available report definitions and letting users pick a date range before generating a report." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-29-47.jpg"), title: "Reports — Charts", subtitle: "Visual Analytics", description: "Generated report rendered as interactive charts, exportable to PDF or Excel for stakeholder presentations." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-30-03.jpg"), title: "Users", subtitle: "User Management", description: "System users index listing accounts with their department, roles, and active status, with search and filtering." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-30-18.jpg"), title: "Users — Create & Edit", subtitle: "User Form", description: "User form for creating a new account or editing an existing one, including contact details, department assignment, and role selection." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-30-26.jpg"), title: "Users — Profile", subtitle: "User Record", description: "Individual user record view showing profile details, role assignments, and the account's activity timeline." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-30-38.jpg"), title: "Permissions", subtitle: "Access Control", description: "Permission matrix assigning granular capabilities per role so access to each module can be controlled independently." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-30-47.jpg"), title: "Permissions — Roles", subtitle: "Role Management", description: "Role management view for creating and editing roles, then attaching permission sets to each role." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-30-59.jpg"), title: "Profile", subtitle: "Account Settings", description: "Personal profile page for updating avatar, display name, and contact number, with email and password changes handled separately." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-31-08.jpg"), title: "Settings", subtitle: "Security & Preferences", description: "Settings area covering account security including email OTP verification and notification preferences per user." },
     ],
   }
 ];

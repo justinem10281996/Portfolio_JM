@@ -53,9 +53,9 @@ export const Navbar = () => {
 
   const links = [
     { label: 'About', href: '#about' },
-    { label: 'Overview', href: '#overview' },
-    { label: 'Projects', href: '#personal-projects' },
-    { label: 'Experience', href: '#career' },
+    { label: 'Stack', href: '#technologies' },
+    { label: 'Work', href: '#personal-projects' },
+    { label: 'Career', href: '#career' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -77,9 +77,9 @@ export const Navbar = () => {
 
         <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           {links.map(l => (
-            <a key={l.label} href={l.href} className="text-xs sm:text-sm text-muted-foreground hover:text-green-400 transition-all duration-300 relative group">
+            <a key={l.label} href={l.href} className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-all duration-300 relative group">
               {l.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-green-400 transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </nav>
@@ -94,7 +94,7 @@ export const Navbar = () => {
             aria-label="Toggle dark mode"
             className="flex w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted items-center justify-center transition-all duration-300 hover:scale-110"
           >
-            {darkMode ? <Sun className="w-4 h-4 text-yellow-400" /> : <Moon className="w-4 h-4" />}
+            {darkMode ? <Sun className="w-4 h-4 text-foreground" /> : <Moon className="w-4 h-4" />}
           </button>
 
           <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted flex items-center justify-center transition-all">
@@ -112,7 +112,7 @@ export const Navbar = () => {
           >
             <div className="px-4 py-4 flex flex-col gap-1">
               {links.map(l => (
-                <a key={l.label} href={l.href} onClick={() => setMenuOpen(false)} className="text-sm py-3 px-3 text-muted-foreground hover:text-green-400 hover:bg-muted/50 rounded-lg transition-all">
+                <a key={l.label} href={l.href} onClick={() => setMenuOpen(false)} className="text-sm py-3 px-3 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all">
                   {l.label}
                 </a>
               ))}

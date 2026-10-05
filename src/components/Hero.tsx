@@ -21,24 +21,20 @@ export const Hero = () => {
           alt=""
           className="absolute inset-0 w-full h-full object-cover object-[center_65%]"
         />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black" />
+        <div className="absolute inset-0 bg-background/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background" />
       </div>
 
-      {/* Green accent glow */}
-      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-green-500/8 rounded-full blur-[120px] pointer-events-none" />
-
-      {/* Content */}
+{/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
         {/* Badge */}
         <div ref={r1} className={`reveal-up ${v1 ? 'revealed' : ''}`}>
-          <div className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-green-500/20 bg-green-500/5 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-border bg-background/40 backdrop-blur-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-foreground animate-pulse" />
             <TextScramble
               text="Available for work"
               speed={80}
-              className="text-green-400 font-mono text-xs tracking-wider"
+              className="text-foreground font-mono text-xs tracking-wider"
             />
           </div>
         </div>
@@ -46,17 +42,17 @@ export const Hero = () => {
         {/* Name */}
         <div ref={r2} className={`reveal-blur ${v2 ? 'revealed' : ''}`} style={{ transitionDelay: '0.1s' }}>
           <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-[0.85] tracking-tighter mb-6">
-            <span className="block text-white">Justine</span>
-            <span className="block text-shimmer">M. Hilario</span>
+            <span className="block text-foreground">Justine</span>
+            <span className="block text-foreground">M. Hilario</span>
           </h1>
         </div>
 
         {/* Role + Desc */}
         <div ref={r3} className={`reveal-up ${v3 ? 'revealed' : ''}`} style={{ transitionDelay: '0.2s' }}>
-          <p className="text-lg sm:text-xl text-white/70 mb-3 font-light">Full Stack Developer</p>
+          <p className="text-lg sm:text-xl text-foreground mb-3 font-light">Full Stack Developer</p>
           <StaggerWords
             text="Building modern, scalable web applications with clean code, thoughtful architecture, and innovative solutions tailored to real business needs."
-            className="text-sm sm:text-base text-white/50 max-w-lg mx-auto mb-10"
+            className="text-sm sm:text-base text-muted-foreground max-w-lg mx-auto mb-10"
             as="p"
           />
         </div>
@@ -74,10 +70,10 @@ export const Hero = () => {
             { v: 13, suffix: '+', l: 'Tech' },
           ].map((s, i) => (
             <motion.div key={i} whileHover={{ scale: 1.1 }} className="text-center cursor-default">
-              <div className="text-2xl font-bold text-shimmer">
+              <div className="text-2xl font-bold text-foreground">
                 <AnimatedCounter value={s.v} suffix={s.suffix} />
               </div>
-              <div className="text-xs text-white/30 mt-1">{s.l}</div>
+              <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -90,13 +86,13 @@ export const Hero = () => {
         transition={{ delay: 1 }}
         className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] text-white/20 font-mono tracking-widest">SCROLL</span>
+        <span className="text-[10px] text-muted-foreground font-mono tracking-widest">SCROLL</span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-5 h-8 border border-white/15 rounded-full flex justify-center p-1.5"
+          className="w-5 h-8 border border-border rounded-full flex justify-center p-1.5"
         >
-          <ChevronDown className="w-3 h-3 text-green-400" />
+          <ChevronDown className="w-3 h-3 text-muted-foreground" />
         </motion.div>
       </motion.div>
     </section>

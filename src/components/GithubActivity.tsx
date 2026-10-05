@@ -3,6 +3,7 @@ import { Github, GitBranch, Star, BookOpen, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useReveal } from '../hooks/useReveal';
 import { Card, CardContent } from './ui/card';
+import { Section, SectionHeader } from './ui/section';
 
 const GITHUB_USERNAME = 'justinem10281996';
 
@@ -41,25 +42,29 @@ const CELL_GAP = 3;
 const STEP_MOBILE = CELL_SIZE.mobile + CELL_GAP;
 const STEP_DESKTOP = CELL_SIZE.desktop + CELL_GAP;
 
-const LANG_COLORS: Record<string, string> = {
-  JavaScript: '#f1e05a',
-  TypeScript: '#3178c6',
-  HTML: '#e34c26',
-  CSS: '#563d7c',
-  PHP: '#4F5D95',
-  Python: '#3572A5',
-  Java: '#b07219',
-  'C++': '#f34b7d',
-  Ruby: '#701516',
-  Go: '#00ADD8',
-  Rust: '#dea584',
-  Swift: '#F05138',
-  Kotlin: '#A97BFF',
-  Dart: '#00B4AB',
-  Shell: '#89e051',
-  Vue: '#41b883',
-  Svelte: '#ff3e00',
-};
+const LANG_SHADES = [0, 20, 35, 50, 65, 80, 90];
+
+const LANG_COLORS: Record<string, string> = Object.fromEntries(
+  Object.keys({
+    JavaScript: 1,
+    TypeScript: 1,
+    HTML: 1,
+    CSS: 1,
+    PHP: 1,
+    Python: 1,
+    Java: 1,
+    'C++': 1,
+    Ruby: 1,
+    Go: 1,
+    Rust: 1,
+    Swift: 1,
+    Kotlin: 1,
+    Dart: 1,
+    Shell: 1,
+    Vue: 1,
+    Svelte: 1,
+  }).map((lang, i) => [lang, `hsl(var(--foreground) / ${LANG_SHADES[i % LANG_SHADES.length] / 100})`])
+);
 
 function buildFallbackYear(): DayCell[] {
   const today = new Date();
@@ -97,10 +102,10 @@ function chunkIntoWeeks(days: DayCell[]): DayCell[][] {
 
 const levelColor: Record<DayCell['level'], string> = {
   0: 'bg-foreground/[0.06]',
-  1: 'bg-green-900/60',
-  2: 'bg-green-700/70',
-  3: 'bg-green-500/80',
-  4: 'bg-green-400',
+  1: 'bg-foreground/20',
+  2: 'bg-foreground/45',
+  3: 'bg-foreground/80',
+  4: 'bg-foreground',
 };
 
 function useIsMobile(breakpoint = 640) {
@@ -265,18 +270,15 @@ export const GithubActivity = () => {
   }, [weeks]);
 
   return (
-    <section id="activity" className="py-12 sm:py-20 lg:py-28 bg-background transition-colors duration-500">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''} mb-8 sm:mb-14`}>
-          <span className="text-green-400 font-mono text-xs tracking-wider uppercase">Consistency</span>
-          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-2 sm:mt-3 mb-3 sm:mb-5 text-foreground">
-            GitHub Activity
-          </h2>
-          <p className="text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed">
-            A live snapshot of how often I ship code — pulled straight from my GitHub, updated automatically
-            every time someone visits this page. Every square below is a real day, not a mockup.
-          </p>
-        </div>
+    <Section id="activity">
+      <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''}`}>
+        <SectionHeader
+          index="06"
+          label="Consistency"
+          title="GitHub Activity"
+          description="A live snapshot of how often I ship code — pulled straight from my GitHub, updated automatically every time someone visits this page. Every square below is a real day, not a mockup."
+        />
+      </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -288,7 +290,7 @@ export const GithubActivity = () => {
             <CardContent className="p-4 sm:p-6 lg:p-8">
               <div className="flex items-center justify-between flex-wrap gap-2 sm:gap-3 mb-5 sm:mb-6">
                 <div className="flex items-center gap-2 min-w-0">
-                  <Github className="w-4 h-4 text-green-400 shrink-0" />
+                  <Github className="w-4 h-4 text-foreground shrink-0" />
                   <span className="text-xs sm:text-base font-semibold text-foreground truncate">
                     {total !== null ? `${total} contributions in the last year` : 'Loading contributions…'}
                   </span>
@@ -297,7 +299,7 @@ export const GithubActivity = () => {
                   href={`https://github.com/${GITHUB_USERNAME}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-[11px] sm:text-xs font-mono text-green-400 hover:text-green-300 transition-colors shrink-0"
+                  className="text-[11px] sm:text-xs font-mono text-foreground hover:text-foreground transition-colors shrink-0"
                 >
                   @{GITHUB_USERNAME}
                 </a>
@@ -332,7 +334,7 @@ export const GithubActivity = () => {
                                 onMouseEnter={() => day.date && setHovered(day)}
                                 onMouseLeave={() => setHovered(null)}
                                 onTouchStart={() => day.date && setHovered(day)}
-                                className={`w-[9px] h-[9px] sm:w-[13px] sm:h-[13px] rounded-[2px] ${day.date ? levelColor[day.level] : 'bg-transparent'} ${day.date ? 'hover:ring-1 hover:ring-green-400 cursor-pointer' : ''} transition-all duration-150`}
+                                className={`w-[9px] h-[9px] sm:w-[13px] sm:h-[13px] rounded-[2px] ${day.date ? levelColor[day.level] : 'bg-transparent'} ${day.date ? 'hover:ring-1 hover:ring-foreground cursor-pointer' : ''} transition-all duration-150`}
                               />
                             ))}
                           </div>
@@ -361,27 +363,27 @@ export const GithubActivity = () => {
               {days && stats && (
                 <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 sm:gap-4 mt-6 pt-6 border-t border-foreground/10">
                   <div className="min-w-0">
-                    <p className="text-base sm:text-2xl font-bold text-green-400">{stats.activeDays}</p>
+                    <p className="text-base sm:text-2xl font-bold text-foreground">{stats.activeDays}</p>
                     <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Active days</p>
                   </div>
                   <div className="min-w-0">
-                    <p className="text-base sm:text-2xl font-bold text-green-400">{stats.longest}</p>
+                    <p className="text-base sm:text-2xl font-bold text-foreground">{stats.longest}</p>
                     <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Longest streak</p>
                   </div>
                   <div className="min-w-0">
-                    <p className="text-base sm:text-2xl font-bold text-green-400">{stats.current}</p>
+                    <p className="text-base sm:text-2xl font-bold text-foreground">{stats.current}</p>
                     <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Current streak</p>
                   </div>
                   <div className="min-w-0">
-                    <p className="text-base sm:text-2xl font-bold text-green-400">{stats.totalCommits}</p>
+                    <p className="text-base sm:text-2xl font-bold text-foreground">{stats.totalCommits}</p>
                     <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Total commits</p>
                   </div>
                   <div className="min-w-0">
-                    <p className="text-base sm:text-2xl font-bold text-green-400">{repoCount || profile?.public_repos || 0}</p>
+                    <p className="text-base sm:text-2xl font-bold text-foreground">{repoCount || profile?.public_repos || 0}</p>
                     <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">{hasToken ? 'Total repos' : 'Public repos'}</p>
                   </div>
                   <div className="min-w-0">
-                    <p className="text-base sm:text-2xl font-bold text-green-400 truncate">{stats.busiestMonth}</p>
+                    <p className="text-base sm:text-2xl font-bold text-foreground truncate">{stats.busiestMonth}</p>
                     <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Busiest month</p>
                   </div>
                 </div>
@@ -418,7 +420,7 @@ export const GithubActivity = () => {
                   {langStats.length > 0 && (
                     <div>
                       <h4 className="text-xs sm:text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-                        <TrendingUp className="w-4 h-4 text-green-400" />
+                        <TrendingUp className="w-4 h-4 text-foreground" />
                         Top Languages
                       </h4>
                       <div className="space-y-2.5">
@@ -435,7 +437,7 @@ export const GithubActivity = () => {
                                 viewport={{ once: true }}
                                 transition={{ duration: 1, delay: 0.2 }}
                                 className="h-full rounded-full"
-                                style={{ backgroundColor: LANG_COLORS[lang] || '#8b8b8b' }}
+                                style={{ backgroundColor: LANG_COLORS[lang] || 'hsl(var(--foreground) / 0.4)' }}
                               />
                             </div>
                           </div>
@@ -447,7 +449,7 @@ export const GithubActivity = () => {
                   {/* Recent Repositories */}
                   <div>
                     <h4 className="text-xs sm:text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-                      <BookOpen className="w-4 h-4 text-green-400" />
+                      <BookOpen className="w-4 h-4 text-foreground" />
                       Recent Repositories
                     </h4>
                     <div className="space-y-2">
@@ -459,9 +461,9 @@ export const GithubActivity = () => {
                           rel="noreferrer"
                           className="flex items-center gap-3 p-2 sm:p-2.5 rounded-lg hover:bg-muted/50 transition-colors group"
                         >
-                          <GitBranch className="w-3.5 h-3.5 text-green-400/60 shrink-0" />
+                          <GitBranch className="w-3.5 h-3.5 text-foreground/60 shrink-0" />
                           <div className="min-w-0 flex-1">
-                            <p className="text-[11px] sm:text-xs font-semibold text-foreground truncate group-hover:text-green-400 transition-colors">{repo.name}</p>
+                            <p className="text-[11px] sm:text-xs font-semibold text-foreground truncate group-hover:text-foreground transition-colors">{repo.name}</p>
                             {repo.description && (
                               <p className="text-[9px] sm:text-[10px] text-muted-foreground truncate mt-0.5">{repo.description}</p>
                             )}
@@ -469,12 +471,12 @@ export const GithubActivity = () => {
                           <div className="flex items-center gap-2 shrink-0">
                             {repo.language && (
                               <span className="flex items-center gap-1 text-[9px] sm:text-[10px] text-muted-foreground">
-                                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: LANG_COLORS[repo.language] || '#8b8b8b' }} />
+                                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: LANG_COLORS[repo.language] || 'hsl(var(--foreground) / 0.4)' }} />
                                 {repo.language}
                               </span>
                             )}
                             {repo.stargazers_count > 0 && (
-                              <span className="flex items-center gap-0.5 text-[9px] sm:text-[10px] text-yellow-500">
+                              <span className="flex items-center gap-0.5 text-[9px] sm:text-[10px] text-foreground">
                                 <Star className="w-3 h-3" /> {repo.stargazers_count}
                               </span>
                             )}
@@ -496,7 +498,6 @@ export const GithubActivity = () => {
             </CardContent>
           </Card>
         </motion.div>
-      </div>
-    </section>
+    </Section>
   );
 };
