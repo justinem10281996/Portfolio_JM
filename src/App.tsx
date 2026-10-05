@@ -31,14 +31,14 @@ function App() {
         {/* 03 — Technologies */}
         <Technologies />
 
-        {/* 04 — Personal Projects */}
+        {/* 04 — GitHub Activity */}
+        <GithubActivity />
+
+        {/* 05 — Personal Projects */}
         <PersonalProjects />
 
-        {/* 05 — Supporting Projects */}
+        {/* 06 — Supporting Projects */}
         <SupportingProjects />
-
-        {/* 06 — GitHub Activity */}
-        <GithubActivity />
 
         {/* 07 — Career */}
         <Career />

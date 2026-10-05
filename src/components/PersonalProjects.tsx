@@ -22,7 +22,7 @@ export const PersonalProjects = () => {
     <Section id="personal-projects">
       <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''}`}>
         <SectionHeader
-          index="04"
+          index="05"
           label="My Work"
           title="Personal Projects"
           description="Projects I've built independently to explore new technologies, sharpen my skills, and solve real-world problems - from inventory systems to biometric attendance platforms and payment gateway integrations."
