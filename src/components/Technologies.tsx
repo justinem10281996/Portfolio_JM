@@ -46,7 +46,7 @@ function TechCard({ tech, index, hovered, onHover }: { tech: typeof technologies
       >
         <Card className={`flex flex-col items-center gap-1.5 sm:gap-2 p-3 sm:p-4 lg:p-5 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] ${isH ? 'bg-foreground/10' : ''}`}>
           <div className="w-8 h-8 sm:w-10 sm:h-10 group-hover:animate-bounce">
-            <img src={tech.image} alt={tech.name} className="w-full h-full object-contain" loading="lazy" onError={e => { (e.target as HTMLImageElement).src = `https://via.placeholder.com/40?text=${tech.name[0]}`; }} />
+            <img src={tech.image} alt={tech.name} className="w-full h-full object-contain grayscale" loading="lazy" onError={e => { (e.target as HTMLImageElement).src = `https://via.placeholder.com/40?text=${tech.name[0]}`; }} />
           </div>
           <span className="text-[10px] sm:text-xs font-medium text-muted-foreground text-center leading-tight group-hover:text-foreground transition-colors">{tech.name}</span>
 

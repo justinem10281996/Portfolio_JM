@@ -153,7 +153,7 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-4">
               {techs.map((t: string, i: number) => (
                 <motion.div key={i} className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-muted/50 p-0.5 sm:p-1">
-                  <img src={t} alt="" className="w-full h-full object-contain" loading="lazy" onError={e => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/32?text=T'; }} />
+                  <img src={t} alt="" className="w-full h-full object-contain grayscale" loading="lazy" onError={e => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/32?text=T'; }} />
                 </motion.div>
               ))}
               {project.techimage.length > 5 && (
@@ -256,7 +256,7 @@ function ProjectDialog({ project, onClose }: { project: any; onClose: () => void
               <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {project.techimage.map((t: string, i: number) => (
                   <div key={i} className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-muted/50 p-0.5 sm:p-1">
-                    <img src={t} alt="" className="w-full h-full object-contain" loading="lazy" />
+                    <img src={t} alt="" className="w-full h-full object-contain grayscale" loading="lazy" />
                   </div>
                 ))}
               </div>
