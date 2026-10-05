@@ -32,9 +32,9 @@ export const PersonalProjects = () => {
       </div>
 
         <Carousel opts={{ align: 'start', loop: true }}>
-          <CarouselContent className="-ml-2 md:-ml-4">
-            {personalProjectsData.map((p, i) => (
-              <CarouselItem key={p.id} className="pl-2 md:pl-4 basis-full sm:basis-3/4 lg:basis-1/2 h-full">
+<CarouselContent className="ml-4 md:ml-4 py-6 pl-2 pr-2 md:pl-4 md:pr-4">
+              {personalProjectsData.map((p, i) => (
+                <CarouselItem key={p.id} className="px-2 basis-full sm:basis-3/4 lg:basis-1/2 h-full">
                 <ProjectCard
                   project={p}
                   index={i}
@@ -71,7 +71,7 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
 
   return (
     <div ref={ref} className={`reveal-up h-full ${revealed ? 'revealed' : ''}`} style={{ transitionDelay: `${index * 0.1}s` }}>
-      <motion.div whileHover={{ y: -4 }} className="pb-4 h-full">
+      <motion.div className="pb-4 h-full">
         <Card
           className="flex flex-col h-full rounded-xl group shadow-[0_4px_20px_rgb(0,0,0,0.08)] transition-shadow duration-500"
         >
@@ -152,7 +152,7 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
 
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-4">
               {techs.map((t: string, i: number) => (
-                <motion.div key={i} whileHover={{ scale: 1.15 }} className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-muted/50 p-0.5 sm:p-1">
+                <motion.div key={i} className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-muted/50 p-0.5 sm:p-1">
                   <img src={t} alt="" className="w-full h-full object-contain" loading="lazy" onError={e => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/32?text=T'; }} />
                 </motion.div>
               ))}

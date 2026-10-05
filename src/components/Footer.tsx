@@ -2,8 +2,7 @@ import { useReveal } from '../hooks/useReveal';
 import { footerData } from '../data/portfolio-data';
 import { Mail, Facebook, Github, Linkedin, FileText, ArrowUp, type LucideProps } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
-import { motion } from 'framer-motion';
-import { useMagneticButton } from '../hooks/useMagneticButton';
+
 import { Tooltip } from './ui/tooltip';
 
 const TikTokIcon = (props: LucideProps) => (
@@ -16,7 +15,6 @@ const icons: Record<string, React.ComponentType<any>> = { Gmail: Mail, Facebook,
 
 export const Footer = () => {
   const { ref, revealed } = useReveal();
-  const socialRef = useMagneticButton(0.2);
 
   return (
     <footer id="contact" className="py-12 sm:py-16 lg:py-20 bg-background transition-colors duration-500">
@@ -33,21 +31,20 @@ export const Footer = () => {
                   <p className="text-xs sm:text-sm text-muted-foreground max-w-sm">Open to new opportunities and collaborations.</p>
                 </div>
 
-                <div className="flex gap-2 flex-wrap" ref={socialRef}>
+                <div className="flex gap-2 flex-wrap">
                   {footerData.map((s) => {
                     const Icon = icons[s.name] || Mail;
                     return (
                       <Tooltip key={s.id} label={s.name} side="top">
-                        <motion.a
+                        <a
                           href={s.link}
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={s.name}
-                          whileHover={{ y: -3, scale: 1.05 }}
-                          className="magnetic-btn w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-muted/50 hover:bg-foreground/10 flex items-center justify-center transition-all"
+                          className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-muted/50 hover:bg-foreground/10 flex items-center justify-center"
                         >
-                          <Icon className="w-4 h-4 text-muted-foreground group-hover/tt:text-foreground transition-colors" />
-                        </motion.a>
+                          <Icon className="w-4 h-4 text-muted-foreground group-hover/tt:text-foreground" />
+                        </a>
                       </Tooltip>
                     );
                   })}
@@ -64,14 +61,13 @@ export const Footer = () => {
               <span>&</span>
               <span className="text-foreground">TypeScript</span>
               <Tooltip label="Back to top" side="top">
-                <motion.button
+                <button
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                  whileHover={{ scale: 1.1, y: -2 }}
                   aria-label="Back to top"
-                  className="ml-3 w-7 h-7 rounded-lg bg-muted/50 hover:bg-foreground/10 flex items-center justify-center transition-all"
+                  className="ml-3 w-7 h-7 rounded-lg bg-muted/50 hover:bg-foreground/10 flex items-center justify-center"
                 >
-                  <ArrowUp className="w-3.5 h-3.5 text-muted-foreground group-hover/tt:text-foreground transition-colors duration-300" />
-                </motion.button>
+                  <ArrowUp className="w-3.5 h-3.5 text-muted-foreground group-hover/tt:text-foreground" />
+                </button>
               </Tooltip>
             </div>
           </div>

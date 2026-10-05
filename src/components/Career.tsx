@@ -1,34 +1,78 @@
+import { useEffect, useState, useCallback } from 'react';
 import { useReveal } from '../hooks/useReveal';
 import { careerData } from '../data/portfolio-data';
 import { Calendar, ExternalLink } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Card, CardContent } from './ui/card';
-import { motion } from 'framer-motion';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
+import type { CarouselApi } from './ui/carousel';
 import { Section, SectionHeader } from './ui/section';
+
+const AUTO_SLIDE_MS = 5000;
 
 export const Career = () => {
   const { ref, revealed } = useReveal();
+  const [api, setApi] = useState<CarouselApi>();
+  const [selected, setSelected] = useState(0);
+  const [snaps, setSnaps] = useState<number[]>([]);
+  const [paused, setPaused] = useState(false);
+
+  const onSelect = useCallback((e: CarouselApi) => {
+    if (!e) return;
+    setSnaps(e.scrollSnapList());
+    setSelected(e.selectedScrollSnap());
+  }, []);
+
+  useEffect(() => {
+    if (!api) return;
+    onSelect(api);
+    api.on('select', onSelect);
+    api.on('reInit', onSelect);
+    return () => {
+      api.off('select', onSelect);
+      api.off('reInit', onSelect);
+    };
+  }, [api, onSelect]);
+
+  useEffect(() => {
+    if (!api || paused) return;
+    const t = setTimeout(() => api.scrollNext(), AUTO_SLIDE_MS);
+    return () => clearTimeout(t);
+  }, [api, selected, paused]);
 
   return (
     <Section id="career" className="max-w-none">
-      <div className="max-w-4xl mx-auto px-0">
-        <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''}`}>
-          <SectionHeader
-            index="05"
-            label="Experience"
-            title="Career Journey"
-            description="My professional experience and the skills I've developed along the way - from freelance contract work to building full-stack systems that solve practical business challenges."
-          />
-        </div>
+      <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''}`}>
+        <SectionHeader
+          index="05"
+          label="Experience"
+          title="Career Journey"
+          description="My professional experience and the skills I've developed along the way - from freelance contract work to building full-stack systems that solve practical business challenges."
+        />
+      </div>
 
-        <div className="relative">
-          <div className="absolute left-0 md:left-6 top-0 bottom-0 w-px bg-border" />
-
-          <div className="space-y-6 sm:space-y-8">
-            {careerData.map((job, i) => (
-              <CareerCard key={job.id} job={job} index={i} />
+      <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+          <Carousel opts={{ align: 'start', loop: true }} setApi={setApi} className="relative">
+            <CarouselContent className="ml-4 md:ml-4 mt-2 py-8 pl-2 pr-2 md:pl-4 md:pr-4">
+              {careerData.map((job, i) => (
+                <CarouselItem key={job.id} className="px-2 basis-full sm:basis-1/2 lg:basis-1/3 h-full">
+                <CareerCard job={job} index={i} />
+              </CarouselItem>
             ))}
-          </div>
+          </CarouselContent>
+          <CarouselPrevious className="hidden md:flex -left-4 lg:-left-12" />
+          <CarouselNext className="hidden md:flex -right-4 lg:-right-12" />
+        </Carousel>
+
+        <div className="flex justify-center gap-2 mt-6">
+          {snaps.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => api?.scrollTo(i)}
+              aria-label={`Go to role ${i + 1}`}
+              className={`h-1 rounded-full transition-all duration-300 ${i === selected ? 'w-6 bg-foreground' : 'w-1.5 bg-border hover:bg-foreground/50'}`}
+            />
+          ))}
         </div>
       </div>
     </Section>
@@ -39,52 +83,70 @@ function CareerCard({ job, index }: { job: typeof careerData[0]; index: number }
   const { ref, revealed } = useReveal();
 
   return (
-    <div ref={ref} className={`reveal-up ${revealed ? 'revealed' : ''}`} style={{ transitionDelay: `${index * 0.12}s` }}>
-      <div className="relative pl-5 sm:pl-6 md:pl-16 group">
-        <div className="absolute left-0 md:left-6 top-6 sm:top-7 -translate-x-1/2 w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-foreground border-[3px] border-background z-10 group-hover:scale-150 transition-transform duration-300" />
+    <div
+      ref={ref}
+      className={`reveal-up ${revealed ? 'revealed' : ''} h-full`}
+      style={{ transitionDelay: `${index * 0.08}s` }}
+    >
+      <Card className="rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] h-full hover:shadow-foreground/5 transition-shadow">
+        <CardContent className="p-4">
+          <div className="flex items-start gap-3 mb-3">
+            <div className="w-9 h-9 rounded-lg overflow-hidden bg-muted/50 shrink-0">
+              <img
+                src={job.image}
+                alt={job.company}
+                className="w-full h-full object-cover"
+                loading="lazy"
+                onError={e => { (e.target as HTMLImageElement).src = `https://via.placeholder.com/48?text=${job.company[0]}`; }}
+              />
+            </div>
+            <div className="min-w-0">
+              <h3 className="text-xs sm:text-sm font-bold text-foreground leading-tight">{job.position}</h3>
+              {job.link ? (
+                <a
+                  href={job.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/80 text-[11px] sm:text-xs flex items-center gap-1 hover:underline mt-0.5 break-words"
+                >
+                  {job.company} <ExternalLink className="w-2.5 h-2.5 shrink-0" />
+                </a>
+              ) : (
+                <p className="text-foreground/70 text-[11px] sm:text-xs mt-0.5 break-words">{job.company}</p>
+              )}
+            </div>
+          </div>
 
-        <motion.div whileHover={{ y: -2 }} className="hover:shadow-foreground/5 transition-all duration-300">
-          <Card className="rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <CardContent className="p-4 sm:p-5 md:p-6">
-              <div className="flex gap-3 sm:gap-4 mb-3 sm:mb-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden bg-muted/50 shrink-0 group-hover:ring-2 ring-foreground/20 transition-all duration-300">
-                  <img src={job.image} alt={job.company} className="w-full h-full object-cover" loading="lazy" onError={e => { (e.target as HTMLImageElement).src = `https://via.placeholder.com/48?text=${job.company[0]}`; }} />
-                </div>
-                <div>
-                  <h3 className="text-sm sm:text-base font-bold text-foreground group-hover:text-foreground transition-colors">{job.position}</h3>
-                  {job.link ? (
-                    <a href={job.link} target="_blank" rel="noopener noreferrer" className="text-foreground text-xs sm:text-sm flex items-center gap-1 hover:underline transition-all duration-300">
-                      {job.company} <ExternalLink className="w-3 h-3" />
-                    </a>
-                  ) : (
-                    <p className="text-foreground/70 text-xs sm:text-sm">{job.company}</p>
-                  )}
-                  <div className="flex flex-wrap gap-2 sm:gap-3 text-xs text-muted-foreground mt-1 sm:mt-1.5">
-                    {job.duration && <span className="flex items-center gap-1"><Calendar className="w-3 h-3 text-foreground/40" /> {job.duration}</span>}
-                  </div>
-                </div>
-              </div>
+          {job.duration && (
+            <div className="text-[10px] sm:text-[11px] text-muted-foreground mb-3">
+              <span className="flex items-center gap-1">
+                <Calendar className="w-3 h-3 text-foreground/40 shrink-0" /> {job.duration}
+              </span>
+            </div>
+          )}
 
-              <ul className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
-                {job.description.split('\n').map((item: string, idx: number) => (
-                  <li key={idx} className="text-xs sm:text-sm text-muted-foreground leading-relaxed flex gap-2">
-                    <span className="text-foreground mt-0.5 shrink-0 text-[6px]">●</span>
-                    <span>{item.replace('• ', '').replace('•', '')}</span>
-                  </li>
-                ))}
-              </ul>
+          <ul className="space-y-1.5 mb-3">
+            {job.description.split('\n').map((item: string, idx: number) => (
+              <li key={idx} className="text-[11px] sm:text-xs text-muted-foreground leading-relaxed flex gap-1.5">
+                <span className="text-foreground mt-1 shrink-0 text-[5px]">●</span>
+                <span>{item.replace('• ', '').replace('•', '')}</span>
+              </li>
+            ))}
+          </ul>
 
-              <div className="flex flex-wrap gap-1 sm:gap-1.5">
-                {job.techStack.map((tech: string) => (
-                  <Badge key={tech} variant="outline" className="text-[9px] sm:text-[10px] font-mono border-border text-muted-foreground hover:border-border hover:text-foreground transition-colors px-1.5 sm:px-2 py-0.5">
-                    {tech}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </div>
+          <div className="flex flex-wrap gap-1">
+            {job.techStack.map((tech: string) => (
+              <Badge
+                key={tech}
+                variant="outline"
+                className="text-[8px] sm:text-[9px] font-mono border-border text-muted-foreground hover:text-foreground px-1.5 py-0.5"
+              >
+                {tech}
+              </Badge>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

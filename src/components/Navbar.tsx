@@ -52,10 +52,7 @@ export const Navbar = () => {
   };
 
   const links = [
-    { label: 'Stack', href: '#technologies' },
-    { label: 'GitHub', href: '#activity' },
-    { label: 'Work', href: '#personal-projects' },
-    { label: 'Supporting', href: '#supporting-projects' },
+    { label: 'Projects', href: '#personal-projects' },
     { label: 'Career', href: '#career' },
     { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
@@ -79,9 +76,15 @@ export const Navbar = () => {
 
         <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           {links.map(l => (
-            <a key={l.label} href={l.href} className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-all duration-300 relative group">
+            <a
+              key={l.label}
+              href={l.href}
+              className={`text-xs sm:text-sm hover:text-foreground relative group ${l.label === 'Stack' || l.label === 'GitHub' ? '' : 'text-muted-foreground transition-all duration-300'}`}
+            >
               {l.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground transition-all duration-300 group-hover:w-full" />
+              {(l.label === 'Stack' || l.label === 'GitHub') ? null : (
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-foreground transition-all duration-300 group-hover:w-full" />
+              )}
             </a>
           ))}
         </nav>

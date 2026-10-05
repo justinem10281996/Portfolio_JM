@@ -13,19 +13,19 @@ export const Hero = () => {
   const { ref: r3, revealed: v3 } = useReveal(0.1);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-14 sm:pt-16">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
           src={`${process.env.PUBLIC_URL}/background.jpg`}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover object-[center_65%]"
+          className="absolute inset-0 w-full h-full object-cover object-[center_50%]"
         />
-        <div className="absolute inset-0 bg-background/70" />
+        <div className="absolute inset-0 bg-background/50" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background" />
       </div>
 
-{/* Content */}
+      {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
         {/* Badge */}
         <div ref={r1} className={`reveal-up ${v1 ? 'revealed' : ''}`}>
