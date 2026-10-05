@@ -13,10 +13,10 @@ export const Technologies = () => {
     <Section id="technologies">
       <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''}`}>
         <SectionHeader
-          index="03"
+          index="01"
           label="Tech Stack"
           title="Technologies"
-          description="Tools, frameworks, and languages I work with daily - from frontend interfaces to backend systems, database design, and everything in between that powers a complete web application."
+          description="Tools, frameworks, and languages I work with daily - from frontend interfaces to backend systems, database design, and everything in between that powers a complete web or mobile application."
         />
       </div>
 

@@ -273,7 +273,7 @@ export const GithubActivity = () => {
     <Section id="activity">
       <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''}`}>
         <SectionHeader
-          index="04"
+          index="02"
           label="Consistency"
           title="GitHub Activity"
           description="A live snapshot of how often I ship code — pulled straight from my GitHub, updated automatically every time someone visits this page. Every square below is a real day, not a mockup."

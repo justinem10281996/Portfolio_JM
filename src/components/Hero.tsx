@@ -13,7 +13,7 @@ export const Hero = () => {
   const { ref: r3, revealed: v3 } = useReveal(0.1);
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -51,7 +51,7 @@ export const Hero = () => {
         <div ref={r3} className={`reveal-up ${v3 ? 'revealed' : ''}`} style={{ transitionDelay: '0.2s' }}>
           <p className="text-lg sm:text-xl text-foreground mb-3 font-light">Full Stack Developer</p>
           <StaggerWords
-            text="Building modern, scalable web applications with clean code, thoughtful architecture, and innovative solutions tailored to real business needs."
+            text="I build web and mobile systems for real businesses, from multi-tenant platforms to payment and hardware integrations. React, TypeScript, Laravel, and MySQL."
             className="text-sm sm:text-base text-muted-foreground max-w-lg mx-auto mb-10"
             as="p"
           />
@@ -65,9 +65,9 @@ export const Hero = () => {
           className="mt-16 grid grid-cols-3 gap-8 max-w-sm mx-auto"
         >
           {[
-            { v: 4, suffix: '+', l: 'Years' },
+            { v: 3, suffix: '+', l: 'Years' },
             { v: 10, suffix: '+', l: 'Projects' },
-            { v: 13, suffix: '+', l: 'Tech' },
+            { v: 18, suffix: '+', l: 'Tech' },
           ].map((s, i) => (
             <motion.div key={i} whileHover={{ scale: 1.1 }} className="text-center cursor-default">
               <div className="text-2xl font-bold text-foreground">

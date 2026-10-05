@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useReveal } from '../hooks/useReveal';
 import { Card, CardContent } from './ui/card';
 import { motion } from 'framer-motion';
-import { Code2, Lightbulb, Users, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Code2, Lightbulb, Users, Zap, ChevronLeft, ChevronRight, Layers, Plug } from 'lucide-react';
 import { Section, SectionHeader } from './ui/section';
 
 declare const process: { env: { PUBLIC_URL: string } };
@@ -18,6 +18,12 @@ const highlights = [
   { icon: Lightbulb, title: 'Problem Solver', desc: 'Finding elegant solutions to complex challenges' },
   { icon: Users, title: 'Team Player', desc: 'Collaborating effectively with diverse teams' },
   { icon: Zap, title: 'Fast Learner', desc: 'Quickly adapting to new technologies' },
+];
+
+const services = [
+  { icon: Code2, title: 'Website Development', desc: 'Building websites from start to finish using various technologies.' },
+  { icon: Layers, title: 'Software Development', desc: 'Creating software applications for various platforms.' },
+  { icon: Plug, title: 'Third-Party Integration', desc: 'Integrating third-party services and APIs into existing applications.' },
 ];
 
 export const About = () => {
@@ -39,7 +45,7 @@ export const About = () => {
     <Section id="about">
       <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''}`}>
         <SectionHeader
-          index="01"
+          index="06"
           label="Get To Know Me"
           title="About Me"
         />
@@ -99,26 +105,25 @@ export const About = () => {
 
             {/* Right - Content */}
             <div className="space-y-6">
-              <div className="space-y-4">
-                <h3 className="text-xl sm:text-2xl font-bold text-foreground">
-                  I build <span className="text-shimmer">digital products</span> that make a difference
-                </h3>
-                <div className="space-y-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                  <p>
-                    Hi! I'm <span className="text-foreground font-medium">Justine M. Hilario</span>, a passionate Full Stack Developer 
-                    with over 4 years of experience building web applications that solve real business problems.
-                  </p>
-                  <p>
-                    I specialize in <span className="text-foreground">React, TypeScript, Laravel</span>, and <span className="text-foreground">MySQL</span>, 
-                    creating everything from inventory management systems to biometric attendance platforms. 
-                    I love turning complex requirements into clean, user-friendly solutions.
-                  </p>
-                  <p>
-                    When I'm not coding, you'll find me exploring new technologies, sharing my work on TikTok, 
-                    and continuously learning to stay ahead in this ever-evolving industry.
-                  </p>
+<div className="space-y-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-foreground">
+                    I build <span className="text-shimmer">digital products</span> that make a difference
+                  </h3>
+                  <div className="space-y-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    <p>
+                      I'm a Full Stack Developer with 3+ years of experience turning business problems into working software.
+                      I've built multi-tenant school systems, billing and subscription portals, biometric attendance platforms,
+                      and inventory and document management tools, working on both the front end and the REST API.
+                    </p>
+                    <p>
+                      I care about clean, maintainable code and systems people actually enjoy using. Outside of work,
+                      I keep learning new tools, build side projects, and share the process on TikTok.
+                    </p>
+                    <p className="text-foreground font-medium">
+                      Currently open to remote full-time roles.
+                    </p>
+                  </div>
                 </div>
-              </div>
 
               {/* Highlights Grid */}
               <div className="grid grid-cols-2 gap-3">
@@ -141,6 +146,31 @@ export const About = () => {
                     </Card>
                   </motion.div>
                 ))}
+              </div>
+
+              {/* What I Do */}
+              <div>
+                <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-3">What I Do</p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {services.map((s) => (
+                    <motion.div
+                      key={s.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                    >
+                      <Card className="h-full rounded-xl bg-muted/30 hover:bg-muted/50 transition-colors border-none">
+                        <CardContent className="p-3 sm:p-4">
+                          <div className="w-8 h-8 rounded-lg bg-foreground/10 flex items-center justify-center mb-2">
+                            <s.icon className="w-4 h-4 text-foreground" />
+                          </div>
+                          <p className="text-xs sm:text-sm font-medium text-foreground">{s.title}</p>
+                          <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">{s.desc}</p>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

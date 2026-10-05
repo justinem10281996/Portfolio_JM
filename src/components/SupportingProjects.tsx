@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useReveal } from '../hooks/useReveal';
+import { useProgressiveImages } from '../hooks/useProgressiveImages';
+import { ImageSkeleton } from './ui/image-skeleton';
 import { suppotingprojectsData } from '../data/portfolio-data';
 import { ExternalLink, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
 import { Badge } from './ui/badge';
@@ -22,7 +24,7 @@ export const SupportingProjects = () => {
     <Section id="supporting-projects">
       <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''}`}>
         <SectionHeader
-          index="06"
+          index="04"
           label="Collaborative Work"
           title="Supporting Projects"
           description="Projects I've contributed to as part of collaborative teams, working alongside other developers to deliver functional, scalable solutions for real clients and businesses."
@@ -65,15 +67,7 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
   const hasImg = project.subimage.length > 0;
   const truncate = (t: string, max = 150) => t.length <= max ? t : t.slice(0, max) + '...';
   const techs = showAllTech ? project.techimage : project.techimage.slice(0, 5);
-  const [currentImg, setCurrentImg] = useState(0);
-
-  useEffect(() => {
-    if (!hasImg || project.subimage.length <= 1) return;
-    const interval = setInterval(() => {
-      setCurrentImg(prev => (prev + 1) % project.subimage.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [hasImg, project.subimage.length]);
+  const { index: currentImg, setIndex: setCurrentImg, loaded, setLoaded, visible } = useProgressiveImages(project.subimage, 3000);
 
   return (
     <div ref={ref} className={`reveal-up h-full ${revealed ? 'revealed' : ''}`} style={{ transitionDelay: `${index * 0.1}s` }}>
@@ -83,17 +77,29 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
           <div className={`relative h-48 sm:h-56 lg:h-64 rounded-t-xl overflow-hidden bg-foreground/5 ${hasImg ? 'cursor-pointer' : ''}`} onClick={hasImg ? onViewImages : undefined}>
             {hasImg ? (
               <>
-                {project.subimage.map((img: any, i: number) => (
-                  <img
-                    key={i}
-                    src={img.src}
-                    alt={project.name}
-                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out ${
-                      i === currentImg ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-                    }`}
-                    loading="lazy"
-                  />
-                ))}
+                {project.subimage.map((img: any, i: number) =>
+                  visible.has(i) ? (
+                    <img
+                      key={i}
+                      src={img.src}
+                      alt={`${project.name} — ${img.title || 'screenshot'}`}
+                      onLoad={() => i === currentImg && setLoaded(true)}
+                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out ${
+                        i === currentImg ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+                      }`}
+                      loading={i === currentImg ? 'eager' : 'lazy'}
+                      decoding="async"
+                    />
+                  ) : null
+                )}
+                {!loaded && <ImageSkeleton />}
+                {!loaded && (
+                  <div className="absolute inset-0 z-[5] flex items-center justify-center">
+                    <span className="text-[10px] font-mono tracking-widest text-muted-foreground animate-pulse">
+                      LOADING
+                    </span>
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
                 <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity z-20 flex items-center justify-center">
                   <Maximize2 className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -101,7 +107,15 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
                 {project.subimage.length > 1 && (
                   <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex gap-1.5">
                     {project.subimage.slice(0, 8).map((_: any, i: number) => (
-                      <div key={i} className={`h-1 rounded-full transition-all duration-300 ${i === currentImg ? 'w-4 bg-foreground' : 'w-1.5 bg-white/50'}`} />
+                      <button
+                        key={i}
+                        onClick={e => {
+                          e.stopPropagation();
+                          setCurrentImg(i);
+                        }}
+                        aria-label={`Show image ${i + 1}`}
+                        className={`h-1 rounded-full transition-all duration-300 ${i === currentImg ? 'w-4 bg-foreground' : 'w-1.5 bg-white/50 hover:bg-white/80'}`}
+                      />
                     ))}
                   </div>
                 )}

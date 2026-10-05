@@ -52,10 +52,12 @@ export const Navbar = () => {
   };
 
   const links = [
-    { label: 'About', href: '#about' },
     { label: 'Stack', href: '#technologies' },
+    { label: 'GitHub', href: '#activity' },
     { label: 'Work', href: '#personal-projects' },
+    { label: 'Supporting', href: '#supporting-projects' },
     { label: 'Career', href: '#career' },
+    { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -70,7 +72,7 @@ export const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
         <div ref={logoRef} className="magnetic-btn">
-          <a href="#overview" className="text-lg sm:text-xl font-bold font-[Space_Grotesk] tracking-tighter inline-block">
+          <a href="#hero" className="text-lg sm:text-xl font-bold font-[Space_Grotesk] tracking-tighter inline-block">
             <span className="text-shimmer">JMH</span>
           </a>
         </div>

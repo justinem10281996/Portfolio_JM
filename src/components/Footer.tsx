@@ -4,6 +4,7 @@ import { Mail, Facebook, Github, Linkedin, FileText, ArrowUp, type LucideProps }
 import { Card, CardContent } from './ui/card';
 import { motion } from 'framer-motion';
 import { useMagneticButton } from '../hooks/useMagneticButton';
+import { Tooltip } from './ui/tooltip';
 
 const TikTokIcon = (props: LucideProps) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -33,12 +34,21 @@ export const Footer = () => {
                 </div>
 
                 <div className="flex gap-2 flex-wrap" ref={socialRef}>
-                  {footerData.map((s, i) => {
+                  {footerData.map((s) => {
                     const Icon = icons[s.name] || Mail;
                     return (
-                      <motion.a key={s.id} href={s.link} target="_blank" rel="noopener noreferrer" whileHover={{ y: -3, scale: 1.05 }} className="magnetic-btn w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-muted/50 hover:bg-foreground/10 flex items-center justify-center transition-all">
-                        <Icon className="w-4 h-4 text-muted-foreground hover:text-foreground transition-colors" />
-                      </motion.a>
+                      <Tooltip key={s.id} label={s.name} side="top">
+                        <motion.a
+                          href={s.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={s.name}
+                          whileHover={{ y: -3, scale: 1.05 }}
+                          className="magnetic-btn w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-muted/50 hover:bg-foreground/10 flex items-center justify-center transition-all"
+                        >
+                          <Icon className="w-4 h-4 text-muted-foreground group-hover/tt:text-foreground transition-colors" />
+                        </motion.a>
+                      </Tooltip>
                     );
                   })}
                 </div>
@@ -53,13 +63,16 @@ export const Footer = () => {
               <span className="text-foreground">React</span>
               <span>&</span>
               <span className="text-foreground">TypeScript</span>
-              <motion.button
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="ml-3 w-7 h-7 rounded-lg bg-muted/50 hover:bg-foreground/10 flex items-center justify-center transition-all"
-              >
-                <ArrowUp className="w-3.5 h-3.5 text-muted-foreground hover:text-foreground transition-colors duration-300" />
-              </motion.button>
+              <Tooltip label="Back to top" side="top">
+                <motion.button
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  aria-label="Back to top"
+                  className="ml-3 w-7 h-7 rounded-lg bg-muted/50 hover:bg-foreground/10 flex items-center justify-center transition-all"
+                >
+                  <ArrowUp className="w-3.5 h-3.5 text-muted-foreground group-hover/tt:text-foreground transition-colors duration-300" />
+                </motion.button>
+              </Tooltip>
             </div>
           </div>
         </div>

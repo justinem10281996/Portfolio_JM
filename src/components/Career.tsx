@@ -14,7 +14,7 @@ export const Career = () => {
       <div className="max-w-4xl mx-auto px-0">
         <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''}`}>
           <SectionHeader
-            index="07"
+            index="05"
             label="Experience"
             title="Career Journey"
             description="My professional experience and the skills I've developed along the way - from freelance contract work to building full-stack systems that solve practical business challenges."

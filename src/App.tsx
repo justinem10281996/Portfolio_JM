@@ -1,7 +1,6 @@
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { Overview } from './components/Overview';
 import { Technologies } from './components/Technologies';
 import { PersonalProjects } from './components/PersonalProjects';
 import { SupportingProjects } from './components/SupportingProjects';
@@ -22,29 +21,26 @@ function App() {
         {/* 00 — Intro */}
         <Hero />
 
-        {/* 01 — About */}
-        <About />
-
-        {/* 02 — Overview */}
-        <Overview />
-
-        {/* 03 — Technologies */}
+        {/* 01 — Technologies */}
         <Technologies />
 
-        {/* 04 — GitHub Activity */}
+        {/* 02 — GitHub Activity */}
         <GithubActivity />
 
-        {/* 05 — Personal Projects */}
+        {/* 03 — Personal Projects */}
         <PersonalProjects />
 
-        {/* 06 — Supporting Projects */}
+        {/* 04 — Supporting Projects */}
         <SupportingProjects />
 
-        {/* 07 — Career */}
+        {/* 05 — Career */}
         <Career />
+
+        {/* 06 — About */}
+        <About />
       </main>
 
-      {/* 08 — Contact */}
+      {/* 07 — Contact */}
       <Footer />
     </div>
   );

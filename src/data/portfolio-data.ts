@@ -1,13 +1,5 @@
 // src/data/portfolio-data.ts
 
-export interface OverviewItem {
-  id: number;
-  name: string;
-  image: string;
-  description: string;
-  link: string;
-}
-
 export interface Technology {
   id: number;
   name: string;
@@ -73,12 +65,6 @@ export interface SocialLink {
 
 const getAssetPath = (path: string) => `${process.env.PUBLIC_URL}/${path}`;
 
-export const overviewData: OverviewItem[] = [
-  { id: 1, name: "Website Development", image: getAssetPath("assets/just-icon/website-development.png"), description: "Building websites from start to finish using various technologies.", link: "https://example.com/website-development" },
-  { id: 2, name: "Software Development", image: getAssetPath("assets/just-icon/software-development-.png"), description: "Creating software applications for various platforms.", link: "https://example.com/software-development" },
-  { id: 3, name: "Third-Party Integration", image: getAssetPath("assets/just-icon/thrid-party.png"), description: "Integrating third-party services and APIs into existing applications.", link: "https://example.com/third-party-integration" }
-];
-
 export const technologiesData: Technology[] = [
   { id: 1, name: "HTML", image: getAssetPath("assets/dev-icon/html5.png"), description: "Markup language for creating web pages.", link: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
   { id: 2, name: "CSS", image: getAssetPath("assets/dev-icon/css.png"), description: "Style sheet language for beautifying web pages.", link: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
@@ -92,7 +78,12 @@ export const technologiesData: Technology[] = [
   { id: 10, name: "Laravel", image: getAssetPath("assets/dev-icon/laravel.png"), description: "PHP framework for building robust web applications.", link: "https://laravel.com/" },
   { id: 11, name: "MySql", image: getAssetPath("assets/dev-icon/mysql.png"), description: "Relational database management system for data storage.", link: "https://www.mysql.com/" },
   { id: 12, name: "MsSql", image: getAssetPath("assets/dev-icon/mssql.png"), description: "Database management system from Microsoft.", link: "https://www.microsoft.com/en-us/sql-server/sql-server-downloads" },
-  { id: 13, name: "Git", image: getAssetPath("assets/dev-icon/git.png"), description: "Version control system for tracking code changes.", link: "https://git-scm.com/" }
+  { id: 13, name: "Git", image: getAssetPath("assets/dev-icon/git.png"), description: "Version control system for tracking code changes.", link: "https://git-scm.com/" },
+  { id: 14, name: "React Native", image: getAssetPath("assets/dev-icon/react-native.png"), description: "Framework for building native mobile applications from a React codebase.", link: "https://reactnative.dev/" },
+  { id: 15, name: "Expo", image: getAssetPath("assets/dev-icon/expo.png"), description: "React Native toolchain for building, previewing, and shipping mobile apps.", link: "https://expo.dev/" },
+  { id: 16, name: "Android Studio", image: getAssetPath("assets/dev-icon/android-studio.png"), description: "Official IDE for Android development, including emulator and device debugging.", link: "https://developer.android.com/studio" },
+  { id: 17, name: "Tailwind CSS", image: getAssetPath("assets/dev-icon/Tailwind_CSS.png"), description: "Utility-first CSS framework for building responsive user interfaces quickly.", link: "https://tailwindcss.com/docs" },
+  { id: 18, name: "GitHub", image: getAssetPath("assets/dev-icon/GitHub.png"), description: "Hosting and collaboration platform for version control and code review.", link: "https://github.com" }
 ];
 
 export const personalProjectsData: PersonalProject[] = [
@@ -111,6 +102,8 @@ export const personalProjectsData: PersonalProject[] = [
       getAssetPath("assets/dev-icon/laravel.png"),
       getAssetPath("assets/dev-icon/mysql.png"),
       getAssetPath("assets/dev-icon/php.png"),
+      getAssetPath("assets/dev-icon/Tailwind_CSS.png"),
+      getAssetPath("assets/dev-icon/GitHub.png"),
     ],
     link: "",
     github: "https://github.com/justinem10281996/SMIS_360",
@@ -135,383 +128,9 @@ export const personalProjectsData: PersonalProject[] = [
     ],
   },
   {
-    id: 1,
-    name: "DocuManage",
-    subtitle: "Document Management System",
-    image: getAssetPath("assets/project-icon/soon.jpg"),
-    techimage: [
-      getAssetPath("assets/dev-icon/html5.png"),
-      getAssetPath("assets/dev-icon/css.png"),
-      getAssetPath("assets/dev-icon/react-js.png"),
-      getAssetPath("assets/dev-icon/ts.png"),
-      getAssetPath("assets/dev-icon/shadcn.png"),
-      getAssetPath("assets/dev-icon/laravel.png"),
-      getAssetPath("assets/dev-icon/mysql.png"),
-      getAssetPath("assets/dev-icon/php.png"),
-    ],
-    link: "",
-    github: "https://github.com/justinem10281996/DocuManage",
-    tiktok: "https://www.tiktok.com/@justinem1996/video/7613367989903084807",
-    description: "A comprehensive document management system built for internal company use, designed for organizing, storing, and retrieving files efficiently. Features include file upload and download, folder organization, search functionality, version control, and user permissions. Built with React and integrated with cloud storage APIs for secure file management. Developed as a client project for internal business operations.",
-    subimage: [
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-landing-page-2026-03-07-08_13_12.jpg"),
-        title: "Landing Page",
-        subtitle: "Welcome Screen",
-        description: "The public-facing welcome page introducing the Document Management System with a clean layout and call-to-action buttons for login and registration."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-login-2026-03-07-08_12_56.jpg"),
-        title: "Login",
-        subtitle: "User Authentication",
-        description: "Secure login screen where users enter their email and password to access the system. Includes a forgot password link for account recovery."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-register-2026-03-07-08_13_12.png"),
-        title: "Register",
-        subtitle: "New Account Creation",
-        description: "Registration screen allowing new users to create an account by providing their name, email, and password to gain access to the system."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-forgot-password-2026-03-07-08_12_56.png"),
-        title: "Forgot Password",
-        subtitle: "Password Recovery",
-        description: "Password recovery screen where users enter their registered email address to receive a password reset link and regain access to their account."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_16_47.jpg"),
-        title: "Dashboard",
-        subtitle: "System Overview",
-        description: "Main dashboard displaying key metrics, recent activities, document summaries, and quick-access shortcuts for efficient system navigation."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_17_00.png"),
-        title: "Documents",
-        subtitle: "Document List",
-        description: "Complete list of all uploaded documents with filtering, sorting, and search capabilities. Displays document name, category, department, and date uploaded."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_17_42.png"),
-        title: "Documents — Add",
-        subtitle: "Upload New Document",
-        description: "Document upload form where users can attach files, assign categories, select departments, and add relevant metadata before submitting."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_17_54.png"),
-        title: "Documents — Edit",
-        subtitle: "Update Document",
-        description: "Form for uploading and updating documents, including file attachment, category assignment, department selection, and metadata input."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_18_26.png"),
-        title: "Documents — Details",
-        subtitle: "View Document Details",
-        description: "Detailed view of a document showing its information, file preview, version history, download options, and activity logs."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_18_33.png"),
-        title: "Documents — Preview",
-        subtitle: "Reports Index",
-        description: "Index page listing all reports with options to preview, download, or upload new files."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_18_38.png"),
-        title: "Documents — Activity Log",
-        subtitle: "Document Change History",
-        description: "Chronological log showing all actions performed on a document including uploads, edits, downloads, and permission changes."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_18_47.png"),
-        title: "Documents — Visibility",
-        subtitle: "Public, Private or by Department",
-        description: "Page to manage document visibility settings including public access, private restrictions, or department-specific permissions."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_18_53.png"),
-        title: "Documents — By Department",
-        subtitle: "All Departments You Are Member Of",
-        description: "Page showing documents filtered by departments the user belongs to."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_19_07.png"),
-        title: "Department — Overview",
-        subtitle: "All Department",
-        description: "Overview of all departments with structured view, including status indicators and tracking."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_19_15.png"),
-        title: "Department — Add",
-        subtitle: "Department Add",
-        description: "Form for creating a new department including department name and details."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_19_26.png"),
-        title: "Department — Edit",
-        subtitle: "Department Edit",
-        description: "Form for editing existing department details."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_19_33.png"),
-        title: "Department — View all Details",
-        subtitle: "Department Management",
-        description: "Page displaying all department details and management options."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_19_40.png"),
-        title: "Department — Invite Users",
-        subtitle: "Department",
-        description: "Form for inviting new users to a department."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_19_47.png"),
-        title: "Department — Gmail Invite",
-        subtitle: "Department",
-        description: "Page to send department invitations via Gmail to users."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_19_53.png"),
-        title: "Department — Invite User via Email",
-        subtitle: "Create New Department",
-        description: "Form for sending a department invitation by email."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_20_09.png"),
-        title: "Department — Delete",
-        subtitle: "User Management Index",
-        description: "Page to remove a department from the system."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_20_27.png"),
-        title: "Department — Archive",
-        subtitle: "Create New User Account",
-        description: "Page displaying archived departments with options to review or restore."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_20_38.png"),
-        title: "Category — Overview",
-        subtitle: "Category Overview",
-        description: "Page listing all categories with options to manage them."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_20_47.png"),
-        title: "Category — Add",
-        subtitle: "Add New Category",
-        description: "Form to create a new document category."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_21_05.png"),
-        title: "Category — Edit",
-        subtitle: "Edit Category",
-        description: "Form to update existing category details."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_21_16.png"),
-        title: "Category — Delete",
-        subtitle: "Delete Category",
-        description: "Confirmation page for removing a category."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/Screenshot 2026-03-07 112554.png"),
-        title: "Category — Archive",
-        subtitle: "Archive Category",
-        description: "Page showing archived categories with options to review or restore them."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/Screenshot 2026-03-07 111922.png"),
-        title: "Category — Details",
-        subtitle: "Details Category",
-        description: "Detailed view of a category including assigned members and related documents."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/Screenshot 2026-03-07 112012.png"),
-        title: "Category — Add Member",
-        subtitle: "Add Member Category",
-        description: "Form for adding a member to a specific category for document access and collaboration."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_22_04.png"),
-        title: "User Management — Overview",
-        subtitle: "Overview",
-        description: "Page displaying all system users."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_22_11.png"),
-        title: "User Management — Add",
-        subtitle: "Add User",
-        description: "Form to create a new user account."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_22_23.png"),
-        title: "User Management — Edit",
-        subtitle: "Edit User",
-        description: "Form to update user account details."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_22_32.png"),
-        title: "User Management — Permissions",
-        subtitle: "Permissions",
-        description: "Page to assign roles and access permissions to users."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_22_39.png"),
-        title: "User Management — View Changes",
-        subtitle: "Change History",
-        description: "Page showing modifications performed on user accounts."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_22_44.png"),
-        title: "User Management — Change History",
-        subtitle: "Activity Log",
-        description: "Log of user actions and system activities."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_22_52.png"),
-        title: "Audit Log — Overview",
-        subtitle: "Audit Trail",
-        description: "Page showing all system audit logs including user and admin activities."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_22_58.png"),
-        title: "Settings — Overview",
-        subtitle: "Settings Overview",
-        description: "Page providing access to all system configuration settings."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-profile-2026-03-07-08_23_06.png"),
-        title: "Profile",
-        subtitle: "Profile Overview",
-        description: "Page showing user personal details, role, department, and recent activity."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-profile-2026-03-07-08_23_13.png"),
-        title: "Profile — Change Background",
-        subtitle: "Edit Personal Information",
-        description: "Form to update personal details such as name, email, contact information, and profile photo."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-profile-2026-03-07-08_23_21.png"),
-        title: "Profile — Change Profile",
-        subtitle: "Password Update",
-        description: "Form for updating account password securely."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-profile-2026-03-07-08_23_26.png"),
-        title: "Profile — Update Information",
-        subtitle: "Update Information",
-        description: "Form allowing users to update their personal information including name, email, and other profile details."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-profile-2026-03-07-08_23_33.png"),
-        title: "Profile — Update Email",
-        subtitle: "Update Email",
-        description: "Interface for users to change their registered email address with verification and confirmation."
-      },
-      {
-        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-profile-2026-03-07-08_23_40.png"),
-        title: "Profile — Change Password",
-        subtitle: "Change Password",
-        description: "Secure page where users can update their account password by entering the current password and a new one."
-      }
-    ],
-  },
-  {
-    id: 2,
-    name: "GadgetPro",
-    subtitle: "Store Management System",
-    image: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-dashboard-2026-07-23-21_18_40.png"),
-    techimage: [
-      getAssetPath("assets/dev-icon/html5.png"),
-      getAssetPath("assets/dev-icon/css.png"),
-      getAssetPath("assets/dev-icon/react-js.png"),
-      getAssetPath("assets/dev-icon/ts.png"),
-      getAssetPath("assets/dev-icon/shadcn.png"),
-      getAssetPath("assets/dev-icon/laravel.png"),
-      getAssetPath("assets/dev-icon/mysql.png"),
-      getAssetPath("assets/dev-icon/php.png"),
-    ],
-    link: "",
-    github: "https://github.com/justinem10281996/GadgetPro",
-    tiktok: "https://www.tiktok.com/@justinem1996/video/7665734777282071815",
-    description: "A comprehensive store management system built for a retail business, combining inventory tracking, point-of-sale (POS), purchasing, and finance modules in one integrated platform. Features include a real-time dashboard with key metrics, sales and purchase transaction management, master data management for customers, suppliers, products, categories, and units, finance tracking with income and expense categorization, and user role-based access control. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database.",
-    subimage: [
-      {
-        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-dashboard-2026-07-24-13_38_26.png"),
-        title: "Dashboard — Overview",
-        subtitle: "System Overview",
-        description: "Main dashboard displaying real-time store metrics including total sales, purchases, income, expenses, and recent transaction activity."
-      },
-      {
-        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-sales-create-2026-07-24-13_38_40.png"),
-        title: "Sales — POS",
-        subtitle: "Create New Sale",
-        description: "Form for creating new sales transactions with customer selection, product listing, payment method, and total calculation."
-      },
-      {
-        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-sales-2026-07-24-13_38_54.png"),
-        title: "Sales — Transactions",
-        subtitle: "Sales Management",
-        description: "Page for managing sales transactions with filtering by date, status, and payment method. Displays transaction records with totals and actions."
-      },
-      {
-        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-customers-2026-07-23-21_19_09.png"),
-        title: "Customers",
-        subtitle: "Customer Directory",
-        description: "Customer master data management page with search, add, edit, and delete functionality for maintaining customer records."
-      },
-      {
-        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-purchases-2026-07-24-13_39_02.png"),
-        title: "Purchases — Transactions",
-        subtitle: "Purchase Management",
-        description: "Page for managing purchase transactions from suppliers with filtering options and detailed purchase records."
-      },
-      {
-        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-suppliers-2026-07-23-21_19_22.png"),
-        title: "Suppliers",
-        subtitle: "Supplier Directory",
-        description: "Supplier master data management page for maintaining supplier contact information, payment terms, and product associations."
-      },
-      {
-        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-products-2026-07-23-21_19_31.png"),
-        title: "Products",
-        subtitle: "Product Catalog",
-        description: "Product master data management with details including SKU, category, unit, price, stock levels, and supplier association."
-      },
-      {
-        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-categories-2026-07-23-21_19_42.png"),
-        title: "Categories",
-        subtitle: "Product Categories",
-        description: "Category management page for organizing products into hierarchical groups with descriptions and status control."
-      },
-      {
-        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-units-2026-07-23-21_19_47.png"),
-        title: "Units",
-        subtitle: "Unit of Measurement",
-        description: "Unit of measurement management for standardizing product quantities such as pieces, boxes, kilograms, and liters."
-      },
-      {
-        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-finance-transactions-2026-07-23-21_19_53.png"),
-        title: "Finance — Transactions",
-        subtitle: "Financial Records",
-        description: "Finance transaction page for tracking income and expenses with filtering by date, category, and payment method."
-      },
-      {
-        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-finance-categories-2026-07-23-21_20_01.png"),
-        title: "Finance — Categories",
-        subtitle: "Income & Expense Categories",
-        description: "Finance category management for classifying income and expense transactions with descriptions and status control."
-      },
-      {
-        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-users-2026-07-23-21_20_07.png"),
-        title: "Users — Management",
-        subtitle: "User Accounts",
-        description: "User management page for administering accounts with role-based access control, status activation, and profile management."
-      }
-    ]
-  },
-  {
-    id: 3,
-    name: "InvoTrucking 360",
-    subtitle: "Inventory Management System",
+    id: 5,
+    name: "MyMoney",
+    subtitle: "Subscription & Billing Management",
     image: getAssetPath("assets/project-icon/backup.png"),
     techimage: [
       getAssetPath("assets/dev-icon/html5.png"),
@@ -522,420 +141,30 @@ export const personalProjectsData: PersonalProject[] = [
       getAssetPath("assets/dev-icon/laravel.png"),
       getAssetPath("assets/dev-icon/mysql.png"),
       getAssetPath("assets/dev-icon/php.png"),
+      getAssetPath("assets/dev-icon/Tailwind_CSS.png"),
+      getAssetPath("assets/dev-icon/GitHub.png"),
     ],
-    link: "https://invotrucking360-production.up.railway.app/",
-    github: "https://github.com/justinem10281996/InvoTrucking_360",
-    tiktok: "https://www.tiktok.com/@justinem1996/video/7663835878837538069",
-    description: "A comprehensive inventory tracking and management system for trucking operations, providing real-time inventory monitoring and reporting across multiple warehouse locations. Features include stock level management with automated low-stock alerts and reorder point configuration, purchase order management with supplier tracking and delivery status updates, inventory receiving and inspection workflows with quality control checks, stock transfer management between branches and warehouses with real-time tracking, batch and expiry date tracking for perishable goods, barcode and QR code scanning for efficient stock intake and counting, inventory valuation and costing (FIFO, LIFO, weighted average), a built-in point-of-sale (POS) module for over-the-counter sales of categorized items such as spare parts, electronics, and other trucking-related supplies, detailed reporting suite (stock movement, inventory valuation, stock aging, slow-moving items, inventory turnover), cycle counting and physical inventory reconciliation, role-based access control for warehouse staff and managers, audit trails for all inventory transactions, and integration with procurement and sales modules for end-to-end supply chain visibility. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database. This project is under continued development for future updates. This is a personal project, open for collaboration or commission.",
+    link: "https://mymoney-production-136e.up.railway.app/",
+    github: "https://github.com/justinem10281996/my_money",
+    tiktok: "https://www.tiktok.com/@justinem1996/video/7647798735145078023",
+    description: "A billing, subscription, and account activation portal serving as a standalone payment gateway system, designed to power subscription and licensing management for SaaS platforms like BioTrucking 360 and InvoTrucking 360. Features include 6 subscription tiers (Trial, Starter, SME, Business, Enterprise, Corporate) with configurable billing intervals (monthly, quarterly, semi-annual, yearly), Stripe payment processing with GCash and Maya support, automatic 20-character activation key generation (XXXX-XXXX-XXXX-XXXX-XXXX), billing invoice management (INV-000001 format), role-based access control, two-factor authentication via email OTP or Google Authenticator, AES-256-CBC data encryption, HMAC-SHA256 API signature verification for webhook security, and comprehensive activity auditing with 365-day retention. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database. This is a personal project, open for collaboration or commission.",
     subimage: [
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_20_51.png"),
-        title: "Landing Page — Overview",
-        subtitle: "Welcome Screen",
-        description: "Public-facing landing page introducing the system's core modules with a call-to-action to sign in or request a demo."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_20_52.png"),
-        title: "Login",
-        subtitle: "Authentication",
-        description: "Secure login screen with email/username and password fields, remember-me option, and link to password recovery."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_20_53.png"),
-        title: "Forget Password",
-        subtitle: "Password Recovery",
-        description: "Password reset flow where users request a reset link via email to regain access to their account."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_21_42.png"),
-        title: "Dashboard — Overview",
-        subtitle: "System Overview",
-        description: "Main dashboard displaying real-time inventory metrics, low stock alerts, recent transactions, and key performance indicators for trucking inventory management."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_21_52.png"),
-        title: "Brands — Management",
-        subtitle: "Brand Catalog",
-        description: "Brand master data management with logo upload, description, and product association tracking."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_02.png"),
-        title: "Manufacturers — List",
-        subtitle: "Manufacturer Directory",
-        description: "Manufacturer master records with contact information, lead times, and associated product lines."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_09.png"),
-        title: "Categories — List",
-        subtitle: "Product Categories",
-        description: "Master data management for product categories with hierarchical structure, search, and bulk operations."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_22.png"),
-        title: "Unit Models — Configuration",
-        subtitle: "Model Variants",
-        description: "Unit model management for product variants with specifications, dimensions, and compatibility matrix."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_28.png"),
-        title: "Units — Unit of Measure",
-        subtitle: "UOM Management",
-        description: "Unit of measure master data with conversion factors, base units, and precision settings for inventory accuracy."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_43.png"),
-        title: "Product Models — Catalog",
-        subtitle: "Product Master",
-        description: "Product model master data with categories, brands, manufacturers, units, and variant configurations."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_52.png"),
-        title: "Product Variants — Matrix",
-        subtitle: "Variant Management",
-        description: "Product variant matrix with attributes, SKUs, barcodes, pricing, and inventory tracking per variant."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_02.png"),
-        title: "Item Kits — Assembly",
-        subtitle: "Kit/BOM Management",
-        description: "Item kit and bill of materials management for assembled products with component tracking and costing."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_12.png"),
-        title: "Price Lists — Pricing",
-        subtitle: "Multi-Price Management",
-        description: "Price list management with customer-specific pricing, volume discounts, validity periods, and currency support."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_26.png"),
-        title: "Locations — Bin Management",
-        subtitle: "Storage Locations",
-        description: "Storage location/bin management within warehouses with zone, aisle, rack, shelf hierarchy and capacity tracking."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_34.png"),
-        title: "Branches — Multi-Branch",
-        subtitle: "Branch Management",
-        description: "Branch/outlet management with separate inventory, users, and reporting for multi-location operations."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_43.png"),
-        title: "Warehouses — Locations",
-        subtitle: "Warehouse Master",
-        description: "Warehouse master data with address, contact, capacity, zones, and default location assignments."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_53.png"),
-        title: "Serial Numbers — Tracking",
-        subtitle: "Serial Management",
-        description: "Serial number tracking for high-value items with warranty, maintenance history, and ownership records."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_12.png"),
-        title: "Suppliers — Vendor Master",
-        subtitle: "Supplier Management",
-        description: "Supplier master records with contact details, payment terms, performance ratings, and document management."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_03.png"),
-        title: "Customers — Client Master",
-        subtitle: "Customer Management",
-        description: "Customer master data with credit limits, pricing tiers, shipping addresses, and transaction history."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_24.png"),
-        title: "Purchase Requests — Requisition",
-        subtitle: "PR Workflow",
-        description: "Purchase request creation, approval workflow, and conversion to purchase orders with budget validation."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_32.png"),
-        title: "Purchase Orders — PO Management",
-        subtitle: "Order Processing",
-        description: "Purchase order lifecycle management: draft, approval, dispatch, receipt, and closure with supplier tracking."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_40.png"),
-        title: "Goods Receipts — Receiving",
-        subtitle: "GRN Processing",
-        description: "Goods receipt note processing with quantity verification, quality inspection, and automatic stock update."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_47.png"),
-        title: "Landed Costs — Cost Allocation",
-        subtitle: "Landed Cost Calculation",
-        description: "Landed cost allocation across received items including freight, insurance, duties, and handling charges."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_53.png"),
-        title: "Purchase Returns — Returns",
-        subtitle: "Return Management",
-        description: "Purchase return processing with reason codes, credit note generation, and supplier reconciliation."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_25_17.png"),
-        title: "POS — Point of Sale",
-        subtitle: "Retail Sales",
-        description: "Point of sale interface for walk-in sales with barcode scanning, payment processing, and receipt printing."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_25_30.png"),
-        title: "Quotations — Quotes",
-        subtitle: "Quote Management",
-        description: "Sales quotation creation with validity, versioning, conversion to orders, and follow-up tracking."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_25_39.png"),
-        title: "Sales Orders — Order Entry",
-        subtitle: "SO Processing",
-        description: "Sales order management from entry to fulfillment with availability checks, pricing, and delivery scheduling."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_25_45.png"),
-        title: "Deliveries — Dispatch",
-        subtitle: "Delivery Management",
-        description: "Delivery note creation, packing, dispatch tracking, and proof of delivery with customer acknowledgment."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_25_50.png"),
-        title: "Sales Returns — Returns",
-        subtitle: "Return Processing",
-        description: "Sales return workflow with inspection, restocking, credit notes, and replacement order generation."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_00.png"),
-        title: "Purchase Invoices — AP Invoices",
-        subtitle: "Vendor Billing",
-        description: "Purchase invoice matching with PO/GRN, three-way matching, and payment scheduling for accounts payable."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_06.png"),
-        title: "Sales Invoices — Billing",
-        subtitle: "Invoice Generation",
-        description: "Sales invoice creation from deliveries/orders with tax computation, payment terms, and aging tracking."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_12.png"),
-        title: "Stocks — Inventory View",
-        subtitle: "Stock Inquiry",
-        description: "Real-time stock inquiry with multi-warehouse view, available/committed/on-order quantities, and valuation."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_18.png"),
-        title: "Stock Transfer — Inter-Warehouse",
-        subtitle: "Transfer Management",
-        description: "Inter-warehouse stock transfer with request, approval, dispatch, in-transit, and receipt confirmation."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_26.png"),
-        title: "Adjustments — Stock Adjustment",
-        subtitle: "Adjustment Entry",
-        description: "Stock adjustment entry for write-offs, write-ups, cycle count variances with reason codes and approval."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_36.png"),
-        title: "Stock Movements — History",
-        subtitle: "Movement Log",
-        description: "Complete stock movement history with filters by item, warehouse, date range, transaction type, and user."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_05.png"),
-        title: "Sales Reports — Analytics",
-        subtitle: "Sales Analysis",
-        description: "Sales performance reports by product, customer, salesperson, and period with trends, rankings, and variance analysis."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_52.png"),
-        title: "Inventory Reports — Stock Reports",
-        subtitle: "Inventory Analytics",
-        description: "Inventory reports: stock status, aging, valuation, turnover, slow-moving, dead stock, and reorder analysis."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_20.png"),
-        title: "Purchase Reports — Procurement",
-        subtitle: "Purchase Analytics",
-        description: "Purchase reports: supplier performance, spend analysis, lead times, price variance, and order accuracy."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_57.png"),
-        title: "Stock Movement Reports — Movements",
-        subtitle: "Movement Analysis",
-        description: "Detailed stock movement reports with inbound/outbound analysis, velocity, and exception reporting."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_11.png"),
-        title: "Customer Sales Reports — Customer Analytics",
-        subtitle: "Customer Performance",
-        description: "Customer sales analysis with purchase patterns, profitability, credit utilization, and retention metrics."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_28.png"),
-        title: "Supplier Purchase Reports — Vendor Analytics",
-        subtitle: "Supplier Performance",
-        description: "Supplier purchase analysis with spend, quality, delivery performance, and strategic sourcing insights."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_40.png"),
-        title: "Roles — RBAC Roles",
-        subtitle: "Role Management",
-        description: "Role-based access control with role definitions, permission assignments, and role hierarchy management."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_51.png"),
-        title: "Users — User Management",
-        subtitle: "User Administration",
-        description: "User account management with profile, role assignment, branch access, password policies, and audit trail."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_00.png"),
-        title: "Department — Management",
-        subtitle: "Department Master",
-        description: "Department master data management for organizing users, cost centers, and approval routing by division."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_09.png"),
-        title: "Workflows — Approval Flows",
-        subtitle: "Workflow Designer",
-        description: "Approval workflow configuration with multi-level routing, conditions, escalations, and delegation rules."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_17.png"),
-        title: "Approvals — Pending Approvals",
-        subtitle: "Approval Queue",
-        description: "Centralized approval dashboard for managers to review, approve, reject, or delegate pending requests."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_29.png"),
-        title: "Backup Data — Backup & Restore",
-        subtitle: "Data Protection",
-        description: "Automated and manual database backup with scheduling, retention policies, and point-in-time recovery."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_38.png"),
-        title: "Activity Logs — Audit Trail",
-        subtitle: "System Audit",
-        description: "Comprehensive system activity logs with user actions, data changes, login history, and compliance reporting."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_52.png"),
-        title: "Company Profile — Organization",
-        subtitle: "Company Settings",
-        description: "Company profile management with logo, address, registration details, and default configurations."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_34.png"),
-        title: "Payment Terms — Configuration",
-        subtitle: "Terms Setup",
-        description: "Payment term master data with due days, discount periods, and automatic application to customers/vendors."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_47.png"),
-        title: "Payment Terms — Due Dates",
-        subtitle: "Due Date Tracking",
-        description: "Automated due date calculation and tracking based on assigned payment terms for receivables and payables."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_32_01.png"),
-        title: "Payment Terms — Aging Report",
-        subtitle: "Aging Analysis",
-        description: "Receivables and payables aging report grouped by due-date buckets to monitor overdue balances."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_29_09.png"),
-        title: "Discount Settings — Promotions",
-        subtitle: "Discount Rules",
-        description: "Discount configuration with tier pricing, promotional discounts, customer-specific deals, and validity periods."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_29_01.png"),
-        title: "Currency Settings — Multi-Currency",
-        subtitle: "Currency Management",
-        description: "Multi-currency configuration for transactions across customers, suppliers, and branches with base currency setup."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-23_18_49.png"),
-        title: "Currency Settings — Exchange Rates",
-        subtitle: "Rate Management",
-        description: "Exchange rate management with manual entry or automated updates and historical rate tracking."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-23_19_03.png"),
-        title: "Currency Settings — General Settings",
-        subtitle: "Currency Preferences",
-        description: "General currency preferences including rounding rules, display format, and default currency per branch."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_01.png"),
-        title: "Tax Settings — Tax Configuration",
-        subtitle: "Tax Management",
-        description: "Tax code management with rates, jurisdictions, exemptions, and automatic tax calculation on transactions."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_08.png"),
-        title: "Inventory Valuation — Method List",
-        subtitle: "Valuation Setup",
-        description: "Inventory valuation method configuration: FIFO, LIFO, weighted average, and standard cost with periodic revaluation."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_16.png"),
-        title: "Inventory Valuation — Standard Cost",
-        subtitle: "Standard Cost Setup",
-        description: "Standard cost entry and revision per item with variance tracking against actual purchase costs."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_22.png"),
-        title: "Inventory Valuation — Analysis",
-        subtitle: "Valuation Analysis",
-        description: "Valuation comparison and variance analysis across costing methods to support pricing and margin decisions."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_32_15.png"),
-        title: "Reorder System — Reorder Alerts",
-        subtitle: "Low Stock Alerts",
-        description: "Automated reorder alerts triggered when stock falls below configured reorder points per item and warehouse."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_32_24.png"),
-        title: "Reorder System — Product Reorder Rules",
-        subtitle: "Reorder Configuration",
-        description: "Per-product reorder point and reorder quantity configuration with supplier and lead-time defaults."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-profile-2026-07-12-21_32_32.png"),
-        title: "User Profile — My Account",
-        subtitle: "Profile Management",
-        description: "User profile page with personal info, password change, notification preferences, and API token management."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-settings-2026-07-12-21_32_47.png"),
-        title: "Settings — Notifications",
-        subtitle: "Alert Configuration",
-        description: "Notification preferences for email, in-app, and push alerts for low stock, approvals, and system events."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-settings-2026-07-12-21_32_42.png"),
-        title: "Settings — Account",
-        subtitle: "Account Management",
-        description: "Account-level settings covering login security, connected devices, and general preferences."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-settings-2026-07-12-21_32_55.png"),
-        title: "Settings — Appearance",
-        subtitle: "Theme & Display",
-        description: "Appearance settings for theme, layout density, and display preferences across the application."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-settings-subscription-2026-07-12-21_33_01.png"),
-        title: "Subscription — Billing Details",
-        subtitle: "Billing Portal",
-        description: "Detailed billing portal with invoice history, payment methods, usage analytics, and cancellation workflow."
-      },
-      {
-        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-system-guide-2026-07-12-21_33_08.png"),
-        title: "System Guide — Documentation",
-        subtitle: "User Manual",
-        description: "Comprehensive system guide with searchable documentation, video tutorials, FAQs, and context-sensitive help."
-      }
+      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-2026-06-18-14_58_20.png"), title: "Landing Page", subtitle: "Welcome Screen", description: "The public-facing welcome page for MyMoney subscription management system introducing the platform's features and directing users to sign in or create an account." },
+      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-login-2026-06-18-14_58_34.png"), title: "Login", subtitle: "User Authentication", description: "Secure login screen for authorized users to access their subscription dashboard using registered email and password credentials." },
+      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-register-2026-06-18-14_58_53.png"), title: "Register", subtitle: "Create Account", description: "New user registration form for creating an account with the MyMoney platform to manage subscriptions and billing." },
+      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-forgot-password-2026-06-18-14_58_44.png"), title: "Forgot Password", subtitle: "Password Recovery", description: "Password recovery page where users can submit their registered email to receive instructions for resetting their account password." },
+      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-dashboard-2026-06-18-14_59_54.png"), title: "Dashboard", subtitle: "Account Overview", description: "Main dashboard displaying subscription summaries, active plans, billing status, recent transactions, and quick-access navigation for account management." },
+      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-docs-2026-06-18-14_59_06.png"), title: "Documentation", subtitle: "User Guide", description: "System documentation page providing user guides, API references, and helpful resources for using the MyMoney subscription platform." },
+      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-plans-2026-06-18-15_00_44.jpg"), title: "Plans & Pricing", subtitle: "Subscription Plans", description: "Pricing page displaying available subscription tiers, features per plan, and pricing options for users to choose their preferred plan." },
+      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-subscriptions-2026-06-18-15_01_22.png"), title: "Subscriptions", subtitle: "Plan Management", description: "Subscriptions overview page listing all active and expired subscriptions with plan details, renewal dates, and management options." },
+      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-subscriptions-1-2026-06-18-15_01_28.png"), title: "Subscription Detail", subtitle: "Plan Details", description: "Detailed view of a specific subscription showing plan features, billing cycle, payment history, and options to upgrade or cancel." },
+      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-activation-2026-06-18-15_01_32.png"), title: "Activation", subtitle: "Account Activation", description: "Activation page for enabling new subscriptions or accounts using activation codes or license keys." },
+      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-activation-key-1-2026-06-18-15_01_38.png"), title: "Activation Key", subtitle: "Key Entry", description: "Activation key entry page for entering subscription keys received from MyMoney portal to unlock premium features." },
+      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-billing-invoices-2026-06-18-15_01_44.png"), title: "Billing Invoices", subtitle: "Invoice List", description: "Billing invoices page listing all generated invoices with dates, amounts, payment status, and download options for record keeping." },
+      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-billing-invoices-1-2026-06-18-15_01_51.png"), title: "Invoice Detail", subtitle: "Invoice Breakdown", description: "Detailed invoice view showing line items, charges, taxes, payment method, and the total amount due for a specific billing period." },
+      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-settings-2026-06-18-15_01_58.png"), title: "Settings", subtitle: "Account Settings", description: "General settings page for updating account information, notification preferences, and configuring profile details." },
+      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-settings-2026-06-18-15_02_05.png"), title: "Settings — Notifications", subtitle: "Alert Preferences", description: "Notification settings panel for configuring email alerts, billing reminders, and subscription renewal notifications." },
+      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-settings-2026-06-18-15_02_22.png"), title: "Settings — Profile", subtitle: "Personal Information", description: "Profile settings page for managing personal information, contact details, and account security preferences." },
     ],
   },
   {
@@ -952,6 +181,8 @@ export const personalProjectsData: PersonalProject[] = [
       getAssetPath("assets/dev-icon/laravel.png"),
       getAssetPath("assets/dev-icon/mysql.png"),
       getAssetPath("assets/dev-icon/php.png"),
+      getAssetPath("assets/dev-icon/Tailwind_CSS.png"),
+      getAssetPath("assets/dev-icon/GitHub.png"),
     ],
     link: "https://biotrucking360-production.up.railway.app/",
     github: "https://github.com/justinem10281996/BioTrucking_360",
@@ -1435,73 +666,37 @@ export const personalProjectsData: PersonalProject[] = [
     ],
   },
   {
-    id: 5,
-    name: "MyMoney",
-    subtitle: "Subscription & Billing Management",
-    image: getAssetPath("assets/project-icon/backup.png"),
-    techimage: [
-      getAssetPath("assets/dev-icon/html5.png"),
-      getAssetPath("assets/dev-icon/css.png"),
-      getAssetPath("assets/dev-icon/react-js.png"),
-      getAssetPath("assets/dev-icon/ts.png"),
-      getAssetPath("assets/dev-icon/shadcn.png"),
-      getAssetPath("assets/dev-icon/laravel.png"),
-      getAssetPath("assets/dev-icon/mysql.png"),
-      getAssetPath("assets/dev-icon/php.png"),
-    ],
-    link: "https://mymoney-production-136e.up.railway.app/",
-    github: "https://github.com/justinem10281996/my_money",
-    tiktok: "https://www.tiktok.com/@justinem1996/video/7647798735145078023",
-    description: "A billing, subscription, and account activation portal serving as a standalone payment gateway system, designed to power subscription and licensing management for SaaS platforms like BioTrucking 360 and InvoTrucking 360. Features include 6 subscription tiers (Trial, Starter, SME, Business, Enterprise, Corporate) with configurable billing intervals (monthly, quarterly, semi-annual, yearly), Stripe payment processing with GCash and Maya support, automatic 20-character activation key generation (XXXX-XXXX-XXXX-XXXX-XXXX), billing invoice management (INV-000001 format), role-based access control, two-factor authentication via email OTP or Google Authenticator, AES-256-CBC data encryption, HMAC-SHA256 API signature verification for webhook security, and comprehensive activity auditing with 365-day retention. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database. This is a personal project, open for collaboration or commission.",
-    subimage: [
-      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-2026-06-18-14_58_20.png"), title: "Landing Page", subtitle: "Welcome Screen", description: "The public-facing welcome page for MyMoney subscription management system introducing the platform's features and directing users to sign in or create an account." },
-      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-login-2026-06-18-14_58_34.png"), title: "Login", subtitle: "User Authentication", description: "Secure login screen for authorized users to access their subscription dashboard using registered email and password credentials." },
-      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-register-2026-06-18-14_58_53.png"), title: "Register", subtitle: "Create Account", description: "New user registration form for creating an account with the MyMoney platform to manage subscriptions and billing." },
-      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-forgot-password-2026-06-18-14_58_44.png"), title: "Forgot Password", subtitle: "Password Recovery", description: "Password recovery page where users can submit their registered email to receive instructions for resetting their account password." },
-      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-dashboard-2026-06-18-14_59_54.png"), title: "Dashboard", subtitle: "Account Overview", description: "Main dashboard displaying subscription summaries, active plans, billing status, recent transactions, and quick-access navigation for account management." },
-      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-docs-2026-06-18-14_59_06.png"), title: "Documentation", subtitle: "User Guide", description: "System documentation page providing user guides, API references, and helpful resources for using the MyMoney subscription platform." },
-      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-plans-2026-06-18-15_00_44.jpg"), title: "Plans & Pricing", subtitle: "Subscription Plans", description: "Pricing page displaying available subscription tiers, features per plan, and pricing options for users to choose their preferred plan." },
-      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-subscriptions-2026-06-18-15_01_22.png"), title: "Subscriptions", subtitle: "Plan Management", description: "Subscriptions overview page listing all active and expired subscriptions with plan details, renewal dates, and management options." },
-      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-subscriptions-1-2026-06-18-15_01_28.png"), title: "Subscription Detail", subtitle: "Plan Details", description: "Detailed view of a specific subscription showing plan features, billing cycle, payment history, and options to upgrade or cancel." },
-      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-activation-2026-06-18-15_01_32.png"), title: "Activation", subtitle: "Account Activation", description: "Activation page for enabling new subscriptions or accounts using activation codes or license keys." },
-      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-activation-key-1-2026-06-18-15_01_38.png"), title: "Activation Key", subtitle: "Key Entry", description: "Activation key entry page for entering subscription keys received from MyMoney portal to unlock premium features." },
-      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-billing-invoices-2026-06-18-15_01_44.png"), title: "Billing Invoices", subtitle: "Invoice List", description: "Billing invoices page listing all generated invoices with dates, amounts, payment status, and download options for record keeping." },
-      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-billing-invoices-1-2026-06-18-15_01_51.png"), title: "Invoice Detail", subtitle: "Invoice Breakdown", description: "Detailed invoice view showing line items, charges, taxes, payment method, and the total amount due for a specific billing period." },
-      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-settings-2026-06-18-15_01_58.png"), title: "Settings", subtitle: "Account Settings", description: "General settings page for updating account information, notification preferences, and configuring profile details." },
-      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-settings-2026-06-18-15_02_05.png"), title: "Settings — Notifications", subtitle: "Alert Preferences", description: "Notification settings panel for configuring email alerts, billing reminders, and subscription renewal notifications." },
-      { src: getAssetPath("assets/project-icon/mymoney/screencapture-mymoney-production-136e-up-railway-app-settings-2026-06-18-15_02_22.png"), title: "Settings — Profile", subtitle: "Personal Information", description: "Profile settings page for managing personal information, contact details, and account security preferences." },
-    ],
-  },
-  {
     id: 7,
     name: "Buwaya 360",
-    subtitle: "Construction Project Management System",
+    subtitle: "Tax Transparency & Public Project Tracker",
     image: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-24-01.jpg"),
     techimage: [
+      getAssetPath("assets/dev-icon/react-native.png"),
+      getAssetPath("assets/dev-icon/expo.png"),
       getAssetPath("assets/dev-icon/ts.png"),
-      getAssetPath("assets/dev-icon/react-js.png"),
-      getAssetPath("assets/dev-icon/node-js.png"),
       getAssetPath("assets/dev-icon/php.png"),
       getAssetPath("assets/dev-icon/laravel.png"),
       getAssetPath("assets/dev-icon/mysql.png"),
       getAssetPath("assets/dev-icon/git.png"),
+      getAssetPath("assets/dev-icon/Tailwind_CSS.png"),
+      getAssetPath("assets/dev-icon/GitHub.png"),
     ],
     link: "",
     github: "https://github.com/justinem10281996/BUWAYA_360",
     tiktok: "https://www.tiktok.com/@justinem1996/video/7692731834223840518",
-    description: "A construction project management system built as a mobile-first app with a responsive web build, running on a Laravel 12 REST API and an Expo (React Native) client. Projects are tracked end to end with phases and milestones, material requests, involved people and stakeholders, approvers and sign-off decisions, links and sources, cover photography, and geotagged project locations on an interactive map. Financials are covered by budget modules with line items, budget adjustments, live budget tracking and a cost breakdown view, plus tax collections with per-project tax insights and charts. Administration includes departments, users, roles and granular permissions, and a reference data module with archive, trash, restore, and purge lifecycle actions. The system also ships configurable announcements, a notification center with per-user preferences, a complete activity log audit trail, global search, and a reports module with interactive charts and PDF and Excel export. Engagement features include threaded comments with reactions and pinning, image and file attachments that themselves support comments and reactions, and per-record privacy controls. Security includes email OTP verification, avatar and profile management, and account security settings. Frontend built with TypeScript and Expo Router, NativeWind and Tailwind CSS 4 styling, React Native Maps for locations, jsPDF and XLSX for exports, and bundled as both iOS and Android apps. This is a personal project I built entirely on my own for the fun of it - not client work and not built for a company. Open for collaboration or commission.",
+    description: "A mobile-first app (with a responsive web build) that shows where taxpayer money goes. It tracks national tax collections, department budget allocation and spending, and the status of public infrastructure projects, from proposal to completion. Features include an analytics dashboard, project phases and approvers, an interactive map with pinned locations, announcements, comments, an activity log, and admin roles.",
     subimage: [
-      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-24-01.jpg"), title: "Dashboard", subtitle: "Portfolio Overview", description: "Main dashboard surfacing portfolio statistics, top departments by activity, recent projects, and a configurable hero carousel of featured project imagery." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-24-01.jpg"), title: "Dashboard", subtitle: "Analytics Overview", description: "Main dashboard surfacing portfolio statistics, top departments by activity, recent projects, and a configurable hero carousel of featured project imagery." },
       { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-25-21.jpg"), title: "Dashboard — Mobile", subtitle: "Responsive Layout", description: "The same dashboard rendered at mobile width, showing how the responsive web build collapses into a single-column, thumb-friendly layout." },
-      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-25-46.jpg"), title: "Announcements", subtitle: "Company Notices", description: "Announcements feed for company-wide notices with pinned items, categories, cover images, and scheduled publishing dates." },
-      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-26-02.jpg"), title: "Taxes", subtitle: "Tax Collections", description: "Tax module registering tax types and tracking collections per project, with amounts, regions, and period-over-period totals." },
-      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-26-15.jpg"), title: "Budgets", subtitle: "Budget Management", description: "Budget index listing every budget with allocation, spent amounts, and status, expandable into line items and adjustment history." },
-      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-26-29.jpg"), title: "Projects", subtitle: "Project Registry", description: "Project registry listing all construction projects with cover images, department or agency assignment, status, and budget value, filterable by budget range." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-25-46.jpg"), title: "Announcements", subtitle: "Public Notices", description: "Announcements feed for company-wide notices with pinned items, categories, cover images, and scheduled publishing dates." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-26-02.jpg"), title: "Taxes", subtitle: "National Tax Collections", description: "Tax module registering tax types and tracking collections per project, with amounts, regions, and period-over-period totals." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-26-15.jpg"), title: "Budgets", subtitle: "Department Allocation", description: "Budget index listing every budget with allocation, spent amounts, and status, expandable into line items and adjustment history." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-26-29.jpg"), title: "Projects", subtitle: "Public Project Tracker", description: "Project registry listing all construction projects with cover images, department or agency assignment, status, and budget value, filterable by budget range." },
       { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-27-03.jpg"), title: "Projects — Mobile", subtitle: "Responsive Layout", description: "The project registry at mobile width, showing the responsive card layout and bottom tab navigation used on smaller screens." },
       { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-27-27.jpg"), title: "Project — Details", subtitle: "Record View", description: "Project detail view presenting the full record with cover photo and information card, plus edit and delete actions gated by permission." },
       { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-27-36.jpg"), title: "Project — People & Links", subtitle: "Tracking Tab", description: "Tracking tab listing approvers, involved people such as contractors and owners, project links and sources, phases, and materials." },
       { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-28-00.jpg"), title: "Project — Tax Insights", subtitle: "Tax Breakdown", description: "Tax insights tab visualizing how much tax a project generated across tax types and periods using interactive charts." },
-      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-28-10.jpg"), title: "Project — Where It Goes", subtitle: "Budget Breakdown", description: "Cost breakdown tab allocating the project budget across line items so the team can see where the allocation actually goes." },
+      { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-28-10.jpg"), title: "Project — Where It Goes", subtitle: "Budget Allocation", description: "Cost breakdown tab allocating the project budget across line items so the team can see where the allocation actually goes." },
       { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-28-52.jpg"), title: "Project — Comments", subtitle: "Team Discussion", description: "Threaded discussion attached to the project record, supporting comments with reactions, pinning, and image or file attachments." },
       { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-29-21.jpg"), title: "Reference Data", subtitle: "Lookup Management", description: "Reference data module for maintaining lookup lists used across projects, with archive, trash, restore, replace, and purge lifecycle actions." },
       { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-29-32.jpg"), title: "Reports", subtitle: "Report Builder", description: "Reports overview listing the available report definitions and letting users pick a date range before generating a report." },
@@ -1513,6 +708,816 @@ export const personalProjectsData: PersonalProject[] = [
       { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-30-47.jpg"), title: "Permissions — Roles", subtitle: "Role Management", description: "Role management view for creating and editing roles, then attaching permission sets to each role." },
       { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-30-59.jpg"), title: "Profile", subtitle: "Account Settings", description: "Personal profile page for updating avatar, display name, and contact number, with email and password changes handled separately." },
       { src: getAssetPath("assets/project-icon/buwaya360/fullpage_snapshot_localhost_2026-10-04-08-31-08.jpg"), title: "Settings", subtitle: "Security & Preferences", description: "Settings area covering account security including email OTP verification and notification preferences per user." },
+    ],
+  },
+  {
+    id: 2,
+    name: "GadgetPro",
+    subtitle: "Store Management System",
+    image: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-dashboard-2026-07-23-21_18_40.png"),
+    techimage: [
+      getAssetPath("assets/dev-icon/html5.png"),
+      getAssetPath("assets/dev-icon/css.png"),
+      getAssetPath("assets/dev-icon/react-js.png"),
+      getAssetPath("assets/dev-icon/ts.png"),
+      getAssetPath("assets/dev-icon/shadcn.png"),
+      getAssetPath("assets/dev-icon/laravel.png"),
+      getAssetPath("assets/dev-icon/mysql.png"),
+      getAssetPath("assets/dev-icon/php.png"),
+      getAssetPath("assets/dev-icon/Tailwind_CSS.png"),
+      getAssetPath("assets/dev-icon/GitHub.png"),
+    ],
+    link: "",
+    github: "https://github.com/justinem10281996/GadgetPro",
+    tiktok: "https://www.tiktok.com/@justinem1996/video/7665734777282071815",
+    description: "A comprehensive store management system built for a retail business, combining inventory tracking, point-of-sale (POS), purchasing, and finance modules in one integrated platform. Features include a real-time dashboard with key metrics, sales and purchase transaction management, master data management for customers, suppliers, products, categories, and units, finance tracking with income and expense categorization, and user role-based access control. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database.",
+    subimage: [
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-dashboard-2026-07-24-13_38_26.png"),
+        title: "Dashboard — Overview",
+        subtitle: "System Overview",
+        description: "Main dashboard displaying real-time store metrics including total sales, purchases, income, expenses, and recent transaction activity."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-sales-create-2026-07-24-13_38_40.png"),
+        title: "Sales — POS",
+        subtitle: "Create New Sale",
+        description: "Form for creating new sales transactions with customer selection, product listing, payment method, and total calculation."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-sales-2026-07-24-13_38_54.png"),
+        title: "Sales — Transactions",
+        subtitle: "Sales Management",
+        description: "Page for managing sales transactions with filtering by date, status, and payment method. Displays transaction records with totals and actions."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-customers-2026-07-23-21_19_09.png"),
+        title: "Customers",
+        subtitle: "Customer Directory",
+        description: "Customer master data management page with search, add, edit, and delete functionality for maintaining customer records."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-purchases-2026-07-24-13_39_02.png"),
+        title: "Purchases — Transactions",
+        subtitle: "Purchase Management",
+        description: "Page for managing purchase transactions from suppliers with filtering options and detailed purchase records."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-suppliers-2026-07-23-21_19_22.png"),
+        title: "Suppliers",
+        subtitle: "Supplier Directory",
+        description: "Supplier master data management page for maintaining supplier contact information, payment terms, and product associations."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-products-2026-07-23-21_19_31.png"),
+        title: "Products",
+        subtitle: "Product Catalog",
+        description: "Product master data management with details including SKU, category, unit, price, stock levels, and supplier association."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-categories-2026-07-23-21_19_42.png"),
+        title: "Categories",
+        subtitle: "Product Categories",
+        description: "Category management page for organizing products into hierarchical groups with descriptions and status control."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-master-units-2026-07-23-21_19_47.png"),
+        title: "Units",
+        subtitle: "Unit of Measurement",
+        description: "Unit of measurement management for standardizing product quantities such as pieces, boxes, kilograms, and liters."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-finance-transactions-2026-07-23-21_19_53.png"),
+        title: "Finance — Transactions",
+        subtitle: "Financial Records",
+        description: "Finance transaction page for tracking income and expenses with filtering by date, category, and payment method."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-finance-categories-2026-07-23-21_20_01.png"),
+        title: "Finance — Categories",
+        subtitle: "Income & Expense Categories",
+        description: "Finance category management for classifying income and expense transactions with descriptions and status control."
+      },
+      {
+        src: getAssetPath("assets/project-icon/gadgetpro/screencapture-127-0-0-1-8000-users-2026-07-23-21_20_07.png"),
+        title: "Users — Management",
+        subtitle: "User Accounts",
+        description: "User management page for administering accounts with role-based access control, status activation, and profile management."
+      }
+    ]
+  },
+  {
+    id: 1,
+    name: "DocuManage",
+    subtitle: "Document Management System",
+    image: getAssetPath("assets/project-icon/soon.jpg"),
+    techimage: [
+      getAssetPath("assets/dev-icon/html5.png"),
+      getAssetPath("assets/dev-icon/css.png"),
+      getAssetPath("assets/dev-icon/react-js.png"),
+      getAssetPath("assets/dev-icon/ts.png"),
+      getAssetPath("assets/dev-icon/shadcn.png"),
+      getAssetPath("assets/dev-icon/laravel.png"),
+      getAssetPath("assets/dev-icon/mysql.png"),
+      getAssetPath("assets/dev-icon/php.png"),
+      getAssetPath("assets/dev-icon/Tailwind_CSS.png"),
+      getAssetPath("assets/dev-icon/GitHub.png"),
+    ],
+    link: "",
+    github: "https://github.com/justinem10281996/DocuManage",
+    tiktok: "https://www.tiktok.com/@justinem1996/video/7613367989903084807",
+    description: "A comprehensive document management system built for internal company use, designed for organizing, storing, and retrieving files efficiently. Features include file upload and download, folder organization, search functionality, version control, and user permissions. Built with React and integrated with cloud storage APIs for secure file management. Developed as a client project for internal business operations.",
+    subimage: [
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-landing-page-2026-03-07-08_13_12.jpg"),
+        title: "Landing Page",
+        subtitle: "Welcome Screen",
+        description: "The public-facing welcome page introducing the Document Management System with a clean layout and call-to-action buttons for login and registration."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-login-2026-03-07-08_12_56.jpg"),
+        title: "Login",
+        subtitle: "User Authentication",
+        description: "Secure login screen where users enter their email and password to access the system. Includes a forgot password link for account recovery."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-register-2026-03-07-08_13_12.png"),
+        title: "Register",
+        subtitle: "New Account Creation",
+        description: "Registration screen allowing new users to create an account by providing their name, email, and password to gain access to the system."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-forgot-password-2026-03-07-08_12_56.png"),
+        title: "Forgot Password",
+        subtitle: "Password Recovery",
+        description: "Password recovery screen where users enter their registered email address to receive a password reset link and regain access to their account."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_16_47.jpg"),
+        title: "Dashboard",
+        subtitle: "System Overview",
+        description: "Main dashboard displaying key metrics, recent activities, document summaries, and quick-access shortcuts for efficient system navigation."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_17_00.png"),
+        title: "Documents",
+        subtitle: "Document List",
+        description: "Complete list of all uploaded documents with filtering, sorting, and search capabilities. Displays document name, category, department, and date uploaded."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_17_42.png"),
+        title: "Documents — Add",
+        subtitle: "Upload New Document",
+        description: "Document upload form where users can attach files, assign categories, select departments, and add relevant metadata before submitting."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_17_54.png"),
+        title: "Documents — Edit",
+        subtitle: "Update Document",
+        description: "Form for uploading and updating documents, including file attachment, category assignment, department selection, and metadata input."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_18_26.png"),
+        title: "Documents — Details",
+        subtitle: "View Document Details",
+        description: "Detailed view of a document showing its information, file preview, version history, download options, and activity logs."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_18_33.png"),
+        title: "Documents — Preview",
+        subtitle: "Reports Index",
+        description: "Index page listing all reports with options to preview, download, or upload new files."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_18_38.png"),
+        title: "Documents — Activity Log",
+        subtitle: "Document Change History",
+        description: "Chronological log showing all actions performed on a document including uploads, edits, downloads, and permission changes."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_18_47.png"),
+        title: "Documents — Visibility",
+        subtitle: "Public, Private or by Department",
+        description: "Page to manage document visibility settings including public access, private restrictions, or department-specific permissions."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_18_53.png"),
+        title: "Documents — By Department",
+        subtitle: "All Departments You Are Member Of",
+        description: "Page showing documents filtered by departments the user belongs to."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_19_07.png"),
+        title: "Department — Overview",
+        subtitle: "All Department",
+        description: "Overview of all departments with structured view, including status indicators and tracking."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_19_15.png"),
+        title: "Department — Add",
+        subtitle: "Department Add",
+        description: "Form for creating a new department including department name and details."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_19_26.png"),
+        title: "Department — Edit",
+        subtitle: "Department Edit",
+        description: "Form for editing existing department details."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_19_33.png"),
+        title: "Department — View all Details",
+        subtitle: "Department Management",
+        description: "Page displaying all department details and management options."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_19_40.png"),
+        title: "Department — Invite Users",
+        subtitle: "Department",
+        description: "Form for inviting new users to a department."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_19_47.png"),
+        title: "Department — Gmail Invite",
+        subtitle: "Department",
+        description: "Page to send department invitations via Gmail to users."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_19_53.png"),
+        title: "Department — Invite User via Email",
+        subtitle: "Create New Department",
+        description: "Form for sending a department invitation by email."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_20_09.png"),
+        title: "Department — Delete",
+        subtitle: "User Management Index",
+        description: "Page to remove a department from the system."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_20_27.png"),
+        title: "Department — Archive",
+        subtitle: "Create New User Account",
+        description: "Page displaying archived departments with options to review or restore."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_20_38.png"),
+        title: "Category — Overview",
+        subtitle: "Category Overview",
+        description: "Page listing all categories with options to manage them."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_20_47.png"),
+        title: "Category — Add",
+        subtitle: "Add New Category",
+        description: "Form to create a new document category."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_21_05.png"),
+        title: "Category — Edit",
+        subtitle: "Edit Category",
+        description: "Form to update existing category details."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_21_16.png"),
+        title: "Category — Delete",
+        subtitle: "Delete Category",
+        description: "Confirmation page for removing a category."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/Screenshot 2026-03-07 112554.png"),
+        title: "Category — Archive",
+        subtitle: "Archive Category",
+        description: "Page showing archived categories with options to review or restore them."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/Screenshot 2026-03-07 111922.png"),
+        title: "Category — Details",
+        subtitle: "Details Category",
+        description: "Detailed view of a category including assigned members and related documents."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/Screenshot 2026-03-07 112012.png"),
+        title: "Category — Add Member",
+        subtitle: "Add Member Category",
+        description: "Form for adding a member to a specific category for document access and collaboration."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_22_04.png"),
+        title: "User Management — Overview",
+        subtitle: "Overview",
+        description: "Page displaying all system users."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_22_11.png"),
+        title: "User Management — Add",
+        subtitle: "Add User",
+        description: "Form to create a new user account."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_22_23.png"),
+        title: "User Management — Edit",
+        subtitle: "Edit User",
+        description: "Form to update user account details."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_22_32.png"),
+        title: "User Management — Permissions",
+        subtitle: "Permissions",
+        description: "Page to assign roles and access permissions to users."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_22_39.png"),
+        title: "User Management — View Changes",
+        subtitle: "Change History",
+        description: "Page showing modifications performed on user accounts."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_22_44.png"),
+        title: "User Management — Change History",
+        subtitle: "Activity Log",
+        description: "Log of user actions and system activities."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_22_52.png"),
+        title: "Audit Log — Overview",
+        subtitle: "Audit Trail",
+        description: "Page showing all system audit logs including user and admin activities."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-dashboard-2026-03-07-08_22_58.png"),
+        title: "Settings — Overview",
+        subtitle: "Settings Overview",
+        description: "Page providing access to all system configuration settings."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-profile-2026-03-07-08_23_06.png"),
+        title: "Profile",
+        subtitle: "Profile Overview",
+        description: "Page showing user personal details, role, department, and recent activity."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-profile-2026-03-07-08_23_13.png"),
+        title: "Profile — Change Background",
+        subtitle: "Edit Personal Information",
+        description: "Form to update personal details such as name, email, contact information, and profile photo."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-profile-2026-03-07-08_23_21.png"),
+        title: "Profile — Change Profile",
+        subtitle: "Password Update",
+        description: "Form for updating account password securely."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-profile-2026-03-07-08_23_26.png"),
+        title: "Profile — Update Information",
+        subtitle: "Update Information",
+        description: "Form allowing users to update their personal information including name, email, and other profile details."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-profile-2026-03-07-08_23_33.png"),
+        title: "Profile — Update Email",
+        subtitle: "Update Email",
+        description: "Interface for users to change their registered email address with verification and confirmation."
+      },
+      {
+        src: getAssetPath("assets/project-icon/documanage/screencapture-127-0-0-1-8000-profile-2026-03-07-08_23_40.png"),
+        title: "Profile — Change Password",
+        subtitle: "Change Password",
+        description: "Secure page where users can update their account password by entering the current password and a new one."
+      }
+    ],
+  },
+  {
+    id: 3,
+    name: "InvoTrucking 360",
+    subtitle: "Inventory Management System",
+    image: getAssetPath("assets/project-icon/backup.png"),
+    techimage: [
+      getAssetPath("assets/dev-icon/html5.png"),
+      getAssetPath("assets/dev-icon/css.png"),
+      getAssetPath("assets/dev-icon/react-js.png"),
+      getAssetPath("assets/dev-icon/ts.png"),
+      getAssetPath("assets/dev-icon/shadcn.png"),
+      getAssetPath("assets/dev-icon/laravel.png"),
+      getAssetPath("assets/dev-icon/mysql.png"),
+      getAssetPath("assets/dev-icon/php.png"),
+      getAssetPath("assets/dev-icon/Tailwind_CSS.png"),
+      getAssetPath("assets/dev-icon/GitHub.png"),
+    ],
+    link: "https://invotrucking360-production.up.railway.app/",
+    github: "https://github.com/justinem10281996/InvoTrucking_360",
+    tiktok: "https://www.tiktok.com/@justinem1996/video/7663835878837538069",
+    description: "A comprehensive inventory tracking and management system for trucking operations, providing real-time inventory monitoring and reporting across multiple warehouse locations. Features include stock level management with automated low-stock alerts and reorder point configuration, purchase order management with supplier tracking and delivery status updates, inventory receiving and inspection workflows with quality control checks, stock transfer management between branches and warehouses with real-time tracking, batch and expiry date tracking for perishable goods, barcode and QR code scanning for efficient stock intake and counting, inventory valuation and costing (FIFO, LIFO, weighted average), a built-in point-of-sale (POS) module for over-the-counter sales of categorized items such as spare parts, electronics, and other trucking-related supplies, detailed reporting suite (stock movement, inventory valuation, stock aging, slow-moving items, inventory turnover), cycle counting and physical inventory reconciliation, role-based access control for warehouse staff and managers, audit trails for all inventory transactions, and integration with procurement and sales modules for end-to-end supply chain visibility. Built with React and TypeScript with Shadcn UI, powered by Laravel backend and MySQL database. This project is under continued development for future updates. This is a personal project, open for collaboration or commission.",
+    subimage: [
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_20_51.png"),
+        title: "Landing Page — Overview",
+        subtitle: "Welcome Screen",
+        description: "Public-facing landing page introducing the system's core modules with a call-to-action to sign in or request a demo."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_20_52.png"),
+        title: "Login",
+        subtitle: "Authentication",
+        description: "Secure login screen with email/username and password fields, remember-me option, and link to password recovery."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_20_53.png"),
+        title: "Forget Password",
+        subtitle: "Password Recovery",
+        description: "Password reset flow where users request a reset link via email to regain access to their account."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_21_42.png"),
+        title: "Dashboard — Overview",
+        subtitle: "System Overview",
+        description: "Main dashboard displaying real-time inventory metrics, low stock alerts, recent transactions, and key performance indicators for trucking inventory management."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_21_52.png"),
+        title: "Brands — Management",
+        subtitle: "Brand Catalog",
+        description: "Brand master data management with logo upload, description, and product association tracking."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_02.png"),
+        title: "Manufacturers — List",
+        subtitle: "Manufacturer Directory",
+        description: "Manufacturer master records with contact information, lead times, and associated product lines."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_09.png"),
+        title: "Categories — List",
+        subtitle: "Product Categories",
+        description: "Master data management for product categories with hierarchical structure, search, and bulk operations."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_22.png"),
+        title: "Unit Models — Configuration",
+        subtitle: "Model Variants",
+        description: "Unit model management for product variants with specifications, dimensions, and compatibility matrix."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_28.png"),
+        title: "Units — Unit of Measure",
+        subtitle: "UOM Management",
+        description: "Unit of measure master data with conversion factors, base units, and precision settings for inventory accuracy."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_43.png"),
+        title: "Product Models — Catalog",
+        subtitle: "Product Master",
+        description: "Product model master data with categories, brands, manufacturers, units, and variant configurations."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_22_52.png"),
+        title: "Product Variants — Matrix",
+        subtitle: "Variant Management",
+        description: "Product variant matrix with attributes, SKUs, barcodes, pricing, and inventory tracking per variant."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_02.png"),
+        title: "Item Kits — Assembly",
+        subtitle: "Kit/BOM Management",
+        description: "Item kit and bill of materials management for assembled products with component tracking and costing."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_12.png"),
+        title: "Price Lists — Pricing",
+        subtitle: "Multi-Price Management",
+        description: "Price list management with customer-specific pricing, volume discounts, validity periods, and currency support."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_26.png"),
+        title: "Locations — Bin Management",
+        subtitle: "Storage Locations",
+        description: "Storage location/bin management within warehouses with zone, aisle, rack, shelf hierarchy and capacity tracking."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_34.png"),
+        title: "Branches — Multi-Branch",
+        subtitle: "Branch Management",
+        description: "Branch/outlet management with separate inventory, users, and reporting for multi-location operations."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_43.png"),
+        title: "Warehouses — Locations",
+        subtitle: "Warehouse Master",
+        description: "Warehouse master data with address, contact, capacity, zones, and default location assignments."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_23_53.png"),
+        title: "Serial Numbers — Tracking",
+        subtitle: "Serial Management",
+        description: "Serial number tracking for high-value items with warranty, maintenance history, and ownership records."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_12.png"),
+        title: "Suppliers — Vendor Master",
+        subtitle: "Supplier Management",
+        description: "Supplier master records with contact details, payment terms, performance ratings, and document management."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_03.png"),
+        title: "Customers — Client Master",
+        subtitle: "Customer Management",
+        description: "Customer master data with credit limits, pricing tiers, shipping addresses, and transaction history."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_24.png"),
+        title: "Purchase Requests — Requisition",
+        subtitle: "PR Workflow",
+        description: "Purchase request creation, approval workflow, and conversion to purchase orders with budget validation."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_32.png"),
+        title: "Purchase Orders — PO Management",
+        subtitle: "Order Processing",
+        description: "Purchase order lifecycle management: draft, approval, dispatch, receipt, and closure with supplier tracking."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_40.png"),
+        title: "Goods Receipts — Receiving",
+        subtitle: "GRN Processing",
+        description: "Goods receipt note processing with quantity verification, quality inspection, and automatic stock update."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_47.png"),
+        title: "Landed Costs — Cost Allocation",
+        subtitle: "Landed Cost Calculation",
+        description: "Landed cost allocation across received items including freight, insurance, duties, and handling charges."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_24_53.png"),
+        title: "Purchase Returns — Returns",
+        subtitle: "Return Management",
+        description: "Purchase return processing with reason codes, credit note generation, and supplier reconciliation."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_25_17.png"),
+        title: "POS — Point of Sale",
+        subtitle: "Retail Sales",
+        description: "Point of sale interface for walk-in sales with barcode scanning, payment processing, and receipt printing."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_25_30.png"),
+        title: "Quotations — Quotes",
+        subtitle: "Quote Management",
+        description: "Sales quotation creation with validity, versioning, conversion to orders, and follow-up tracking."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_25_39.png"),
+        title: "Sales Orders — Order Entry",
+        subtitle: "SO Processing",
+        description: "Sales order management from entry to fulfillment with availability checks, pricing, and delivery scheduling."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_25_45.png"),
+        title: "Deliveries — Dispatch",
+        subtitle: "Delivery Management",
+        description: "Delivery note creation, packing, dispatch tracking, and proof of delivery with customer acknowledgment."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_25_50.png"),
+        title: "Sales Returns — Returns",
+        subtitle: "Return Processing",
+        description: "Sales return workflow with inspection, restocking, credit notes, and replacement order generation."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_00.png"),
+        title: "Purchase Invoices — AP Invoices",
+        subtitle: "Vendor Billing",
+        description: "Purchase invoice matching with PO/GRN, three-way matching, and payment scheduling for accounts payable."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_06.png"),
+        title: "Sales Invoices — Billing",
+        subtitle: "Invoice Generation",
+        description: "Sales invoice creation from deliveries/orders with tax computation, payment terms, and aging tracking."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_12.png"),
+        title: "Stocks — Inventory View",
+        subtitle: "Stock Inquiry",
+        description: "Real-time stock inquiry with multi-warehouse view, available/committed/on-order quantities, and valuation."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_18.png"),
+        title: "Stock Transfer — Inter-Warehouse",
+        subtitle: "Transfer Management",
+        description: "Inter-warehouse stock transfer with request, approval, dispatch, in-transit, and receipt confirmation."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_26.png"),
+        title: "Adjustments — Stock Adjustment",
+        subtitle: "Adjustment Entry",
+        description: "Stock adjustment entry for write-offs, write-ups, cycle count variances with reason codes and approval."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_36.png"),
+        title: "Stock Movements — History",
+        subtitle: "Movement Log",
+        description: "Complete stock movement history with filters by item, warehouse, date range, transaction type, and user."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_05.png"),
+        title: "Sales Reports — Analytics",
+        subtitle: "Sales Analysis",
+        description: "Sales performance reports by product, customer, salesperson, and period with trends, rankings, and variance analysis."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_52.png"),
+        title: "Inventory Reports — Stock Reports",
+        subtitle: "Inventory Analytics",
+        description: "Inventory reports: stock status, aging, valuation, turnover, slow-moving, dead stock, and reorder analysis."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_20.png"),
+        title: "Purchase Reports — Procurement",
+        subtitle: "Purchase Analytics",
+        description: "Purchase reports: supplier performance, spend analysis, lead times, price variance, and order accuracy."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_26_57.png"),
+        title: "Stock Movement Reports — Movements",
+        subtitle: "Movement Analysis",
+        description: "Detailed stock movement reports with inbound/outbound analysis, velocity, and exception reporting."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_11.png"),
+        title: "Customer Sales Reports — Customer Analytics",
+        subtitle: "Customer Performance",
+        description: "Customer sales analysis with purchase patterns, profitability, credit utilization, and retention metrics."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_28.png"),
+        title: "Supplier Purchase Reports — Vendor Analytics",
+        subtitle: "Supplier Performance",
+        description: "Supplier purchase analysis with spend, quality, delivery performance, and strategic sourcing insights."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_40.png"),
+        title: "Roles — RBAC Roles",
+        subtitle: "Role Management",
+        description: "Role-based access control with role definitions, permission assignments, and role hierarchy management."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_27_51.png"),
+        title: "Users — User Management",
+        subtitle: "User Administration",
+        description: "User account management with profile, role assignment, branch access, password policies, and audit trail."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_00.png"),
+        title: "Department — Management",
+        subtitle: "Department Master",
+        description: "Department master data management for organizing users, cost centers, and approval routing by division."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_09.png"),
+        title: "Workflows — Approval Flows",
+        subtitle: "Workflow Designer",
+        description: "Approval workflow configuration with multi-level routing, conditions, escalations, and delegation rules."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_17.png"),
+        title: "Approvals — Pending Approvals",
+        subtitle: "Approval Queue",
+        description: "Centralized approval dashboard for managers to review, approve, reject, or delegate pending requests."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_29.png"),
+        title: "Backup Data — Backup & Restore",
+        subtitle: "Data Protection",
+        description: "Automated and manual database backup with scheduling, retention policies, and point-in-time recovery."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_38.png"),
+        title: "Activity Logs — Audit Trail",
+        subtitle: "System Audit",
+        description: "Comprehensive system activity logs with user actions, data changes, login history, and compliance reporting."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_28_52.png"),
+        title: "Company Profile — Organization",
+        subtitle: "Company Settings",
+        description: "Company profile management with logo, address, registration details, and default configurations."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_34.png"),
+        title: "Payment Terms — Configuration",
+        subtitle: "Terms Setup",
+        description: "Payment term master data with due days, discount periods, and automatic application to customers/vendors."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_47.png"),
+        title: "Payment Terms — Due Dates",
+        subtitle: "Due Date Tracking",
+        description: "Automated due date calculation and tracking based on assigned payment terms for receivables and payables."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_32_01.png"),
+        title: "Payment Terms — Aging Report",
+        subtitle: "Aging Analysis",
+        description: "Receivables and payables aging report grouped by due-date buckets to monitor overdue balances."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_29_09.png"),
+        title: "Discount Settings — Promotions",
+        subtitle: "Discount Rules",
+        description: "Discount configuration with tier pricing, promotional discounts, customer-specific deals, and validity periods."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_29_01.png"),
+        title: "Currency Settings — Multi-Currency",
+        subtitle: "Currency Management",
+        description: "Multi-currency configuration for transactions across customers, suppliers, and branches with base currency setup."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-23_18_49.png"),
+        title: "Currency Settings — Exchange Rates",
+        subtitle: "Rate Management",
+        description: "Exchange rate management with manual entry or automated updates and historical rate tracking."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-23_19_03.png"),
+        title: "Currency Settings — General Settings",
+        subtitle: "Currency Preferences",
+        description: "General currency preferences including rounding rules, display format, and default currency per branch."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_01.png"),
+        title: "Tax Settings — Tax Configuration",
+        subtitle: "Tax Management",
+        description: "Tax code management with rates, jurisdictions, exemptions, and automatic tax calculation on transactions."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_08.png"),
+        title: "Inventory Valuation — Method List",
+        subtitle: "Valuation Setup",
+        description: "Inventory valuation method configuration: FIFO, LIFO, weighted average, and standard cost with periodic revaluation."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_16.png"),
+        title: "Inventory Valuation — Standard Cost",
+        subtitle: "Standard Cost Setup",
+        description: "Standard cost entry and revision per item with variance tracking against actual purchase costs."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_31_22.png"),
+        title: "Inventory Valuation — Analysis",
+        subtitle: "Valuation Analysis",
+        description: "Valuation comparison and variance analysis across costing methods to support pricing and margin decisions."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_32_15.png"),
+        title: "Reorder System — Reorder Alerts",
+        subtitle: "Low Stock Alerts",
+        description: "Automated reorder alerts triggered when stock falls below configured reorder points per item and warehouse."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-dashboard-2026-07-12-21_32_24.png"),
+        title: "Reorder System — Product Reorder Rules",
+        subtitle: "Reorder Configuration",
+        description: "Per-product reorder point and reorder quantity configuration with supplier and lead-time defaults."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-profile-2026-07-12-21_32_32.png"),
+        title: "User Profile — My Account",
+        subtitle: "Profile Management",
+        description: "User profile page with personal info, password change, notification preferences, and API token management."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-settings-2026-07-12-21_32_47.png"),
+        title: "Settings — Notifications",
+        subtitle: "Alert Configuration",
+        description: "Notification preferences for email, in-app, and push alerts for low stock, approvals, and system events."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-settings-2026-07-12-21_32_42.png"),
+        title: "Settings — Account",
+        subtitle: "Account Management",
+        description: "Account-level settings covering login security, connected devices, and general preferences."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-settings-2026-07-12-21_32_55.png"),
+        title: "Settings — Appearance",
+        subtitle: "Theme & Display",
+        description: "Appearance settings for theme, layout density, and display preferences across the application."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-settings-subscription-2026-07-12-21_33_01.png"),
+        title: "Subscription — Billing Details",
+        subtitle: "Billing Portal",
+        description: "Detailed billing portal with invoice history, payment methods, usage analytics, and cancellation workflow."
+      },
+      {
+        src: getAssetPath("assets/project-icon/invotrucking360/screencapture-127-0-0-1-8000-system-guide-2026-07-12-21_33_08.png"),
+        title: "System Guide — Documentation",
+        subtitle: "User Manual",
+        description: "Comprehensive system guide with searchable documentation, video tutorials, FAQs, and context-sensitive help."
+      }
     ],
   }
 ];
@@ -1553,6 +1558,8 @@ export const suppotingprojectsData: Project[] = [
       getAssetPath("assets/dev-icon/laravel.png"),
       getAssetPath("assets/dev-icon/mysql.png"),
       getAssetPath("assets/dev-icon/php.png"),
+      getAssetPath("assets/dev-icon/Tailwind_CSS.png"),
+      getAssetPath("assets/dev-icon/GitHub.png"),
     ],
     link: "https://dev.accas.able.com.pg/",
     description: "A comprehensive web application designed to streamline contract lifecycle management from creation to reporting. Features include contract creation and tracking, monitoring dashboards, automated reporting, branch management, customer relationship management, and equipment tracking. Built with React and TypeScript for the frontend, Laravel for backend operations, and MySQL for data storage, with Shadcn UI providing a modern interface."
@@ -1599,6 +1606,8 @@ export const suppotingprojectsData: Project[] = [
       getAssetPath("assets/dev-icon/laravel.png"),
       getAssetPath("assets/dev-icon/mysql.png"),
       getAssetPath("assets/dev-icon/php.png"),
+      getAssetPath("assets/dev-icon/Tailwind_CSS.png"),
+      getAssetPath("assets/dev-icon/GitHub.png"),
     ],
     link: "https://lms.able.com.pg/",
     description: "A comprehensive web application designed to manage and track software licenses efficiently. Features include license lifecycle management, request approval workflows, expiry tracking with automated notifications, vendor and product management, and detailed usage reporting. Built with React and TypeScript for the frontend, Laravel for backend operations, and MySQL for data storage, with Shadcn UI providing a modern interface."
@@ -1627,6 +1636,8 @@ export const suppotingprojectsData: Project[] = [
       getAssetPath("assets/dev-icon/laravel.png"),
       getAssetPath("assets/dev-icon/mysql.png"),
       getAssetPath("assets/dev-icon/php.png"),
+      getAssetPath("assets/dev-icon/Tailwind_CSS.png"),
+      getAssetPath("assets/dev-icon/GitHub.png"),
     ],
     link: "https://ams.able.com.pg/login",
     description: "A comprehensive web application designed for asset tracking and management operations. Features include asset lifecycle management, backup functionality, data import and export capabilities, requestable items management, detailed status tracking, and comprehensive labeling. Built with React and TypeScript for the frontend, Laravel for backend operations, and MySQL for data storage, with Shadcn UI providing a modern interface."
@@ -1645,6 +1656,8 @@ export const suppotingprojectsData: Project[] = [
       getAssetPath("assets/dev-icon/ant-design.png"),
       getAssetPath("assets/dev-icon/mssql.png"),
       getAssetPath("assets/dev-icon/node-js.png"),
+      getAssetPath("assets/dev-icon/Tailwind_CSS.png"),
+      getAssetPath("assets/dev-icon/GitHub.png"),
     ],
     link: "",
     description: "A comprehensive web application designed for engineering inventory tracking and management. Features include real-time inventory monitoring, automated stock level alerts, supplier management, procurement workflows, batch tracking, and advanced reporting capabilities. Built with React and JavaScript for the frontend, MS SQL for data storage, with Ant Design providing a modern interface."
@@ -1663,6 +1676,8 @@ export const suppotingprojectsData: Project[] = [
       getAssetPath("assets/dev-icon/ant-design.png"),
       getAssetPath("assets/dev-icon/mssql.png"),
       getAssetPath("assets/dev-icon/node-js.png"),
+      getAssetPath("assets/dev-icon/Tailwind_CSS.png"),
+      getAssetPath("assets/dev-icon/GitHub.png"),
     ],
     link: "",
     description: "A comprehensive web application designed to optimize supply chain operations from procurement to delivery. Features include inventory management, supplier relationship management, order processing, warehouse management, logistics tracking, real-time analytics, automated workflows, and demand forecasting. Built with React and JavaScript for the frontend, MS SQL for data storage, with Ant Design providing a modern interface."
