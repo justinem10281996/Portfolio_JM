@@ -13,20 +13,20 @@ export const Hero = () => {
   const { ref: r3, revealed: v3 } = useReveal(0.1);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-14 sm:pt-16">
+    <section id="hero" className="min-h-screen flex items-center relative overflow-hidden pt-14 sm:pt-16">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
           src={`${process.env.PUBLIC_URL}/background.jpg`}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover object-[center_50%]"
+          className="absolute inset-0 w-full h-full object-cover object-[center_50%]scale-100"
         />
-        <div className="absolute inset-0 bg-background/50" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-transparent to-background" />
+        <div className="absolute inset-0 bg-gradient-to-l from-background/90 via-background/50 to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <div className="relative z-10 ml-auto w-full max-w-3xl px-6 sm:px-10 lg:pr-16 text-right">
         {/* Badge */}
         <div ref={r1} className={`reveal-up ${v1 ? 'revealed' : ''}`}>
           <div className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full border border-border bg-background/40 backdrop-blur-sm">
@@ -41,18 +41,17 @@ export const Hero = () => {
 
         {/* Name */}
         <div ref={r2} className={`reveal-blur ${v2 ? 'revealed' : ''}`} style={{ transitionDelay: '0.1s' }}>
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-[0.85] tracking-tighter mb-6">
-            <span className="block text-foreground">Justine</span>
-            <span className="block text-foreground">M. Hilario</span>
+          <h1 className="text-3xl sm:text-6xl font-bold leading-[0.85] tracking-tighter mb-6">
+            <span className="block text-foreground">Justine M. Hilario</span>
           </h1>
         </div>
 
         {/* Role + Desc */}
         <div ref={r3} className={`reveal-up ${v3 ? 'revealed' : ''}`} style={{ transitionDelay: '0.2s' }}>
-          <p className="text-lg sm:text-xl text-foreground mb-3 font-light">Full Stack Developer</p>
+          <p className="text-lg sm:text-xl text-foreground mb-3 font-bold">Full Stack Developer</p>
           <StaggerWords
             text="I build web and mobile systems for real businesses, from multi-tenant platforms to payment and hardware integrations. React, TypeScript, Laravel, and MySQL."
-            className="text-sm sm:text-base text-muted-foreground max-w-lg mx-auto mb-10"
+            className="text-sm sm:text-base text-foreground max-w-lg ml-auto mb-10"
             as="p"
           />
         </div>
@@ -62,18 +61,18 @@ export const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
-          className="mt-16 grid grid-cols-3 gap-8 max-w-sm mx-auto"
+          className="mt-16 grid grid-cols-3 gap-8 max-w-sm ml-auto"
         >
           {[
             { v: 3, suffix: '+', l: 'Years' },
             { v: 10, suffix: '+', l: 'Projects' },
             { v: 18, suffix: '+', l: 'Tech' },
           ].map((s, i) => (
-            <motion.div key={i} whileHover={{ scale: 1.1 }} className="text-center cursor-default">
+            <motion.div key={i} whileHover={{ scale: 1.1 }} className="text-right cursor-default">
               <div className="text-2xl font-bold text-foreground">
                 <AnimatedCounter value={s.v} suffix={s.suffix} />
               </div>
-              <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
+              <div className="text-xs text-foreground mt-1">{s.l}</div>
             </motion.div>
           ))}
         </motion.div>

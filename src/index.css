@@ -67,42 +67,16 @@
     letter-spacing: -0.03em;
     font-weight: 700;
   }
-  img {
-    filter: grayscale(1);
-  }
-
-  /* The tech marks are inconsistent source art, so each one is measured rather
-     than assumed. Flattening them with brightness(0) is not an option: the
-     assets carrying their own opaque background would collapse into a solid
-     rectangle that vanishes against a dark card. Instead each mark is
-     inverted only in the theme where its own ink loses contrast.
-       dark ink on transparency  -> readable in light, invert in dark
-       pale ink on transparency   -> readable in dark, invert in light
-       self-contained background  -> contrast is baked in, leave untouched
-     Company logos and project screenshots are photographic and stay plain
-     grayscale; inverting a photograph just looks like a colour negative. */
+  /* Images keep their own colour. Every mark except a handful is legible
+     as-is on both themes, and inverting a coloured logo just produces a
+     colour negative. Only the marks whose source art is pure black ink on
+     transparency would disappear against a dark card, so those flip to
+     white there and are left untouched in light. */
   .dark img[src*="dev-icon/GitHub"],
   .dark img[src*="dev-icon/expo"],
   .dark img[src*="dev-icon/mssql"],
-  .dark img[src*="dev-icon/mysql"],
-  .dark img[src*="dev-icon/shadcn"],
-  .dark img[src*="dev-icon/android-studio"],
-  .dark img[src*="dev-icon/git"],
-  .dark img[src*="dev-icon/laravel"],
-  .dark img[src*="dev-icon/ant-design"],
-  .dark img[src*="dev-icon/php"] {
-    filter: grayscale(1) invert(1);
-  }
-
-  .light img[src*="dev-icon/react-js"],
-  .light img[src*="dev-icon/react-native"],
-  .light img[src*="dev-icon/React"],
-  .light img[src*="dev-icon/Tailwind_CSS"],
-  .light img[src*="dev-icon/node-js"],
-  .light img[src*="dev-icon/js"],
-  .light img[src*="dev-icon/css"],
-  .light img[src*="dev-icon/html5"] {
-    filter: grayscale(1) invert(1);
+  .dark img[src*="dev-icon/shadcn"] {
+    filter: invert(1);
   }
 }
 

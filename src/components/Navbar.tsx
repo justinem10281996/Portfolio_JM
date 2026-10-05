@@ -79,7 +79,7 @@ export const Navbar = () => {
             <a
               key={l.label}
               href={l.href}
-              className={`text-xs sm:text-sm hover:text-foreground relative group ${l.label === 'Stack' || l.label === 'GitHub' ? '' : 'text-muted-foreground transition-all duration-300'}`}
+              className={`text-xs sm:text-sm hover:text-foreground relative group ${l.label === 'Stack' || l.label === 'GitHub' ? '' : 'text-foreground transition-all duration-300'}`}
             >
               {l.label}
               {(l.label === 'Stack' || l.label === 'GitHub') ? null : (
@@ -117,7 +117,7 @@ export const Navbar = () => {
           >
             <div className="px-4 py-4 flex flex-col gap-1">
               {links.map(l => (
-                <a key={l.label} href={l.href} onClick={() => setMenuOpen(false)} className="text-sm py-3 px-3 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all">
+                <a key={l.label} href={l.href} onClick={() => setMenuOpen(false)} className="text-sm py-3 px-3 text-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all">
                   {l.label}
                 </a>
               ))}
