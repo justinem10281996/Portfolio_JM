@@ -45,7 +45,7 @@ export const About = () => {
     <Section id="about">
       <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''}`}>
         <SectionHeader
-          index="06"
+          index="01"
           label="Get To Know Me"
           title="About Me"
         />
@@ -74,12 +74,16 @@ export const About = () => {
                 {/* Navigation arrows */}
                 <button
                   onClick={goPrev}
+                  title="Previous photo"
+                  aria-label="Previous photo"
                   className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-8 h-8 rounded-full bg-background/60 backdrop-blur-sm flex items-center justify-center hover:bg-background/80 transition-colors"
                 >
                   <ChevronLeft className="w-4 h-4 text-foreground" />
                 </button>
                 <button
                   onClick={goNext}
+                  title="Next photo"
+                  aria-label="Next photo"
                   className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-8 h-8 rounded-full bg-background/60 backdrop-blur-sm flex items-center justify-center hover:bg-background/80 transition-colors"
                 >
                   <ChevronRight className="w-4 h-4 text-foreground" />

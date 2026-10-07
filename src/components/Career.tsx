@@ -44,7 +44,7 @@ export const Career = () => {
     <Section id="career" className="max-w-none">
       <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''}`}>
         <SectionHeader
-          index="05"
+          index="03"
           label="Experience"
           title="Career Journey"
           description="My professional experience and the skills I've developed along the way - from freelance contract work to building full-stack systems that solve practical business challenges."
@@ -53,9 +53,9 @@ export const Career = () => {
 
       <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
           <Carousel opts={{ align: 'start', loop: true }} setApi={setApi} className="relative">
-            <CarouselContent className="ml-4 md:ml-4 mt-2 py-8 pl-2 pr-2 md:pl-4 md:pr-4">
+            <CarouselContent className="ml-0 mt-2 py-8">
               {careerData.map((job, i) => (
-                <CarouselItem key={job.id} className="px-2 basis-full sm:basis-1/2 lg:basis-1/3 h-full">
+                <CarouselItem key={job.id} className="px-2 basis-full sm:basis-1/2 h-full">
                 <CareerCard job={job} index={i} />
               </CarouselItem>
             ))}
@@ -86,7 +86,7 @@ function CareerCard({ job, index }: { job: typeof careerData[0]; index: number }
     <div
       ref={ref}
       className={`reveal-up ${revealed ? 'revealed' : ''} h-full`}
-      style={{ transitionDelay: `${index * 0.08}s` }}
+      style={{ transitionDelay: `${index * 0.05}s` }}
     >
       <Card className="rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] h-full hover:shadow-foreground/5 transition-shadow">
         <CardContent className="p-4">

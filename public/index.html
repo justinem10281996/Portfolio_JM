@@ -4,11 +4,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta
       name="description"
       content="Justine M. Hilario - Web Developer Portfolio. Building modern web applications with React, TypeScript, and Laravel."
     />
     <title>Justine M. Hilario - Web Developer</title>
+    <script>
+      // Apply the saved theme before first paint so the loader and page
+      // never flash the wrong dark/light background.
+      (function () {
+        try {
+          var saved = localStorage.getItem('darkMode');
+          var isDark = saved !== null ? saved === 'true' : true;
+          var el = document.documentElement;
+          el.classList.toggle('dark', isDark);
+          el.classList.toggle('light', !isDark);
+          el.style.colorScheme = isDark ? 'dark' : 'light';
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', isDark ? '#000000' : '#ffffff');
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

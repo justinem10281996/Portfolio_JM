@@ -61,6 +61,7 @@
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', sans-serif;
@@ -75,7 +76,9 @@
   .dark img[src*="dev-icon/GitHub"],
   .dark img[src*="dev-icon/expo"],
   .dark img[src*="dev-icon/mssql"],
-  .dark img[src*="dev-icon/shadcn"] {
+  .dark img[src*="dev-icon/shadcn"],
+  .dark img[src*="jmh-logo"],
+  .dark img[src*="jmh.png"] {
     filter: invert(1);
   }
 }

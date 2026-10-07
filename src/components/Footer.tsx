@@ -2,6 +2,7 @@ import { useReveal } from '../hooks/useReveal';
 import { footerData } from '../data/portfolio-data';
 import { Mail, Facebook, Github, Linkedin, FileText, ArrowUp, type LucideProps } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
+import { SectionHeader } from './ui/section';
 
 import { Tooltip } from './ui/tooltip';
 
@@ -20,15 +21,21 @@ export const Footer = () => {
     <footer id="contact" className="py-12 sm:py-16 lg:py-20 bg-background transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6" ref={ref}>
         <div className={`reveal-blur ${revealed ? 'revealed' : ''}`}>
+          <SectionHeader
+            index="08"
+            label="Get in Touch"
+            title="Contact"
+            description="Open to new opportunities and collaborations - feel free to reach out through any of the channels below."
+          />
+
           <Card className="mb-8 sm:mb-12 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
             <CardContent className="p-5 sm:p-8 lg:p-10">
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 sm:gap-8">
                 <div>
-                  <span className="text-foreground font-mono text-xs tracking-wider">Get in Touch</span>
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mt-2 mb-2 sm:mb-3">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-2 sm:mb-3">
                     Let's build something <span className="text-shimmer">amazing</span>
                   </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground max-w-sm">Open to new opportunities and collaborations.</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground max-w-sm">Currently open to remote full-time roles and freelance work.</p>
                 </div>
 
                 <div className="flex gap-2 flex-wrap">
@@ -41,9 +48,9 @@ export const Footer = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={s.name}
-                          className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-muted/50 hover:bg-foreground/10 flex items-center justify-center"
+                          className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-muted/50 hover:bg-foreground/10 flex items-center justify-center transition-colors duration-300"
                         >
-                          <Icon className="w-4 h-4 text-muted-foreground group-hover/tt:text-foreground" />
+                          <Icon className="w-4 h-4 text-muted-foreground group-hover/tt:text-foreground transition-colors" />
                         </a>
                       </Tooltip>
                     );

@@ -22,7 +22,7 @@ export const Hero = () => {
           className="absolute inset-0 w-full h-full object-cover object-[center_50%] scale-100"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-transparent to-background" />
-        <div className="absolute inset-0 bg-background/50 lg:bg-gradient-to-l lg:from-background/90 lg:via-background/50 lg:to-transparent" />
+        <div className="absolute inset-0 bg-background/30 lg:bg-gradient-to-l lg:from-background/80 lg:via-background/30 lg:to-transparent" />
       </div>
 
       {/* Content */}

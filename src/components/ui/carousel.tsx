@@ -191,6 +191,7 @@ function CarouselPrevious({
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
+      title="Previous slide"
       {...props}
     >
       <ChevronLeftIcon className="h-4 w-4" />
@@ -221,6 +222,7 @@ function CarouselNext({
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
+      title="Next slide"
       {...props}
     >
       <ChevronRightIcon className="h-4 w-4" />

@@ -11,6 +11,8 @@ import { motion } from 'framer-motion';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from './ui/dialog';
 import { Section, SectionHeader } from './ui/section';
+import { Tooltip } from './ui/tooltip';
+import { techName } from '../lib/utils';
 
 export const SupportingProjects = () => {
   const { ref, revealed } = useReveal();
@@ -24,7 +26,7 @@ export const SupportingProjects = () => {
     <Section id="supporting-projects">
       <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''}`}>
         <SectionHeader
-          index="04"
+          index="06"
           label="Collaborative Work"
           title="Supporting Projects"
           description="Projects I've contributed to as part of collaborative teams, working alongside other developers to deliver functional, scalable solutions for real clients and businesses."
@@ -32,9 +34,9 @@ export const SupportingProjects = () => {
       </div>
 
         <Carousel opts={{ align: 'start', loop: true }}>
-<CarouselContent className="ml-4 md:ml-4 py-6 pl-2 pr-2 md:pl-4 md:pr-4">
+<CarouselContent className="ml-0 py-6">
               {suppotingprojectsData.map((p, i) => (
-                <CarouselItem key={p.id} className="px-2 basis-full sm:basis-1/2 lg:basis-1/3 h-full">
+                <CarouselItem key={p.id} className="px-2 basis-full sm:basis-1/2 h-full">
                 <ProjectCard
                   project={p}
                   index={i}
@@ -70,7 +72,8 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
   const { index: currentImg, setIndex: setCurrentImg, loaded, setLoaded, visible } = useProgressiveImages(project.subimage, 3000);
 
   return (
-    <div ref={ref} className={`reveal-up h-full ${revealed ? 'revealed' : ''}`} style={{ transitionDelay: `${index * 0.1}s` }}>
+    <div ref={ref}       className={`reveal-up h-full ${revealed ? 'revealed' : ''}`}
+      style={{ transitionDelay: `${index * 0.05}s` }}>
       <motion.div className="pb-4 h-full">
         <Card className="flex flex-col h-full rounded-xl shadow-[0_4px_20px_rgb(0,0,0,0.08)] transition-shadow duration-500">
           {/* Image with auto-slide */}
@@ -127,9 +130,12 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
             )}
           </div>
 
-          <CardContent className="flex-1 p-4 sm:p-5 pt-4">
-            <CardTitle className="text-foreground mb-1">{project.name}</CardTitle>
-            {project.subtitle && <p className="text-[10px] sm:text-xs text-foreground/60 mb-3">{project.subtitle}</p>}
+          <CardContent className="flex-1 p-4 sm:p-5 pt-4 relative">
+            <span className="absolute top-3 right-4 text-4xl sm:text-5xl font-bold font-[Space_Grotesk] text-foreground/5 select-none pointer-events-none">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <CardTitle className="text-foreground mb-1 relative z-10">{project.name}</CardTitle>
+            {project.subtitle && <p className="text-[10px] sm:text-xs text-foreground/60 mb-3 relative z-10">{project.subtitle}</p>}
 
             <CardDescription className="mb-3 sm:mb-4">
               {isExpanded ? project.description : truncate(project.description)}
@@ -140,20 +146,26 @@ function ProjectCard({ project, index, isExpanded, onToggleExpand, showAllTech, 
 
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-4">
               {techs.map((t: string, i: number) => (
-                <motion.div key={i} className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-muted/50 p-0.5 sm:p-1">
-                  <img src={t} alt="" className="w-full h-full object-contain grayscale" loading="lazy" onError={e => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/32?text=T'; }} />
-                </motion.div>
+                <Tooltip key={i} label={techName(t)} side="top">
+                  <motion.div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-muted/50 p-0.5 sm:p-1 cursor-default">
+                    <img src={t} alt={techName(t)} className="w-full h-full object-contain grayscale" loading="lazy" onError={e => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/32?text=T'; }} />
+                  </motion.div>
+                </Tooltip>
               ))}
               {project.techimage.length > 5 && (
-                <button onClick={onToggleTech} className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-muted/50 flex items-center justify-center text-xs text-muted-foreground hover:text-foreground hover:bg-foreground/10 transition-all duration-300">
-                  {showAllTech ? '−' : `+${project.techimage.length - 5}`}
-                </button>
+                <Tooltip label={showAllTech ? 'Show less' : `Show ${project.techimage.length - 5} more`} side="top">
+                  <button onClick={onToggleTech} className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-muted/50 flex items-center justify-center text-xs text-muted-foreground hover:text-foreground hover:bg-foreground/10 transition-all duration-300">
+                    {showAllTech ? '−' : `+${project.techimage.length - 5}`}
+                  </button>
+                </Tooltip>
               )}
               {project.link && (
                 <div className="ml-auto">
-                  <Button variant="ghost" size="icon-sm" onClick={() => window.open(project.link, '_blank')}>
-                    <ExternalLink className="w-4 h-4" />
-                  </Button>
+                  <Tooltip label="Open live site" side="top">
+                    <Button variant="ghost" size="icon-sm" onClick={() => window.open(project.link, '_blank')} aria-label="Open live site">
+                      <ExternalLink className="w-4 h-4" />
+                    </Button>
+                  </Tooltip>
                 </div>
               )}
             </div>
@@ -201,38 +213,48 @@ function ProjectDialog({ project, onClose }: { project: any; onClose: () => void
               />
             </div>
             <div className="flex items-center justify-between px-3 sm:px-4 py-2 shrink-0">
-              <button onClick={() => goTo(idx - 1)} disabled={idx === 0} className="w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted disabled:opacity-30 flex items-center justify-center transition-all duration-300"><ChevronLeft className="w-4 h-4 text-foreground" /></button>
+              <Tooltip label="Previous image" side="top">
+                <button onClick={() => goTo(idx - 1)} disabled={idx === 0} aria-label="Previous image" className="w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted disabled:opacity-30 flex items-center justify-center transition-all duration-300"><ChevronLeft className="w-4 h-4 text-foreground" /></button>
+              </Tooltip>
               <div className="flex gap-1">
                 {project.subimage.slice(0, 12).map((_: any, i: number) => (
-                  <button key={i} onClick={() => goTo(i)} className={`h-1 rounded-full transition-all duration-300 ${i === idx ? 'w-5 bg-foreground' : 'w-2 bg-muted'}`} />
+                  <button key={i} onClick={() => goTo(i)} aria-label={`Show image ${i + 1}`} className={`h-1 rounded-full transition-all duration-300 ${i === idx ? 'w-5 bg-foreground' : 'w-2 bg-muted'}`} />
                 ))}
               </div>
-              <button onClick={() => goTo(idx + 1)} disabled={idx === project.subimage.length - 1} className="w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted disabled:opacity-30 flex items-center justify-center transition-all duration-300"><ChevronRight className="w-4 h-4 text-foreground" /></button>
+              <Tooltip label="Next image" side="top">
+                <button onClick={() => goTo(idx + 1)} disabled={idx === project.subimage.length - 1} aria-label="Next image" className="w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted disabled:opacity-30 flex items-center justify-center transition-all duration-300"><ChevronRight className="w-4 h-4 text-foreground" /></button>
+              </Tooltip>
             </div>
           </div>
 
-          <div className="w-full lg:w-[40%] flex flex-col overflow-y-auto">
+          <div className="w-full lg:w-[40%] min-w-0 flex flex-col overflow-y-auto overflow-x-hidden">
             <div className="p-4 sm:p-6 bg-foreground/5">
               <span className="text-[10px] text-foreground/50 font-mono">{idx + 1} / {project.subimage.length}</span>
               <DialogTitle className="text-base sm:text-lg font-bold text-foreground mt-1">{img?.title || project.name}</DialogTitle>
               <DialogDescription className="text-xs text-muted-foreground mt-2">{img?.description}</DialogDescription>
             </div>
             <div className="p-4 sm:p-6 flex-1">
-              <Badge className="bg-foreground/10 text-foreground border-border text-[10px] transition-all duration-300">{project.subtitle}</Badge>
-              <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-foreground mt-2 mb-2 sm:mb-3">{project.name}</h3>
+              <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-foreground mb-1">{project.name}</h3>
+              {project.subtitle && (
+                <p className="text-[11px] sm:text-xs text-muted-foreground mb-2 sm:mb-3">{project.subtitle}</p>
+              )}
               <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-3 sm:mb-4">{project.description}</p>
               <p className="text-[10px] uppercase tracking-wider text-muted-foreground mb-2">Tech Stack</p>
               <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {project.techimage.map((t: string, i: number) => (
-                  <div key={i} className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-muted/50 p-0.5 sm:p-1">
-                    <img src={t} alt="" className="w-full h-full object-contain grayscale" loading="lazy" />
-                  </div>
+                  <Tooltip key={i} label={techName(t)} side="top">
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-muted/50 p-0.5 sm:p-1 cursor-default">
+                      <img src={t} alt={techName(t)} className="w-full h-full object-contain grayscale" loading="lazy" />
+                    </div>
+                  </Tooltip>
                 ))}
               </div>
             </div>
             {project.link && (
-              <div className="p-4 sm:p-6">
-                <Button variant="ghost" size="icon-sm" onClick={() => window.open(project.link, '_blank')}><ExternalLink className="w-4 h-4" /></Button>
+              <div className="p-4 sm:p-6 flex justify-end border-t border-border/50">
+                <Tooltip label="Open live site" side="top">
+                  <Button variant="ghost" size="icon-sm" onClick={() => window.open(project.link, '_blank')} aria-label="Open live site"><ExternalLink className="w-4 h-4" /></Button>
+                </Tooltip>
               </div>
             )}
           </div>

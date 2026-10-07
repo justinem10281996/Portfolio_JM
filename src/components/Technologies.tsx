@@ -13,7 +13,7 @@ export const Technologies = () => {
     <Section id="technologies">
       <div ref={ref} className={`reveal-blur ${revealed ? 'revealed' : ''}`}>
         <SectionHeader
-          index="01"
+          index="04"
           label="Tech Stack"
           title="Technologies"
           description="Tools, frameworks, and languages I work with daily - from frontend interfaces to backend systems, database design, and everything in between that powers a complete web or mobile application."
@@ -49,6 +49,7 @@ function TechCard({ tech, index, hovered, onHover }: { tech: typeof technologies
             <img src={tech.image} alt={tech.name} className="w-full h-full object-contain grayscale" loading="lazy" onError={e => { (e.target as HTMLImageElement).src = `https://via.placeholder.com/40?text=${tech.name[0]}`; }} />
           </div>
           <span className="text-[10px] sm:text-xs font-medium text-muted-foreground text-center leading-tight group-hover:text-foreground transition-colors">{tech.name}</span>
+          <span className="text-[9px] font-mono uppercase tracking-wider text-muted-foreground/60 text-center leading-tight group-hover:text-muted-foreground transition-colors">{tech.category}</span>
 
           {isH && (
             <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} className="hidden sm:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 bg-muted border-none text-muted-foreground text-[10px] rounded whitespace-nowrap z-50 shadow-lg">

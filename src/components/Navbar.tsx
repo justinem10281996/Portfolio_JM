@@ -7,7 +7,11 @@ import { useMagneticButton } from '../hooks/useMagneticButton';
 declare const process: { env: { PUBLIC_URL: string } };
 
 export const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window === 'undefined') return true;
+    const saved = localStorage.getItem('darkMode');
+    return saved !== null ? saved === 'true' : true;
+  });
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const logoRef = useMagneticButton(0.2);
@@ -18,6 +22,7 @@ export const Navbar = () => {
     setDarkMode(isDark);
     document.documentElement.classList.toggle('dark', isDark);
     document.documentElement.classList.toggle('light', !isDark);
+    document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
   }, []);
 
   useEffect(() => {
@@ -41,6 +46,9 @@ export const Navbar = () => {
     setDarkMode(next);
     document.documentElement.classList.toggle('dark', next);
     document.documentElement.classList.toggle('light', !next);
+    document.documentElement.style.colorScheme = next ? 'dark' : 'light';
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', next ? '#000000' : '#ffffff');
     localStorage.setItem('darkMode', String(next));
   };
 
@@ -52,9 +60,11 @@ export const Navbar = () => {
   };
 
   const links = [
-    { label: 'Projects', href: '#personal-projects' },
-    { label: 'Career', href: '#career' },
     { label: 'About', href: '#about' },
+    { label: 'Career', href: '#career' },
+    { label: 'Tech Stack', href: '#technologies' },
+    { label: 'Projects', href: '#personal-projects' },
+    { label: 'Process', href: '#process' },
     { label: 'Contact', href: '#contact' },
   ];
 
@@ -69,8 +79,12 @@ export const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
         <div ref={logoRef} className="magnetic-btn">
-          <a href="#hero" className="text-lg sm:text-xl font-bold font-[Space_Grotesk] tracking-tighter inline-block">
-            <span className="text-shimmer">JMH</span>
+          <a href="#hero" title="Back to top" className="flex items-center gap-2 sm:gap-2.5 text-lg sm:text-xl font-bold font-[Space_Grotesk] tracking-tighter">
+            <img
+              src={`${process.env.PUBLIC_URL}/jmh-logo.png`}
+              alt="JMH"
+              className="h-5 sm:h-5 w-auto"
+            />
           </a>
         </div>
 
@@ -94,15 +108,16 @@ export const Navbar = () => {
             <Download className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5" /> Resume
           </Button>
 
-          {/* <button
+          <button
             onClick={toggleTheme}
             aria-label="Toggle dark mode"
+            title="Toggle dark mode"
             className="flex w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted items-center justify-center transition-all duration-300 hover:scale-110"
           >
             {darkMode ? <Sun className="w-4 h-4 text-foreground" /> : <Moon className="w-4 h-4" />}
-          </button> */}
+          </button>
 
-          <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted flex items-center justify-center transition-all">
+          <button onClick={() => setMenuOpen(!menuOpen)} title={menuOpen ? 'Close menu' : 'Open menu'} className="md:hidden w-8 h-8 rounded-lg bg-muted/50 hover:bg-muted flex items-center justify-center transition-all">
             {menuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
         </div>
