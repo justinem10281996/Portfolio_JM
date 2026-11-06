@@ -77,6 +77,8 @@
   .dark img[src*="dev-icon/expo"],
   .dark img[src*="dev-icon/mssql"],
   .dark img[src*="dev-icon/shadcn"],
+  .dark img[src*="dev-icon/express"],
+  .dark img[src*="dev-icon/railway"],
   .dark img[src*="jmh-logo"],
   .dark img[src*="jmh.png"] {
     filter: invert(1);

@@ -33,8 +33,8 @@ Open http://localhost:3000
 
 ## 📦 Setup Resume Download
 
-1. Add your resume PDF to `public/` folder
-2. Name it `resume.pdf`
+1. Add your resume docx to `public/` folder
+2. Name it `resume.docx`
 3. The download button will work automatically!
 
 ## 💬 Setup Real-Time Chat (Tawk.to)
@@ -86,7 +86,7 @@ See `TAWK-SETUP.md` for setup!
 portfolio-cra/
 ├── public/
 │   ├── index.html
-│   ├── resume.pdf
+│   ├── resume.docx
 │   └── assets/
 ├── src/
 │   ├── components/
